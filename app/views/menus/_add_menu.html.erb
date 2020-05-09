@@ -1,6 +1,6 @@
 
- 
-     <p><%=section_title%>
+  <div> 
+     <p><%=section_title_1%></p>
     <%=form_with url:menu_items_path ,method: :post do |form|%>
         <div class="add-item">
          <p class="item-label">item : </p>
@@ -26,3 +26,17 @@
        <%=form.submit "add", class:"item-submit" %>
       </div>
    <%end%>
+  </div>
+
+  <div> 
+    <p><%= section_title_2%></p>
+    <%=form_with url:menus_path ,method: :post do |form|%>
+        <div class="add-item">
+         <p class="item-label">menu : </p>
+          <%= form.text_field :menu ,class:"item-input"%>
+         <div>
+         <div class="add-section">
+       <%=form.submit "add", class:"item-submit" %>
+      </div>
+    <%end%> 
+  </div>

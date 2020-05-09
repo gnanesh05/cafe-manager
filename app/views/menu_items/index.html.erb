@@ -4,6 +4,10 @@
   
    <div class="below1">
      <div class="below1-right">
+     <%if @current_user.role == "owner"%>
+     <% menu = Menu.all%>
+     <%= select_tag 'menu', options_for_select(menu.collect{ |u| [u.name] })%>
+     <%end%>
    </div>
    </div>
   <h1>Menu</h1>
