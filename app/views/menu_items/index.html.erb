@@ -5,8 +5,10 @@
    <div class="below1">
      <div class="below1-right">
      <%if @current_user.role == "owner"%>
-     <% menu = Menu.all%>
-     <%= select_tag 'menu', options_for_select(menu.collect{ |u| [u.name] })%>
+      <% menu = Menu.all%>
+      <%= select_tag 'menu', options_for_select(menu.collect{ |u| [u.name] }),id: "menu"%>
+      <button onclick="myFunction()">Copy Text</button>
+     <p id="test"> </p>
      <%end%>
    </div>
    </div>
@@ -42,3 +44,8 @@
 </body>
 
 
+<script >
+function myFunction() {
+    document.getElementById("test").value = document.getElementById("menu").value;
+}
+</script>

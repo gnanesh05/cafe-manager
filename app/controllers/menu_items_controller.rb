@@ -3,6 +3,8 @@ class MenuItemsController < ApplicationController
 
   def index
     render "index"
+    menu = Menu.all
+    @menu = menu.collect { |u| [u.name] }
   end
 
   def create
