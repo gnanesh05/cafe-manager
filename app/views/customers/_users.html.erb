@@ -1,0 +1,13 @@
+
+
+<div>
+  <h4><%= section_title%> </h4>
+  <li>
+  <% users.each do |user|%> 
+  <strong> name:</strong>  <%= user.name%>
+  <strong> email:</strong> <%= user.email%>
+  <strong> joined on:</strong> <%=user.created_at.to_s(:short)%>
+   <br>
+  <%end%>
+  </li>
+<div>

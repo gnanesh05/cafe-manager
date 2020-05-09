@@ -1,0 +1,11 @@
+<h3> the registered users and the cashier details </h3>
+
+<%= render partial: "users",locals:{
+    users: @customers,
+    section_title: "Customers"
+}%>
+
+<%= render partial: "users",locals:{
+    users: @clerk,
+    section_title: "Billing clerk" 
+}%>

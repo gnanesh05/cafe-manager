@@ -1,0 +1,32 @@
+.Form-Section{
+    margin-bottom: 30 px;
+}
+.User-Title{
+    margin-bottom: 40 px;
+    margin-top: 100 px;
+    padding-top: 30 px;
+}
+.Form-Input{
+    padding: 2 px;
+    font-size: 20 px;
+    width: 70%;
+    height: 12%;
+}
+.Form-Label{
+color:gray;
+margin-bottom: 6 px;
+
+}
+.Form-submit{
+    
+    padding: 10 px;
+    font-size: 20 px;
+    background-color: blue;
+    border: 0;
+    border-radius: 4 px;
+}
+
+.User-Section{
+    margin-top: 10%;
+
+}

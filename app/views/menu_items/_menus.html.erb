@@ -1,0 +1,29 @@
+<main id="table-body">
+<div class="MenuList">
+
+<p><%=section_title%></p>
+<table class="menu-table">
+  <tr class="Table-header">
+    
+    <th class="heading"> Item</th>
+    <th class="heading">Rate</th>
+    <% if user_role == "user"%>
+     <th class="heading">Cart</th>
+    <%end%>
+  </tr>
+  <% menus.each do |item| %>
+  <tr>
+    <td class="table-data"><%=item.name%></td>
+    <td class="table-data"><%=item.price%></td>
+    <%if user_role == "user"%>
+    <td class="table-data"><%= form_with(url: order_item_path(item.id), method: :put) do %>  
+       <label for="quantity">Quantity:</label>
+       <%= number_field_tag(name = 'quantity' ,nil,min: 1,class: 'quantity_field')%> 
+       <%= button_tag 'Add to cart',type:'submit'%>
+    <% end %></td>
+    <%end%>
+  </tr>
+  <% end %>
+</table>
+</div>
+</main>

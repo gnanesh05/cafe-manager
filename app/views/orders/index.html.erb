@@ -1,0 +1,8 @@
+<h1>  orders </h1>
+
+<%= render partial: "user-cart",locals:{
+    cart: @orders,
+    user_role: @current_user.role,
+    delivered: @delivered,
+    user_delivered: @user_delivered
+}%>

@@ -1,0 +1,66 @@
+
+  <hr>
+  
+    <%if cart !=nil %>
+     <% if user_role == "owner"%>
+      <h4>pending orders </h4>
+     <%else%>
+      <h4>pending orders </h4>
+      <%end%>
+
+     <% cart.each do |order|%>
+       <li> 
+       order id: <%=order.id%>
+       ordered on: <%=order.date%> 
+       order status: <%=order.status%>
+       <br>
+       <% if user_role == "clerk" %>
+       <% user_id = order.user_id %>
+       <% user = User.find(user_id)%>
+       ordered by: <%=user.name %>  
+           <%= form_with(url: order_path(order.id), method: :put) do %>  
+            <%= button_tag 'delivered',type:'submit'%>
+           <% end %>
+        <%end%>
+       </li>
+       <%end%>
+        <% last_order = Order.current_order(@current_user)%>
+        <%if user_role == "user" && last_order.status == "received"%>
+        <%= form_with(url: orders_path, method: :post) do %>  
+            <%= button_tag 'make a another order',type:'submit'%>
+        <% end %>
+      <%end%>
+      <%if user_role == "clerk" || user_role =="owner" %>
+        <%if delivered%>
+         <hr>
+         <h4>delivered orders </h4>
+         <% delivered.each do |order|%>
+         <li>
+          order id: <%=order.id%>
+          ordered on: <%=order.date%> 
+          delivered at: <%=order.delivered_at%>
+          order status: <%=order.status%>
+          <%user_id = order.user_id %>
+          <% user = User.find(user_id)%>
+           ordered by: <%=user.name %>  
+         </li>
+         <%end%>
+        <%end%>
+      <%end%> 
+      <%if user_role == "user" && user_delivered%>
+        <hr>
+        <h4> delivered orders </h4>
+        <% user_delivered.each do |order|%>
+         <li>
+          order id: <%=order.id%>
+          ordered on: <%=order.date%> 
+          delivered at: <%=order.delivered_at%>
+          order status: <%=order.status%>
+        <%end%>
+      <%end%>
+    <%else%>
+      <h3> place an order with just few clicks !! </h3>
+      <%=link_to "menus", menu_items_path%>
+     <%end%>
+
+   

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>CafeManager</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+   <div class="container-top">
+                                                                        
+  <div class="nav-main">
+    
+    <%if @current_user %>
+
+              <%if @current_user.role == "user"%>
+               <%= link_to "My Orders", orders_path %>
+               <%= link_to "sign-out" ,destroy_session_path, method:"delete"%>
+                <%= link_to "Menus", menu_items_path %>
+                <%= link_to "Home", "/" %>
+              <%end%>
+              <%if @current_user.role == "clerk"%>
+               <%= link_to "All orders" ,orders_path%>
+               <%= link_to "Home", "/" %>
+               <%= link_to "sign-out" ,destroy_session_path, method:"delete"%>
+               <%= link_to "Menus", menu_items_path %>
+              <%end%>
+              <%if @current_user.role == "owner"%>
+                <%= link_to "All orders" ,orders_path%>
+               <%= link_to "Home", "/" %>
+               <%= link_to "sign-out" ,destroy_session_path, method:"delete"%>
+               <%= link_to "Menus", menu_items_path %>
+               <%= link_to "Add menu", menus_path %>
+               <%= link_to "Users", customers_path %>
+
+
+              <%end%>
+      <%else%>
+        <%= link_to "create account" ,users_path%>
+        <%= link_to "login" ,sessions_path%>
+        <%= link_to "Menus", menu_items_path %>
+        <%= link_to "Home", "/" %>
+        <%end%> 
+       
+            
+           
+
+            
+   <span class="nav-head">
+     <p>Beach view Restaurant </p>
+   </span>
+  </div>
+
+    <%if flash[:error] %>
+      <p style="color:darkred;margin-left:30%;"> 
+        <%= flash[:error] %>
+      </p>
+    <%end%>
+
+    <%if flash[:notice] %>
+      <p style="color:green;margin-left:30%;"> 
+        <%= flash[:notice] %>
+      </p>
+    <%end%>
+    <%= yield %>
+  </body>
+</html>
