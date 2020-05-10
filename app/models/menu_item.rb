@@ -3,15 +3,15 @@ class MenuItem < ActiveRecord::Base
   validates :price, presence: true
   belongs_to :menu
 
-  def self.dinner
-    all.where("category_name = 'Dinner'")
+  def self.dinner(menu)
+    all.where("category_name = ? and menu_id = ?", "Dinner", menu.id)
   end
 
-  def self.breakfast
-    all.where("category_name = 'Breakfast'")
+  def self.breakfast(menu)
+    all.where("category_name = ? and menu_id = ?", "Breakfast", menu.id)
   end
 
-  def self.lunch
-    all.where("category_name = 'lunch'")
+  def self.lunch(menu)
+    all.where("category_name = ? and menu_id = ?", "lunch", menu.id)
   end
 end

@@ -21,4 +21,8 @@ class Order < ApplicationRecord
   def self.user_delivered(user)
     all.where(user_id: user.id, status: "delivered")
   end
+
+  def self.last_order(user)
+    all.where("user_id = ?", user.id).last
+  end
 end

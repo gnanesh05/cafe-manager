@@ -24,11 +24,13 @@
         <%end%>
        </li>
        <%end%>
-        <% last_order = Order.current_order(@current_user)%>
-        <%if user_role == "user" && last_order.status == "received"%>
+        <% last_order = Order.last_order(@current_user)%>
+        <%if user_role == "user"%>
+        <% if last_order.status=="received"%>
         <%= form_with(url: orders_path, method: :post) do %>  
             <%= button_tag 'make a another order',type:'submit'%>
         <% end %>
+        <%end%>
       <%end%>
       <%if user_role == "clerk" || user_role =="owner" %>
         <%if delivered%>

@@ -24,17 +24,17 @@
    </div>
    </div>
   <h1>Menu</h1> 
-  <%@menu%>
+  <%=@menu%>
 <%= render partial: "menus", locals:{
               
-         menus:MenuItem.breakfast(),
+         menus:MenuItem.breakfast(@menu),
          section_title: "Breakfast", 
          user_role: @current_user.role
             } %>
 
 <%= render partial: "menus", locals:{
                 
-         menus:MenuItem.lunch(),
+         menus:MenuItem.lunch(@menu),
          section_title: "Lunch",
            user_role: @current_user.role
         
@@ -42,7 +42,7 @@
 
 <%= render partial: "menus", locals:{
                 
-         menus:MenuItem.dinner(),
+         menus:MenuItem.dinner(@menu),
          section_title: "Dinner",
          user_role: @current_user.role 
         
