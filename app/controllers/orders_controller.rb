@@ -4,7 +4,7 @@ class OrdersController < ApplicationController
   def index
     if @current_user.role == "user"
       @orders = Order.of_user(current_user)
-      @user_delivered = Order.delivered_orders(current_user)
+      @user_delivered = Order.user_delivered(current_user)
       render "index"
     end
     if @current_user.role == "clerk" || @current_user.role == "owner"

@@ -18,7 +18,7 @@ class Order < ApplicationRecord
     all.where(status: "delivered")
   end
 
-  def self.delivered_orders(user)
+  def self.user_delivered(user)
     all.where(user_id: user.id, status: "delivered")
   end
 end

@@ -4,7 +4,6 @@ class MenuItemsController < ApplicationController
   def index
     render "index"
     menu = Menu.all
-    @menu = menu.collect { |u| [u.name] }
   end
 
   def create
@@ -26,5 +25,21 @@ class MenuItemsController < ApplicationController
       flash[:error] = new_item.errors.full_messages.join(", ")
       redirect_to menus_path
     end
+  end
+
+  def update
+    id = params[:id]
+    menu_item = MenuItem.find(id)
+    menu_item.name = params[:name]
+    menu_item.price = params[:price]
+    menu_item.save!
+    redirect_to menu_items_path
+  end
+
+  def destroy
+    id = params[:id]
+    menu_item = MenuItem.find(id)
+    menu_item.destroy
+    redirect_to menu_items_path
   end
 end

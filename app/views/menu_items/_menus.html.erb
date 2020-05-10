@@ -7,23 +7,53 @@
     
     <th class="heading"> Item</th>
     <th class="heading">Rate</th>
-    <% if user_role == "user"%>
+   <% if user_role == "user"%>
      <th class="heading">Cart</th>
     <%end%>
-  </tr>
-  <% menus.each do |item| %>
-  <tr>
-    <td class="table-data"><%=item.name%></td>
-    <td class="table-data"><%=item.price%></td>
-    <%if user_role == "user"%>
-    <td class="table-data"><%= form_with(url: order_item_path(item.id), method: :put) do %>  
-       <label for="quantity">Quantity:</label>
-       <%= number_field_tag(name = 'quantity' ,nil,min: 1,class: 'quantity_field')%> 
-       <%= button_tag 'Add to cart',type:'submit'%>
-    <% end %></td>
+    
+    <% if user_role == "owner"%>
+    <th class="heading">delete</th>
     <%end%>
   </tr>
-  <% end %>
+
+ <% menus.each do |item| %>
+   <tr>
+   
+   <%= form_with(url: menu_item_path(item.id), method: :put) do %>  
+       <td class="table-data">
+        <%=text_field_tag( name='name',value = item.name,
+           disabled: if(user_role == "owner")
+              false else true end)  %>
+              
+        </td>
+       <td class="table-data"> Rs.
+         <%=text_field_tag( name='price',value = item.price,
+           disabled: if(user_role == "owner")
+              false else true end)  %>
+          <%if user_role == "owner"%>     
+          <%=button_tag( value="edit") %>
+          <%end%>
+       </td>
+    <% end %>
+       
+    <%if user_role == "user"%>
+     <td class="table-data">
+       <%= form_with(url: order_item_path(item.id), method: :put) do %>  
+         <label for="quantity">Quantity:</label>
+         <%= number_field_tag(name = 'quantity' ,nil,min: 1,class: 'quantity_field')%> 
+         <%= button_tag 'Add to cart',type:'submit'%>
+        <% end %>
+     </td>
+    <%end%>
+    <%if user_role == "owner"%>
+     <td>
+       <%= form_with(url: menu_item_path(item.id), method: :delete) do %>  
+        <input class="Img-Trash" type="image" src="delete.png">
+       <%end%>
+     </td>
+    <%end%>
+   </tr>
+ <% end %>
 </table>
 </div>
 </main>

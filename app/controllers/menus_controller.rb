@@ -16,4 +16,10 @@ class MenusController < ApplicationController
       redirect_to menus_path
     end
   end
+
+  def set
+    Rails.cache.write("current_menu_id", params[:menu_id])
+    current_menu
+    redirect_to menu_items_path
+  end
 end
