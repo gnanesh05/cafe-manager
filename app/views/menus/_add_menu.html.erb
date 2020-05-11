@@ -12,14 +12,14 @@
        </div>
       <div class="add-section">
       <p class="item-label">description : </p>
-      <%= form.select'description', raw("<option>south indian</option><option>north indian</option><option>chineese</option><option>tandoori</option>"), class:"item-input"%>
+      <%= form.select'description', raw("<option selected disabled>Select</option><option>south indian</option><option>north indian</option><option>chineese</option><option>tandoori</option>"), class:"item-input"%>
       </div>
        <div class="add-section">
       <p class="item-label">category : </p>
-      <%= form.select 'category', raw("<option>Breakfast</option><option>lunch</option><option>Dinner</option><optionCold Drinks</option>"), class:"item-input"%>
+      <%= form.select'category', raw("<option selected disabled>Select</option><option>Breakfast</option><option>lunch</option><option>Dinner</option><option>Cold Drinks</option>"), class:"item-input"%>
       </div>
        <div class="add-section">
-      <p class="item-label">menu : </p>
+       <p class="item-label">Menu : </p>
       <%= form.select 'menu', options_for_select(menu.collect{ |u| [u.name, u.id] }) , class:"item-input"%>
       </div>
       <div class="add-section">
@@ -40,3 +40,26 @@
       </div>
     <%end%> 
   </div>
+
+  <div>
+         
+            <p>available menus </p> 
+             <p>to delete the present menu, please change the menu displayed </p>
+            <%menu.each do |m|%>
+             <li>
+               <%= m.name %>
+               <%=m.id%>
+               <%= @current_menu_id%>
+               <% if m.id != @current_menu_id%>
+                 <%= form_with(url: menu_path(m.id), method: :delete) do %>  
+                   <input class="Img-Trash" type="image" src="interface.png">
+                 <%end%>
+               <%end%>
+               <br>
+              </li>
+             <% end %>
+              
+              
+          
+          
+    </div>

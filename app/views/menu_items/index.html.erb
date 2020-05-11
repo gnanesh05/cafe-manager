@@ -24,7 +24,7 @@
    </div>
    </div>
   <h1>Menu</h1> 
-  <%=@menu%>
+  <p>displaying    <%= @menu.name%> </p>
 <%= render partial: "menus", locals:{
               
          menus:MenuItem.breakfast(@menu),

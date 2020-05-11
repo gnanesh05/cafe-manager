@@ -32,12 +32,12 @@ class ApplicationController < ActionController::Base
 
   def current_menu
     if Rails.cache.fetch("current_menu_id")
-      current_menu_id = Rails.cache.read("current_menu_id")
-      return @menu = Menu.find(current_menu_id)
+      @current_menu_id = Rails.cache.read("current_menu_id")
+      return @menu = Menu.find(@current_menu_id)
     else
       Rails.cache.write("current_menu_id", Menu.first.id)
-      current_menu_id = Rails.cache.read("current_menu_id")
-      return @menu = Menu.find(current_menu_id)
+      @current_menu_id = Rails.cache.read("current_menu_id")
+      return @menu = Menu.find(@current_menu_id)
     end
   end
 end

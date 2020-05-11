@@ -87,10 +87,11 @@
   .nav-head{
     float: left;
     color: yellow;
-    padding: 15 px 15 px;
+    padding:  15 px;
     text-decoration: none;
     font-size: 17 px;
     text-transform: uppercase;
+    margin-top: 0px;
   }
   
   @media only screen and (max-width: 400px) {
