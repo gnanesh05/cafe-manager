@@ -1,5 +1,6 @@
 class MenusController < ApplicationController
   before_action :ensure_owner_logged_in
+  before_action :current_menu
 
   def index
     render "index"
@@ -17,16 +18,30 @@ class MenusController < ApplicationController
     end
   end
 
+  def show
+    id = params[:id]
+    @menu = Menu.find(id)
+    @menu_items = MenuItem.of_menu(@menu)
+    render "menus/edit"
+  end
+
   def set
     Rails.cache.write("current_menu_id", params[:menu_id])
-    current_menu
     redirect_to menu_items_path
   end
 
   def destroy
     id = params[:id]
-    menu = Menu.find(id)
-    menu.destroy
+    menu_to_be_delted = Menu.find(id)
+    if current_menu == menu_to_be_delted && current_menu
+      list_menu = Menu.find_next_menu(menu_to_be_delted)
+      Rails.cache.write("current_menu_id", list_menu.first.id)
+      menu_to_be_delted.destroy
+    elsif !current_menu
+      flash[:error] = "Error - Cannot delete all Menus"
+    else
+      menu_to_be_delted.destroy
+    end
     redirect_to menus_path
   end
 end

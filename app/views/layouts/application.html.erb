@@ -27,10 +27,10 @@
                <%= link_to "Menus", menu_items_path %>
               <%end%>
               <%if @current_user.role == "owner"%>
-                <%= link_to "All orders" ,orders_path%>
                <%= link_to "sign-out" ,destroy_session_path, method:"delete"%>
+               <%= link_to "All orders" ,orders_path%>
                <%= link_to "Menus", menu_items_path %>
-               <%= link_to "Add menu", menus_path %>
+               <%= link_to "Edit Menu", menus_path %>
                <%= link_to "Users", customers_path %>
 
 
