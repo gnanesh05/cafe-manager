@@ -19,8 +19,9 @@
  <% menus.each do |item| %>
    <tr>
    
-   <%= form_with(url: menu_item_path(item.id), method: :put) do %>  
+   
        <td class="table-data">
+        <%= form_with(url: menu_item_path(item.id), method: :put) do %> 
         <%=text_field_tag( name='name',value = item.name,
            disabled: if(user_role == "owner")
               false else true end)  %>
@@ -34,7 +35,7 @@
           <%=button_tag( value="edit") %>
           <%end%>
        </td>
-    <% end %>
+    
        
     <%if user_role == "user"%>
      <td class="table-data">
@@ -50,6 +51,7 @@
        <%= form_with(url: menu_item_path(item.id), method: :delete) do %>  
         <input class="Img-Trash" type="image" src="interface.png">
        <%end%>
+      <% end %>
      </td>
     <%end%>
    </tr>

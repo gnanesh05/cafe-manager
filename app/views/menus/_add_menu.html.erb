@@ -9,7 +9,6 @@
       </div>
 
       <div class="add-section">
-<<<<<<< HEAD
       <p class="item-label">description : </p>
       <%= form.select'description', raw("<option selected disabled>Select</option><option>south indian</option><option>north indian</option><option>chineese</option><option>tandoori</option>"), class:"item-input"%>
       </div>
@@ -20,7 +19,6 @@
        <div class="add-section">
        <p class="item-label">Menu : </p>
       <%= form.select 'menu', options_for_select(menu.collect{ |u| [u.name, u.id] }) , class:"item-input"%>
-=======
       <p class="item-label">rate : </p>
       <%= form.text_field :rate, class:"item-input"%>
       </div>
@@ -38,7 +36,6 @@
       <div class="add-section">
         <p class="item-label">menu : </p>
         <%= form.select 'menu', options_for_select(menu.collect{ |u| [u.name, u.id] }) , class:"item-input"%>
->>>>>>> 6b37199fd723bdbf62095bc3649c2bbdb02cacbb
       </div>
 
       <div class="add-section">
@@ -55,7 +52,6 @@
         <div class="add-item">
           <p class="item-label">menu : </p>
           <%= form.text_field :menu ,class:"item-input"%>
-<<<<<<< HEAD
          <div>
          <div class="add-section">
        <%=form.submit "add", class:"item-submit" %>
@@ -85,14 +81,4 @@
           
           
     </div>
-=======
-         </div>
-
-        <div class="add-section">
-          <%=form.submit "add", class:"item-submit" %>
-        </div>
-
-    <%end%>
-
-</div>
->>>>>>> 6b37199fd723bdbf62095bc3649c2bbdb02cacbb
+        

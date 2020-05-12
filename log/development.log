@@ -41277,3 +41277,1484 @@ Completed 200 OK in 67ms (Views: 50.9ms | ActiveRecord: 11.1ms | Allocations: 21
 >>>>>>> 6b37199fd723bdbf62095bc3649c2bbdb02cacbb
 
 
+Started GET "/" for 127.0.0.1 at 2020-05-11 14:26:23 +0530
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+  [1m[36mMenu Load (1.4ms)[0m  [1m[34mSELECT "menus".* FROM "menus" ORDER BY "menus"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:38:in `current_menu'
+  [1m[36mMenu Load (0.2ms)[0m  [1m[34mSELECT "menus".* FROM "menus" WHERE "menus"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:40:in `current_menu'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:15:in `current_user'
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 1.1ms | Allocations: 230)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 787ms (Views: 699.7ms | ActiveRecord: 19.2ms | Allocations: 46556)
+
+
+Started GET "/customers" for 127.0.0.1 at 2020-05-11 14:26:29 +0530
+Processing by CustomersController#index as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:15:in `current_user'
+  [1m[36mMenu Load (1.8ms)[0m  [1m[34mSELECT "menus".* FROM "menus" WHERE "menus"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:36:in `current_menu'
+  Rendering customers/index.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE (role= 'user')[0m
+  ↳ app/views/customers/_users.html.erb:6
+  Rendered customers/_users.html.erb (Duration: 3.4ms | Allocations: 985)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE (role = 'clerk')[0m
+  ↳ app/views/customers/_users.html.erb:6
+  Rendered customers/_users.html.erb (Duration: 3.0ms | Allocations: 651)
+  Rendered customers/index.html.erb within layouts/application (Duration: 9.4ms | Allocations: 2045)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 37ms (Views: 27.1ms | ActiveRecord: 3.6ms | Allocations: 7603)
+
+
+Started GET "/menu_items" for 127.0.0.1 at 2020-05-11 14:26:31 +0530
+Processing by MenuItemsController#index as HTML
+  [1m[36mMenu Load (0.3ms)[0m  [1m[34mSELECT "menus".* FROM "menus" WHERE "menus"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:36:in `current_menu'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:15:in `current_user'
+  Rendering menu_items/index.html.erb within layouts/application
+  [1m[36mMenu Load (3.8ms)[0m  [1m[34mSELECT "menus".* FROM "menus"[0m
+  ↳ app/views/menu_items/index.html.erb:15
+  [1m[36mMenuItem Load (2.2ms)[0m  [1m[34mSELECT "menu_items".* FROM "menu_items" WHERE (category_name = 'Breakfast' and menu_id = 2)[0m
+  ↳ app/views/menu_items/_menus.html.erb:19
+  Rendered menu_items/_menus.html.erb (Duration: 30.2ms | Allocations: 7496)
+  [1m[36mMenuItem Load (0.4ms)[0m  [1m[34mSELECT "menu_items".* FROM "menu_items" WHERE (category_name = 'lunch' and menu_id = 2)[0m
+  ↳ app/views/menu_items/_menus.html.erb:19
+  Rendered menu_items/_menus.html.erb (Duration: 3.8ms | Allocations: 1842)
+  [1m[36mMenuItem Load (0.8ms)[0m  [1m[34mSELECT "menu_items".* FROM "menu_items" WHERE (category_name = 'Dinner' and menu_id = 2)[0m
+  ↳ app/views/menu_items/_menus.html.erb:19
+  Rendered menu_items/_menus.html.erb (Duration: 8.8ms | Allocations: 1842)
+  Rendered menu_items/index.html.erb within layouts/application (Duration: 64.2ms | Allocations: 13687)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 108ms (Views: 86.1ms | ActiveRecord: 12.7ms | Allocations: 19150)
+
+
+Started GET "/menus" for 127.0.0.1 at 2020-05-11 14:26:36 +0530
+Processing by MenusController#index as HTML
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:15:in `current_user'
+  [1m[36mMenu Load (2.4ms)[0m  [1m[34mSELECT "menus".* FROM "menus" WHERE "menus"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:36:in `current_menu'
+  Rendering menus/index.html.erb within layouts/application
+  Rendered menus/_add_menu.html.erb (Duration: 31.3ms | Allocations: 4259)
+  Rendered menus/index.html.erb within layouts/application (Duration: 38.7ms | Allocations: 4615)
+Completed 500 Internal Server Error in 54ms (ActiveRecord: 3.6ms | Allocations: 6758)
+
+
+Started GET "/menu_items" for 127.0.0.1 at 2020-05-11 14:26:39 +0530
+Processing by MenuItemsController#index as HTML
+  [1m[36mMenu Load (0.3ms)[0m  [1m[34mSELECT "menus".* FROM "menus" WHERE "menus"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:36:in `current_menu'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:15:in `current_user'
+  Rendering menu_items/index.html.erb within layouts/application
+  [1m[36mMenu Load (0.2ms)[0m  [1m[34mSELECT "menus".* FROM "menus"[0m
+  ↳ app/views/menu_items/index.html.erb:15
+  [1m[36mMenuItem Load (1.6ms)[0m  [1m[34mSELECT "menu_items".* FROM "menu_items" WHERE (category_name = 'Breakfast' and menu_id = 2)[0m
+  ↳ app/views/menu_items/_menus.html.erb:19
+  Rendered menu_items/_menus.html.erb (Duration: 11.1ms | Allocations: 1844)
+  [1m[36mMenuItem Load (0.4ms)[0m  [1m[34mSELECT "menu_items".* FROM "menu_items" WHERE (category_name = 'lunch' and menu_id = 2)[0m
+  ↳ app/views/menu_items/_menus.html.erb:19
+  Rendered menu_items/_menus.html.erb (Duration: 8.6ms | Allocations: 1842)
+  [1m[36mMenuItem Load (0.4ms)[0m  [1m[34mSELECT "menu_items".* FROM "menu_items" WHERE (category_name = 'Dinner' and menu_id = 2)[0m
+  ↳ app/views/menu_items/_menus.html.erb:19
+  Rendered menu_items/_menus.html.erb (Duration: 7.8ms | Allocations: 1842)
+  Rendered menu_items/index.html.erb within layouts/application (Duration: 41.3ms | Allocations: 6599)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 78ms (Views: 67.0ms | ActiveRecord: 3.1ms | Allocations: 11455)
+
+
+Started GET "/menu_items" for 127.0.0.1 at 2020-05-11 14:26:41 +0530
+Processing by MenuItemsController#index as HTML
+  [1m[36mMenu Load (3.3ms)[0m  [1m[34mSELECT "menus".* FROM "menus" WHERE "menus"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:36:in `current_menu'
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:15:in `current_user'
+  Rendering menu_items/index.html.erb within layouts/application
+  [1m[36mMenu Load (1.8ms)[0m  [1m[34mSELECT "menus".* FROM "menus"[0m
+  ↳ app/views/menu_items/index.html.erb:15
+  [1m[36mMenuItem Load (0.4ms)[0m  [1m[34mSELECT "menu_items".* FROM "menu_items" WHERE (category_name = 'Breakfast' and menu_id = 2)[0m
+  ↳ app/views/menu_items/_menus.html.erb:19
+  Rendered menu_items/_menus.html.erb (Duration: 18.7ms | Allocations: 1843)
+  [1m[36mMenuItem Load (0.4ms)[0m  [1m[34mSELECT "menu_items".* FROM "menu_items" WHERE (category_name = 'lunch' and menu_id = 2)[0m
+  ↳ app/views/menu_items/_menus.html.erb:19
+  Rendered menu_items/_menus.html.erb (Duration: 12.4ms | Allocations: 1842)
+  [1m[36mMenuItem Load (0.4ms)[0m  [1m[34mSELECT "menu_items".* FROM "menu_items" WHERE (category_name = 'Dinner' and menu_id = 2)[0m
+  ↳ app/views/menu_items/_menus.html.erb:19
+  Rendered menu_items/_menus.html.erb (Duration: 12.9ms | Allocations: 1842)
+  Rendered menu_items/index.html.erb within layouts/application (Duration: 53.7ms | Allocations: 6590)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 98ms (Views: 81.5ms | ActiveRecord: 6.9ms | Allocations: 11437)
+
+
+Started GET "/menus" for 127.0.0.1 at 2020-05-11 14:26:43 +0530
+Processing by MenusController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:15:in `current_user'
+  [1m[36mMenu Load (0.3ms)[0m  [1m[34mSELECT "menus".* FROM "menus" WHERE "menus"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:36:in `current_menu'
+  Rendering menus/index.html.erb within layouts/application
+  Rendered menus/_add_menu.html.erb (Duration: 3.6ms | Allocations: 1738)
+  Rendered menus/index.html.erb within layouts/application (Duration: 4.4ms | Allocations: 1817)
+Completed 500 Internal Server Error in 19ms (ActiveRecord: 0.6ms | Allocations: 3300)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check 
+  <div>
+    <p class="Menu-title"><%=section_title_1%></p>
+    <%=form_with url:menu_items_path ,method: :post do |form|%>
+
+      <div class="add-item">
+        <p class="item-label">item : </p>
+        <%= form.text_field :item ,class:"item-input"%>
+      </div>
+
+      <div class="add-section">
+<<<<<<< HEAD
+      <p class="item-label">description : </p>
+      <%= form.select'description', raw("<option selected disabled>Select</option><option>south indian</option><option>north indian</option><option>chineese</option><option>tandoori</option>"), class:"item-input"%>
+      </div>
+       <div class="add-section">
+      <p class="item-label">category : </p>
+      <%= form.select'category', raw("<option selected disabled>Select</option><option>Breakfast</option><option>lunch</option><option>Dinner</option><option>Cold Drinks</option>"), class:"item-input"%>
+      </div>
+       <div class="add-section">
+       <p class="item-label">Menu : </p>
+      <%= form.select 'menu', options_for_select(menu.collect{ |u| [u.name, u.id] }) , class:"item-input"%>
+=======
+      <p class="item-label">rate : </p>
+      <%= form.text_field :rate, class:"item-input"%>
+      </div>
+
+      <div class="add-section">
+        <p class="item-label">description : </p>
+        <%= form.select'description', raw("<option>south indian</option><option>north indian</option><option>chineese</option><option>tandoori</option>"), class:"item-input"%>
+      </div>
+
+      <div class="add-section">
+        <p class="item-label">category : </p>
+        <%= form.select 'category', raw("<option>Breakfast</option><option>lunch</option><option>Dinner</option><optionCold Drinks</option>"), class:"item-input"%>
+      </div>
+
+      <div class="add-section">
+        <p class="item-label">menu : </p>
+        <%= form.select 'menu', options_for_select(menu.collect{ |u| [u.name, u.id] }) , class:"item-input"%>
+>>>>>>> 6b37199fd723bdbf62095bc3649c2bbdb02cacbb
+      </div>
+
+      <div class="add-section">
+        <%=form.submit "add", class:"item-submit" %>
+      </div>
+
+     <%end%>
+  </div>
+
+  <div>
+    <p class="add-MenuHeader"><%= section_title_2%></p>
+    <%=form_with url:menus_path ,method: :post do |form|%>
+
+        <div class="add-item">
+          <p class="item-label">menu : </p>
+          <%= form.text_field :menu ,class:"item-input"%>
+<<<<<<< HEAD
+         <div>
+         <div class="add-section">
+       <%=form.submit "add", class:"item-submit" %>
+      </div>
+    <%end%> 
+  </div>
+
+  <div>
+         
+            <p>available menus </p> 
+             <p>to delete the present menu, please change the menu displayed </p>
+            <%menu.each do |m|%>
+             <li>
+               <%= m.name %>
+               <%=m.id%>
+               <%= @current_menu_id%>
+               <% if m.id != @current_menu_id%>
+                 <%= form_with(url: menu_path(m.id), method: :delete) do %>  
+                   <input class="Img-Trash" type="image" src="interface.png">
+                 <%end%>
+               <%end%>
+               <br>
+              </li>
+             <% end %>
+              
+              
+          
+          
+    </div>
+=======
+         </div>
+
+        <div class="add-section">
+          <%=form.submit "add", class:"item-submit" %>
+        </div>
+
+    <%end%>
+
+</div>
+>>>>>>> 6b37199fd723bdbf62095bc3649c2bbdb02cacbb
+
+):
+1:    
+2:      <div>
+3:        <p class="Menu-title"><%=section_title_1%></p>
+4:        <%=form_with url:menu_items_path ,method: :post do |form|%>
+5:    
+6:          <div class="add-item">
+7:            <p class="item-label">item : </p>
+8:            <%= form.text_field :item ,class:"item-input"%>
+9:          </div>
+10:    
+11:          <div class="add-section">
+12:    <<<<<<< HEAD
+13:          <p class="item-label">description : </p>
+14:          <%= form.select'description', raw("<option selected disabled>Select</option><option>south indian</option><option>north indian</option><option>chineese</option><option>tandoori</option>"), class:"item-input"%>
+15:          </div>
+16:           <div class="add-section">
+17:          <p class="item-label">category : </p>
+18:          <%= form.select'category', raw("<option selected disabled>Select</option><option>Breakfast</option><option>lunch</option><option>Dinner</option><option>Cold Drinks</option>"), class:"item-input"%>
+19:          </div>
+20:           <div class="add-section">
+21:           <p class="item-label">Menu : </p>
+22:          <%= form.select 'menu', options_for_select(menu.collect{ |u| [u.name, u.id] }) , class:"item-input"%>
+23:    =======
+24:          <p class="item-label">rate : </p>
+25:          <%= form.text_field :rate, class:"item-input"%>
+26:          </div>
+27:    
+28:          <div class="add-section">
+29:            <p class="item-label">description : </p>
+30:            <%= form.select'description', raw("<option>south indian</option><option>north indian</option><option>chineese</option><option>tandoori</option>"), class:"item-input"%>
+31:          </div>
+32:    
+33:          <div class="add-section">
+34:            <p class="item-label">category : </p>
+35:            <%= form.select 'category', raw("<option>Breakfast</option><option>lunch</option><option>Dinner</option><optionCold Drinks</option>"), class:"item-input"%>
+36:          </div>
+37:    
+38:          <div class="add-section">
+39:            <p class="item-label">menu : </p>
+40:            <%= form.select 'menu', options_for_select(menu.collect{ |u| [u.name, u.id] }) , class:"item-input"%>
+41:    >>>>>>> 6b37199fd723bdbf62095bc3649c2bbdb02cacbb
+42:          </div>
+43:    
+44:          <div class="add-section">
+45:            <%=form.submit "add", class:"item-submit" %>
+46:          </div>
+47:    
+48:         <%end%>
+49:      </div>
+50:    
+51:      <div>
+52:        <p class="add-MenuHeader"><%= section_title_2%></p>
+53:        <%=form_with url:menus_path ,method: :post do |form|%>
+54:    
+55:            <div class="add-item">
+56:              <p class="item-label">menu : </p>
+57:              <%= form.text_field :menu ,class:"item-input"%>
+58:    <<<<<<< HEAD
+59:             <div>
+60:             <div class="add-section">
+61:           <%=form.submit "add", class:"item-submit" %>
+62:          </div>
+63:        <%end%> 
+64:      </div>
+65:    
+66:      <div>
+67:             
+68:                <p>available menus </p> 
+69:                 <p>to delete the present menu, please change the menu displayed </p>
+70:                <%menu.each do |m|%>
+71:                 <li>
+72:                   <%= m.name %>
+73:                   <%=m.id%>
+74:                   <%= @current_menu_id%>
+75:                   <% if m.id != @current_menu_id%>
+76:                     <%= form_with(url: menu_path(m.id), method: :delete) do %>  
+77:                       <input class="Img-Trash" type="image" src="interface.png">
+78:                     <%end%>
+79:                   <%end%>
+80:                   <br>
+81:                  </li>
+82:                 <% end %>
+83:                  
+84:                  
+85:              
+86:              
+87:        </div>
+88:    =======
+89:             </div>
+90:    
+91:            <div class="add-section">
+92:              <%=form.submit "add", class:"item-submit" %>
+93:            </div>
+94:    
+95:        <%end%>
+96:    
+97:    </div>
+98:    >>>>>>> 6b37199fd723bdbf62095bc3649c2bbdb02cacbb
+  
+app/views/menus/_add_menu.html.erb:101: syntax error, unexpected end, expecting end-of-input
+app/views/menus/_add_menu.html.erb:101: syntax error, unexpected end, expecting end-of-input
+app/views/menus/_add_menu.html.erb:101: syntax error, unexpected end, expecting end-of-input
+app/views/menus/_add_menu.html.erb:101: syntax error, unexpected end, expecting end-of-input
+app/views/menus/_add_menu.html.erb:101: syntax error, unexpected end, expecting end-of-input
+app/views/menus/_add_menu.html.erb:101: syntax error, unexpected end, expecting end-of-input
+app/views/menus/index.html.erb:14
+app/controllers/menus_controller.rb:5:in `index'
+Started GET "/menus" for 127.0.0.1 at 2020-05-11 14:27:31 +0530
+Processing by MenusController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:15:in `current_user'
+  [1m[36mMenu Load (0.2ms)[0m  [1m[34mSELECT "menus".* FROM "menus" WHERE "menus"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:36:in `current_menu'
+  Rendering menus/index.html.erb within layouts/application
+  [1m[36mMenu Load (0.4ms)[0m  [1m[34mSELECT "menus".* FROM "menus"[0m
+  ↳ app/views/menus/_add_menu.html.erb:21:in `collect'
+  Rendered menus/_add_menu.html.erb (Duration: 67.6ms | Allocations: 8606)
+  Rendered menus/index.html.erb within layouts/application (Duration: 70.2ms | Allocations: 8953)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 100ms (Views: 92.2ms | ActiveRecord: 0.9ms | Allocations: 15258)
+
+
+Started POST "/menus" for 127.0.0.1 at 2020-05-11 14:28:15 +0530
+Processing by MenusController#create as JS
+  Parameters: {"authenticity_token"=>"p4+Jkf4spF5/qm9kSQvYaSrjDo6AB23b9B72c3LeMqGRzsSXyZUOQECQFRHtsOCzAfZu3VO7r8fkNHhBZe+Q2g==", "menu"=>"super menu", "commit"=>"add"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:15:in `current_user'
+  [1m[36mMenu Load (0.8ms)[0m  [1m[34mSELECT "menus".* FROM "menus" WHERE "menus"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:36:in `current_menu'
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/menus_controller.rb:11:in `create'
+  [1m[36mMenu Create (15.0ms)[0m  [1m[32mINSERT INTO "menus" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "super menu"], ["created_at", "2020-05-11 08:58:15.500686"], ["updated_at", "2020-05-11 08:58:15.500686"]]
+  ↳ app/controllers/menus_controller.rb:11:in `create'
+  [1m[35m (3.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/menus_controller.rb:11:in `create'
+Redirected to http://localhost:3000/menus
+Completed 200 OK in 38ms (ActiveRecord: 20.5ms | Allocations: 3885)
+
+
+Started GET "/menus" for 127.0.0.1 at 2020-05-11 14:28:15 +0530
+Processing by MenusController#index as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:15:in `current_user'
+  [1m[36mMenu Load (3.7ms)[0m  [1m[34mSELECT "menus".* FROM "menus" WHERE "menus"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:36:in `current_menu'
+  Rendering menus/index.html.erb within layouts/application
+  [1m[36mMenu Load (0.7ms)[0m  [1m[34mSELECT "menus".* FROM "menus"[0m
+  ↳ app/views/menus/_add_menu.html.erb:21:in `collect'
+  Rendered menus/_add_menu.html.erb (Duration: 7.2ms | Allocations: 5721)
+  Rendered menus/index.html.erb within layouts/application (Duration: 10.2ms | Allocations: 5797)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 34ms (Views: 23.7ms | ActiveRecord: 5.2ms | Allocations: 10569)
+
+
+Started GET "/menu_items" for 127.0.0.1 at 2020-05-11 14:28:18 +0530
+Processing by MenuItemsController#index as HTML
+  [1m[36mMenu Load (0.3ms)[0m  [1m[34mSELECT "menus".* FROM "menus" WHERE "menus"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:36:in `current_menu'
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:15:in `current_user'
+  Rendering menu_items/index.html.erb within layouts/application
+  [1m[36mMenu Load (3.0ms)[0m  [1m[34mSELECT "menus".* FROM "menus"[0m
+  ↳ app/views/menu_items/index.html.erb:15
+  [1m[36mMenuItem Load (2.2ms)[0m  [1m[34mSELECT "menu_items".* FROM "menu_items" WHERE (category_name = 'Breakfast' and menu_id = 2)[0m
+  ↳ app/views/menu_items/_menus.html.erb:19
+  Rendered menu_items/_menus.html.erb (Duration: 10.4ms | Allocations: 2466)
+  [1m[36mMenuItem Load (1.1ms)[0m  [1m[34mSELECT "menu_items".* FROM "menu_items" WHERE (category_name = 'lunch' and menu_id = 2)[0m
+  ↳ app/views/menu_items/_menus.html.erb:19
+  Rendered menu_items/_menus.html.erb (Duration: 10.8ms | Allocations: 1842)
+  [1m[36mMenuItem Load (1.3ms)[0m  [1m[34mSELECT "menu_items".* FROM "menu_items" WHERE (category_name = 'Dinner' and menu_id = 2)[0m
+  ↳ app/views/menu_items/_menus.html.erb:19
+  Rendered menu_items/_menus.html.erb (Duration: 6.8ms | Allocations: 1842)
+  Rendered menu_items/index.html.erb within layouts/application (Duration: 43.3ms | Allocations: 7785)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 69ms (Views: 49.9ms | ActiveRecord: 9.2ms | Allocations: 13207)
+
+
+Started GET "/menus" for 127.0.0.1 at 2020-05-11 14:28:27 +0530
+Processing by MenusController#index as HTML
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:15:in `current_user'
+  [1m[36mMenu Load (1.6ms)[0m  [1m[34mSELECT "menus".* FROM "menus" WHERE "menus"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:36:in `current_menu'
+  Rendering menus/index.html.erb within layouts/application
+  [1m[36mMenu Load (1.2ms)[0m  [1m[34mSELECT "menus".* FROM "menus"[0m
+  ↳ app/views/menus/_add_menu.html.erb:21:in `collect'
+  Rendered menus/_add_menu.html.erb (Duration: 10.0ms | Allocations: 5730)
+  Rendered menus/index.html.erb within layouts/application (Duration: 12.7ms | Allocations: 5806)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 36ms (Views: 23.0ms | ActiveRecord: 4.8ms | Allocations: 10571)
+
+
+Started GET "/" for 127.0.0.1 at 2020-05-12 11:31:52 +0530
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+  [1m[36mMenu Load (1.0ms)[0m  [1m[34mSELECT "menus".* FROM "menus" ORDER BY "menus"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:38:in `current_menu'
+  [1m[36mMenu Load (0.2ms)[0m  [1m[34mSELECT "menus".* FROM "menus" WHERE "menus"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:40:in `current_menu'
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 1.6ms | Allocations: 230)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 93ms (Views: 58.5ms | ActiveRecord: 8.8ms | Allocations: 15042)
+
+
+Started GET "/signin" for 127.0.0.1 at 2020-05-12 11:31:56 +0530
+Processing by SessionsController#new as HTML
+  [1m[36mMenu Load (0.3ms)[0m  [1m[34mSELECT "menus".* FROM "menus" WHERE "menus"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:36:in `current_menu'
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 3.3ms | Allocations: 1550)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 22ms (Views: 18.4ms | ActiveRecord: 0.3ms | Allocations: 6386)
+
+
+Started POST "/signin" for 127.0.0.1 at 2020-05-12 11:32:01 +0530
+Processing by SessionsController#create as JS
+  Parameters: {"authenticity_token"=>"Npi+QhIsPlPO7OXhDtXaQxDje61SZqYmiFOKXMyFGA2g2aolBG9qoNSRy8js41OuoGyfjfMESrDhJUOlSHStrg==", "email"=>"siddharth@gmail.com", "password"=>"[FILTERED]", "commit"=>"Sign-Up"}
+  [1m[36mMenu Load (0.6ms)[0m  [1m[34mSELECT "menus".* FROM "menus" WHERE "menus"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:36:in `current_menu'
+  [1m[36mUser Load (4.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "siddharth@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:8:in `create'
+Redirected to http://localhost:3000/
+Completed 200 OK in 230ms (ActiveRecord: 8.2ms | Allocations: 7111)
+
+
+Started GET "/" for 127.0.0.1 at 2020-05-12 11:32:01 +0530
+Processing by HomeController#index as HTML
+  [1m[36mMenu Load (1.7ms)[0m  [1m[34mSELECT "menus".* FROM "menus" WHERE "menus"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:36:in `current_menu'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:15:in `current_user'
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.0ms | Allocations: 5)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 21ms (Views: 11.8ms | ActiveRecord: 1.9ms | Allocations: 4994)
+
+
+Started GET "/menu_items" for 127.0.0.1 at 2020-05-12 11:32:05 +0530
+Processing by MenuItemsController#index as HTML
+  [1m[36mMenu Load (1.4ms)[0m  [1m[34mSELECT "menus".* FROM "menus" WHERE "menus"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:36:in `current_menu'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:15:in `current_user'
+  Rendering menu_items/index.html.erb within layouts/application
+  [1m[36mMenu Load (1.8ms)[0m  [1m[34mSELECT "menus".* FROM "menus"[0m
+  ↳ app/views/menu_items/index.html.erb:15
+  [1m[36mMenuItem Load (1.4ms)[0m  [1m[34mSELECT "menu_items".* FROM "menu_items" WHERE (category_name = 'Breakfast' and menu_id = 2)[0m
+  ↳ app/views/menu_items/_menus.html.erb:19
+  Rendered menu_items/_menus.html.erb (Duration: 63.1ms | Allocations: 8429)
+  Rendered menu_items/index.html.erb within layouts/application (Duration: 78.2ms | Allocations: 10755)
+Completed 500 Internal Server Error in 94ms (ActiveRecord: 9.9ms | Allocations: 12881)
+
+
+  
+ActionView::Template::Error (undefined method `model_name' for {:url=>"/menu_items/7", :method=>:put}:Hash):
+    19:  <% menus.each do |item| %>
+    20:    <tr>
+    21:    
+    22:    <%= form_for(url: menu_item_path(item.id), method: :put) do %>  
+    23:        <td class="table-data">
+    24:         <%=text_field_tag( name='name',value = item.name,
+    25:            disabled: if(user_role == "owner")
+  
+app/views/menu_items/_menus.html.erb:22
+app/views/menu_items/_menus.html.erb:19
+app/views/menu_items/index.html.erb:28
+app/controllers/menu_items_controller.rb:5:in `index'
+Started GET "/menu_items" for 127.0.0.1 at 2020-05-12 11:32:55 +0530
+Processing by MenuItemsController#index as HTML
+  [1m[36mMenu Load (0.3ms)[0m  [1m[34mSELECT "menus".* FROM "menus" WHERE "menus"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:36:in `current_menu'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:15:in `current_user'
+  Rendering menu_items/index.html.erb within layouts/application
+  [1m[36mMenu Load (0.8ms)[0m  [1m[34mSELECT "menus".* FROM "menus"[0m
+  ↳ app/views/menu_items/index.html.erb:15
+  [1m[36mMenuItem Load (0.3ms)[0m  [1m[34mSELECT "menu_items".* FROM "menu_items" WHERE (category_name = 'Breakfast' and menu_id = 2)[0m
+  ↳ app/views/menu_items/_menus.html.erb:19
+  Rendered menu_items/_menus.html.erb (Duration: 28.4ms | Allocations: 3135)
+  Rendered menu_items/index.html.erb within layouts/application (Duration: 35.2ms | Allocations: 4595)
+Completed 500 Internal Server Error in 44ms (ActiveRecord: 1.6ms | Allocations: 6853)
+
+
+  
+ActionView::Template::Error (undefined method `model_name' for {:url=>"/menu_items/7", :method=>:put}:Hash):
+    19:  <% menus.each do |item| %>
+    20:    <tr>
+    21:    
+    22:    <%= form_for(url: "/menu_items/#{item.id}", method: :put) do %>  
+    23:        <td class="table-data">
+    24:         <%=text_field_tag( name='name',value = item.name,
+    25:            disabled: if(user_role == "owner")
+  
+app/views/menu_items/_menus.html.erb:22
+app/views/menu_items/_menus.html.erb:19
+app/views/menu_items/index.html.erb:28
+app/controllers/menu_items_controller.rb:5:in `index'
+Started GET "/rails/info/routes" for 127.0.0.1 at 2020-05-12 11:33:12 +0530
+Processing by Rails::InfoController#routes as HTML
+  Rendering /home/gnanesh/.rvm/gems/ruby-2.6.3/gems/railties-6.0.2.2/lib/rails/templates/rails/info/routes.html.erb within layouts/application
+  Rendered collection of /home/gnanesh/.rvm/gems/ruby-2.6.3/gems/actionpack-6.0.2.2/lib/action_dispatch/middleware/templates/routes/_route.html.erb [73 times] (Duration: 53.6ms | Allocations: 9936)
+  Rendered /home/gnanesh/.rvm/gems/ruby-2.6.3/gems/actionpack-6.0.2.2/lib/action_dispatch/middleware/templates/routes/_table.html.erb (Duration: 3.1ms | Allocations: 808)
+  Rendered /home/gnanesh/.rvm/gems/ruby-2.6.3/gems/railties-6.0.2.2/lib/rails/templates/rails/info/routes.html.erb within layouts/application (Duration: 70.2ms | Allocations: 16148)
+Completed 200 OK in 79ms (Views: 75.9ms | ActiveRecord: 0.0ms | Allocations: 17491)
+
+
+Started GET "/menu_items" for 127.0.0.1 at 2020-05-12 11:33:45 +0530
+Processing by MenuItemsController#index as HTML
+  [1m[36mMenu Load (0.7ms)[0m  [1m[34mSELECT "menus".* FROM "menus" WHERE "menus"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:36:in `current_menu'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:15:in `current_user'
+  Rendering menu_items/index.html.erb within layouts/application
+  [1m[36mMenu Load (0.3ms)[0m  [1m[34mSELECT "menus".* FROM "menus"[0m
+  ↳ app/views/menu_items/index.html.erb:15
+  [1m[36mMenuItem Load (0.4ms)[0m  [1m[34mSELECT "menu_items".* FROM "menu_items" WHERE (category_name = 'Breakfast' and menu_id = 2)[0m
+  ↳ app/views/menu_items/_menus.html.erb:19
+  Rendered menu_items/_menus.html.erb (Duration: 5.1ms | Allocations: 2369)
+  Rendered menu_items/index.html.erb within layouts/application (Duration: 18.8ms | Allocations: 3813)
+Completed 500 Internal Server Error in 31ms (ActiveRecord: 1.7ms | Allocations: 6681)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"show", :controller=>"menu_items"}, missing required keys: [:id]):
+    19:  <% menus.each do |item| %>
+    20:    <tr>
+    21:    
+    22:    <%= form_for(url: menu_item_path, method: :put) do %>  
+    23:        <td class="table-data">
+    24:         <%=text_field_tag( name='name',value = item.name,
+    25:            disabled: if(user_role == "owner")
+  
+app/views/menu_items/_menus.html.erb:22
+app/views/menu_items/_menus.html.erb:19
+app/views/menu_items/index.html.erb:28
+app/controllers/menu_items_controller.rb:5:in `index'
+Started GET "/menu_items" for 127.0.0.1 at 2020-05-12 11:33:46 +0530
+Processing by MenuItemsController#index as HTML
+  [1m[36mMenu Load (0.3ms)[0m  [1m[34mSELECT "menus".* FROM "menus" WHERE "menus"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:36:in `current_menu'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:15:in `current_user'
+  Rendering menu_items/index.html.erb within layouts/application
+  [1m[36mMenu Load (0.3ms)[0m  [1m[34mSELECT "menus".* FROM "menus"[0m
+  ↳ app/views/menu_items/index.html.erb:15
+  [1m[36mMenuItem Load (83.7ms)[0m  [1m[34mSELECT "menu_items".* FROM "menu_items" WHERE (category_name = 'Breakfast' and menu_id = 2)[0m
+  ↳ app/views/menu_items/_menus.html.erb:19
+  Rendered menu_items/_menus.html.erb (Duration: 86.8ms | Allocations: 39378)
+  Rendered menu_items/index.html.erb within layouts/application (Duration: 91.4ms | Allocations: 40274)
+Completed 500 Internal Server Error in 209ms (ActiveRecord: 84.9ms | Allocations: 86719)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"show", :controller=>"menu_items"}, missing required keys: [:id]):
+    19:  <% menus.each do |item| %>
+    20:    <tr>
+    21:    
+    22:    <%= form_for(url: menu_item_path, method: :put) do %>  
+    23:        <td class="table-data">
+    24:         <%=text_field_tag( name='name',value = item.name,
+    25:            disabled: if(user_role == "owner")
+  
+app/views/menu_items/_menus.html.erb:22
+app/views/menu_items/_menus.html.erb:19
+app/views/menu_items/index.html.erb:28
+app/controllers/menu_items_controller.rb:5:in `index'
+Started GET "/menu_items" for 127.0.0.1 at 2020-05-12 11:34:02 +0530
+Processing by MenuItemsController#index as HTML
+  [1m[36mMenu Load (0.3ms)[0m  [1m[34mSELECT "menus".* FROM "menus" WHERE "menus"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:36:in `current_menu'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:15:in `current_user'
+  Rendering menu_items/index.html.erb within layouts/application
+  [1m[36mMenu Load (0.3ms)[0m  [1m[34mSELECT "menus".* FROM "menus"[0m
+  ↳ app/views/menu_items/index.html.erb:15
+  [1m[36mMenuItem Load (0.3ms)[0m  [1m[34mSELECT "menu_items".* FROM "menu_items" WHERE (category_name = 'Breakfast' and menu_id = 2)[0m
+  ↳ app/views/menu_items/_menus.html.erb:19
+  Rendered menu_items/_menus.html.erb (Duration: 17.9ms | Allocations: 3145)
+  Rendered menu_items/index.html.erb within layouts/application (Duration: 24.1ms | Allocations: 4591)
+Completed 500 Internal Server Error in 37ms (ActiveRecord: 1.1ms | Allocations: 6817)
+
+
+  
+ActionView::Template::Error (undefined method `model_name' for {:url=>"/menu_items/7", :method=>:put}:Hash):
+    19:  <% menus.each do |item| %>
+    20:    <tr>
+    21:    
+    22:    <%= form_for(url: menu_item_path(item.id), method: :put) do %>  
+    23:        <td class="table-data">
+    24:         <%=text_field_tag( name='name',value = item.name,
+    25:            disabled: if(user_role == "owner")
+  
+app/views/menu_items/_menus.html.erb:22
+app/views/menu_items/_menus.html.erb:19
+app/views/menu_items/index.html.erb:28
+app/controllers/menu_items_controller.rb:5:in `index'
+Started GET "/menu_items" for 127.0.0.1 at 2020-05-12 11:35:12 +0530
+Processing by MenuItemsController#index as HTML
+  [1m[36mMenu Load (0.3ms)[0m  [1m[34mSELECT "menus".* FROM "menus" WHERE "menus"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:36:in `current_menu'
+  [1m[36mUser Load (2.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:15:in `current_user'
+  Rendering menu_items/index.html.erb within layouts/application
+  [1m[36mMenu Load (2.0ms)[0m  [1m[34mSELECT "menus".* FROM "menus"[0m
+  ↳ app/views/menu_items/index.html.erb:15
+  [1m[36mMenuItem Load (0.4ms)[0m  [1m[34mSELECT "menu_items".* FROM "menu_items" WHERE (category_name = 'Breakfast' and menu_id = 2)[0m
+  ↳ app/views/menu_items/_menus.html.erb:19
+  Rendered menu_items/_menus.html.erb (Duration: 10.3ms | Allocations: 2473)
+  [1m[36mMenuItem Load (0.3ms)[0m  [1m[34mSELECT "menu_items".* FROM "menu_items" WHERE (category_name = 'lunch' and menu_id = 2)[0m
+  ↳ app/views/menu_items/_menus.html.erb:19
+  Rendered menu_items/_menus.html.erb (Duration: 4.3ms | Allocations: 1842)
+  [1m[36mMenuItem Load (0.3ms)[0m  [1m[34mSELECT "menu_items".* FROM "menu_items" WHERE (category_name = 'Dinner' and menu_id = 2)[0m
+  ↳ app/views/menu_items/_menus.html.erb:19
+  Rendered menu_items/_menus.html.erb (Duration: 11.4ms | Allocations: 1842)
+  Rendered menu_items/index.html.erb within layouts/application (Duration: 38.3ms | Allocations: 7793)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 87ms (Views: 77.3ms | ActiveRecord: 5.5ms | Allocations: 14152)
+
+
+Started PUT "/menu_items/6" for 127.0.0.1 at 2020-05-12 11:35:28 +0530
+Processing by MenuItemsController#update as JS
+  Parameters: {"authenticity_token"=>"GXoHGFs8lsVyMlhNhrbz8uhLO5tbYTZm0jvppkH9sY01omcn2o/bDun1qIHd+xVFsWOy97on4OELZxQLSWvv4A==", "name"=>"Idlii", "price"=>"10.0", "id"=>"6"}
+  [1m[36mMenu Load (2.3ms)[0m  [1m[34mSELECT "menus".* FROM "menus" WHERE "menus"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:36:in `current_menu'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:15:in `current_user'
+  [1m[36mMenuItem Load (0.9ms)[0m  [1m[34mSELECT "menu_items".* FROM "menu_items" WHERE "menu_items"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/menu_items_controller.rb:32:in `update'
+  [1m[36mCACHE Menu Load (0.0ms)[0m  [1m[34mSELECT "menus".* FROM "menus" WHERE "menus"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/menu_items_controller.rb:35:in `update'
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/menu_items_controller.rb:35:in `update'
+  [1m[36mMenuItem Update (5.6ms)[0m  [1m[33mUPDATE "menu_items" SET "name" = $1, "updated_at" = $2 WHERE "menu_items"."id" = $3[0m  [["name", "Idlii"], ["updated_at", "2020-05-12 06:05:28.944358"], ["id", 6]]
+  ↳ app/controllers/menu_items_controller.rb:35:in `update'
+  [1m[35m (2.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/menu_items_controller.rb:35:in `update'
+Redirected to http://localhost:3000/menu_items
+Completed 200 OK in 107ms (ActiveRecord: 12.5ms | Allocations: 9039)
+
+
+Started GET "/menu_items" for 127.0.0.1 at 2020-05-12 11:35:29 +0530
+Processing by MenuItemsController#index as HTML
+  [1m[36mMenu Load (4.8ms)[0m  [1m[34mSELECT "menus".* FROM "menus" WHERE "menus"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:36:in `current_menu'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:15:in `current_user'
+  Rendering menu_items/index.html.erb within layouts/application
+  [1m[36mMenu Load (0.2ms)[0m  [1m[34mSELECT "menus".* FROM "menus"[0m
+  ↳ app/views/menu_items/index.html.erb:15
+  [1m[36mMenuItem Load (3.4ms)[0m  [1m[34mSELECT "menu_items".* FROM "menu_items" WHERE (category_name = 'Breakfast' and menu_id = 2)[0m
+  ↳ app/views/menu_items/_menus.html.erb:19
+  Rendered menu_items/_menus.html.erb (Duration: 7.3ms | Allocations: 1844)
+  [1m[36mMenuItem Load (1.6ms)[0m  [1m[34mSELECT "menu_items".* FROM "menu_items" WHERE (category_name = 'lunch' and menu_id = 2)[0m
+  ↳ app/views/menu_items/_menus.html.erb:19
+  Rendered menu_items/_menus.html.erb (Duration: 8.8ms | Allocations: 1843)
+  [1m[36mMenuItem Load (0.4ms)[0m  [1m[34mSELECT "menu_items".* FROM "menu_items" WHERE (category_name = 'Dinner' and menu_id = 2)[0m
+  ↳ app/views/menu_items/_menus.html.erb:19
+  Rendered menu_items/_menus.html.erb (Duration: 3.8ms | Allocations: 1842)
+  Rendered menu_items/index.html.erb within layouts/application (Duration: 31.6ms | Allocations: 6609)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 77ms (Views: 60.9ms | ActiveRecord: 10.6ms | Allocations: 11460)
+
+
+Started GET "/menu_items" for 127.0.0.1 at 2020-05-12 11:36:38 +0530
+Processing by MenuItemsController#index as HTML
+  [1m[36mMenu Load (0.2ms)[0m  [1m[34mSELECT "menus".* FROM "menus" WHERE "menus"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:36:in `current_menu'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:15:in `current_user'
+  Rendering menu_items/index.html.erb within layouts/application
+  [1m[36mMenu Load (0.8ms)[0m  [1m[34mSELECT "menus".* FROM "menus"[0m
+  ↳ app/views/menu_items/index.html.erb:15
+  [1m[36mMenuItem Load (0.4ms)[0m  [1m[34mSELECT "menu_items".* FROM "menu_items" WHERE (category_name = 'Breakfast' and menu_id = 2)[0m
+  ↳ app/views/menu_items/_menus.html.erb:19
+  Rendered menu_items/_menus.html.erb (Duration: 6.4ms | Allocations: 1843)
+  [1m[36mMenuItem Load (2.0ms)[0m  [1m[34mSELECT "menu_items".* FROM "menu_items" WHERE (category_name = 'lunch' and menu_id = 2)[0m
+  ↳ app/views/menu_items/_menus.html.erb:19
+  Rendered menu_items/_menus.html.erb (Duration: 9.2ms | Allocations: 1842)
+  [1m[36mMenuItem Load (0.3ms)[0m  [1m[34mSELECT "menu_items".* FROM "menu_items" WHERE (category_name = 'Dinner' and menu_id = 2)[0m
+  ↳ app/views/menu_items/_menus.html.erb:19
+  Rendered menu_items/_menus.html.erb (Duration: 5.3ms | Allocations: 1842)
+  Rendered menu_items/index.html.erb within layouts/application (Duration: 33.4ms | Allocations: 6606)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 52ms (Views: 40.9ms | ActiveRecord: 3.9ms | Allocations: 11446)
+
+
+Started PUT "/menu_items/18" for 127.0.0.1 at 2020-05-12 11:36:46 +0530
+Processing by MenuItemsController#update as JS
+  Parameters: {"authenticity_token"=>"M+fJ9oOJzBTXLpOHA1Ew3AIhV0QxB0mVHqEj3omTWl4w26uCmQF6goGirFASV2et5gybHnenUmGuknNBOiYFIQ==", "name"=>"pongal", "price"=>"32.0", "id"=>"18"}
+  [1m[36mMenu Load (1.7ms)[0m  [1m[34mSELECT "menus".* FROM "menus" WHERE "menus"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:36:in `current_menu'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:15:in `current_user'
+  [1m[36mMenuItem Load (0.2ms)[0m  [1m[34mSELECT "menu_items".* FROM "menu_items" WHERE "menu_items"."id" = $1 LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ app/controllers/menu_items_controller.rb:32:in `update'
+  [1m[36mCACHE Menu Load (0.0ms)[0m  [1m[34mSELECT "menus".* FROM "menus" WHERE "menus"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/menu_items_controller.rb:35:in `update'
+Redirected to http://localhost:3000/menu_items
+Completed 200 OK in 19ms (ActiveRecord: 2.2ms | Allocations: 3035)
+
+
+Started GET "/menu_items" for 127.0.0.1 at 2020-05-12 11:36:46 +0530
+Processing by MenuItemsController#index as HTML
+  [1m[36mMenu Load (1.7ms)[0m  [1m[34mSELECT "menus".* FROM "menus" WHERE "menus"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:36:in `current_menu'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:15:in `current_user'
+  Rendering menu_items/index.html.erb within layouts/application
+  [1m[36mMenu Load (0.8ms)[0m  [1m[34mSELECT "menus".* FROM "menus"[0m
+  ↳ app/views/menu_items/index.html.erb:15
+  [1m[36mMenuItem Load (0.3ms)[0m  [1m[34mSELECT "menu_items".* FROM "menu_items" WHERE (category_name = 'Breakfast' and menu_id = 2)[0m
+  ↳ app/views/menu_items/_menus.html.erb:19
+  Rendered menu_items/_menus.html.erb (Duration: 7.4ms | Allocations: 1843)
+  [1m[36mMenuItem Load (0.3ms)[0m  [1m[34mSELECT "menu_items".* FROM "menu_items" WHERE (category_name = 'lunch' and menu_id = 2)[0m
+  ↳ app/views/menu_items/_menus.html.erb:19
+  Rendered menu_items/_menus.html.erb (Duration: 3.7ms | Allocations: 1842)
+  [1m[36mMenuItem Load (0.3ms)[0m  [1m[34mSELECT "menu_items".* FROM "menu_items" WHERE (category_name = 'Dinner' and menu_id = 2)[0m
+  ↳ app/views/menu_items/_menus.html.erb:19
+  Rendered menu_items/_menus.html.erb (Duration: 5.4ms | Allocations: 1842)
+  Rendered menu_items/index.html.erb within layouts/application (Duration: 29.4ms | Allocations: 6606)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 51ms (Views: 41.9ms | ActiveRecord: 3.7ms | Allocations: 11449)
+
+
+Started POST "/menus/setmenu" for 127.0.0.1 at 2020-05-12 11:37:18 +0530
+Processing by MenusController#set as HTML
+  Parameters: {"authenticity_token"=>"uWPbr9M3IItLMc9bbUPOG1r0cvuQEpg+eylWa1V78GKkV18dIx3+ncw1oq47RQDfNW6rsyWcI79zm5nZqh1+WA==", "menu_id"=>"3,"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:15:in `current_user'
+  [1m[36mMenu Load (1.5ms)[0m  [1m[34mSELECT "menus".* FROM "menus" WHERE "menus"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:36:in `current_menu'
+  [1m[36mMenu Load (1.3ms)[0m  [1m[34mSELECT "menus".* FROM "menus" WHERE "menus"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:36:in `current_menu'
+Redirected to http://localhost:3000/menu_items
+Completed 302 Found in 18ms (ActiveRecord: 3.0ms | Allocations: 2026)
+
+
+Started GET "/menu_items" for 127.0.0.1 at 2020-05-12 11:37:18 +0530
+Processing by MenuItemsController#index as HTML
+  [1m[36mMenu Load (0.2ms)[0m  [1m[34mSELECT "menus".* FROM "menus" WHERE "menus"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:36:in `current_menu'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:15:in `current_user'
+  Rendering menu_items/index.html.erb within layouts/application
+  [1m[36mMenu Load (0.3ms)[0m  [1m[34mSELECT "menus".* FROM "menus"[0m
+  ↳ app/views/menu_items/index.html.erb:15
+  [1m[36mMenuItem Load (0.2ms)[0m  [1m[34mSELECT "menu_items".* FROM "menu_items" WHERE (category_name = 'Breakfast' and menu_id = 3)[0m
+  ↳ app/views/menu_items/_menus.html.erb:19
+  Rendered menu_items/_menus.html.erb (Duration: 3.2ms | Allocations: 1031)
+  [1m[36mMenuItem Load (0.4ms)[0m  [1m[34mSELECT "menu_items".* FROM "menu_items" WHERE (category_name = 'lunch' and menu_id = 3)[0m
+  ↳ app/views/menu_items/_menus.html.erb:19
+  Rendered menu_items/_menus.html.erb (Duration: 4.9ms | Allocations: 624)
+  [1m[36mMenuItem Load (0.3ms)[0m  [1m[34mSELECT "menu_items".* FROM "menu_items" WHERE (category_name = 'Dinner' and menu_id = 3)[0m
+  ↳ app/views/menu_items/_menus.html.erb:19
+  Rendered menu_items/_menus.html.erb (Duration: 3.4ms | Allocations: 624)
+  Rendered menu_items/index.html.erb within layouts/application (Duration: 17.5ms | Allocations: 3358)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 42ms (Views: 28.7ms | ActiveRecord: 1.6ms | Allocations: 8200)
+
+
+Started PUT "/menu_items/21" for 127.0.0.1 at 2020-05-12 11:37:29 +0530
+Processing by MenuItemsController#update as JS
+  Parameters: {"authenticity_token"=>"8laHUycCybcZCQs4NfxZp/IwonRxtr6+P0umy7ACeVg7V5Ijgn6ZL0amNa0pBYa2tX/4FJ4oYOLtlBxBkMIDcg==", "name"=>"Dosa", "price"=>"40.0", "id"=>"21"}
+  [1m[36mMenu Load (1.4ms)[0m  [1m[34mSELECT "menus".* FROM "menus" WHERE "menus"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:36:in `current_menu'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:15:in `current_user'
+  [1m[36mMenuItem Load (0.3ms)[0m  [1m[34mSELECT "menu_items".* FROM "menu_items" WHERE "menu_items"."id" = $1 LIMIT $2[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ app/controllers/menu_items_controller.rb:32:in `update'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/menu_items_controller.rb:35:in `update'
+  [1m[36mMenu Load (0.2ms)[0m  [1m[34mSELECT "menus".* FROM "menus" WHERE "menus"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/menu_items_controller.rb:35:in `update'
+  [1m[36mMenuItem Update (0.8ms)[0m  [1m[33mUPDATE "menu_items" SET "name" = $1, "updated_at" = $2 WHERE "menu_items"."id" = $3[0m  [["name", "Dosa"], ["updated_at", "2020-05-12 06:07:29.757124"], ["id", 21]]
+  ↳ app/controllers/menu_items_controller.rb:35:in `update'
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/menu_items_controller.rb:35:in `update'
+Redirected to http://localhost:3000/menu_items
+Completed 200 OK in 35ms (ActiveRecord: 4.4ms | Allocations: 5182)
+
+
+Started GET "/menu_items" for 127.0.0.1 at 2020-05-12 11:37:29 +0530
+Processing by MenuItemsController#index as HTML
+  [1m[36mMenu Load (2.5ms)[0m  [1m[34mSELECT "menus".* FROM "menus" WHERE "menus"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:36:in `current_menu'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:15:in `current_user'
+  Rendering menu_items/index.html.erb within layouts/application
+  [1m[36mMenu Load (0.3ms)[0m  [1m[34mSELECT "menus".* FROM "menus"[0m
+  ↳ app/views/menu_items/index.html.erb:15
+  [1m[36mMenuItem Load (0.3ms)[0m  [1m[34mSELECT "menu_items".* FROM "menu_items" WHERE (category_name = 'Breakfast' and menu_id = 3)[0m
+  ↳ app/views/menu_items/_menus.html.erb:19
+  Rendered menu_items/_menus.html.erb (Duration: 3.1ms | Allocations: 1031)
+  [1m[36mMenuItem Load (1.4ms)[0m  [1m[34mSELECT "menu_items".* FROM "menu_items" WHERE (category_name = 'lunch' and menu_id = 3)[0m
+  ↳ app/views/menu_items/_menus.html.erb:19
+  Rendered menu_items/_menus.html.erb (Duration: 3.4ms | Allocations: 624)
+  [1m[36mMenuItem Load (0.3ms)[0m  [1m[34mSELECT "menu_items".* FROM "menu_items" WHERE (category_name = 'Dinner' and menu_id = 3)[0m
+  ↳ app/views/menu_items/_menus.html.erb:19
+  Rendered menu_items/_menus.html.erb (Duration: 4.3ms | Allocations: 624)
+  Rendered menu_items/index.html.erb within layouts/application (Duration: 21.3ms | Allocations: 3358)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 41ms (Views: 31.5ms | ActiveRecord: 5.1ms | Allocations: 8207)
+
+
+Started GET "/menu_items" for 127.0.0.1 at 2020-05-12 11:39:54 +0530
+Processing by MenuItemsController#index as HTML
+  [1m[36mMenu Load (0.6ms)[0m  [1m[34mSELECT "menus".* FROM "menus" WHERE "menus"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:36:in `current_menu'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:15:in `current_user'
+  Rendering menu_items/index.html.erb within layouts/application
+  [1m[36mMenu Load (0.8ms)[0m  [1m[34mSELECT "menus".* FROM "menus"[0m
+  ↳ app/views/menu_items/index.html.erb:15
+  [1m[36mMenuItem Load (0.3ms)[0m  [1m[34mSELECT "menu_items".* FROM "menu_items" WHERE (category_name = 'Breakfast' and menu_id = 3)[0m
+  ↳ app/views/menu_items/_menus.html.erb:19
+  Rendered menu_items/_menus.html.erb (Duration: 9.9ms | Allocations: 2343)
+  Rendered menu_items/index.html.erb within layouts/application (Duration: 20.0ms | Allocations: 3792)
+Completed 500 Internal Server Error in 39ms (ActiveRecord: 2.0ms | Allocations: 6011)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"show", :controller=>"menu_items"}, missing required keys: [:id]):
+    19:  <% menus.each do |item| %>
+    20:    <tr>
+    21:    
+    22:    <%= form_for(url: menu_item_path, method: :put) do %>  
+    23:        <td class="table-data">
+    24:         <%=text_field_tag( name='name',value = item.name,
+    25:            disabled: if(user_role == "owner")
+  
+app/views/menu_items/_menus.html.erb:22
+app/views/menu_items/_menus.html.erb:19
+app/views/menu_items/index.html.erb:28
+app/controllers/menu_items_controller.rb:5:in `index'
+Started GET "/menu_items" for 127.0.0.1 at 2020-05-12 11:40:11 +0530
+Processing by MenuItemsController#index as HTML
+  [1m[36mMenu Load (1.4ms)[0m  [1m[34mSELECT "menus".* FROM "menus" WHERE "menus"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:36:in `current_menu'
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:15:in `current_user'
+  Rendering menu_items/index.html.erb within layouts/application
+  [1m[36mMenu Load (2.6ms)[0m  [1m[34mSELECT "menus".* FROM "menus"[0m
+  ↳ app/views/menu_items/index.html.erb:15
+  [1m[36mMenuItem Load (1.3ms)[0m  [1m[34mSELECT "menu_items".* FROM "menu_items" WHERE (category_name = 'Breakfast' and menu_id = 3)[0m
+  ↳ app/views/menu_items/_menus.html.erb:19
+  Rendered menu_items/_menus.html.erb (Duration: 20.3ms | Allocations: 3119)
+  Rendered menu_items/index.html.erb within layouts/application (Duration: 32.1ms | Allocations: 4563)
+Completed 500 Internal Server Error in 45ms (ActiveRecord: 6.1ms | Allocations: 6781)
+
+
+  
+ActionView::Template::Error (undefined method `model_name' for {:url=>"/menu_items/21", :method=>:put}:Hash):
+    19:  <% menus.each do |item| %>
+    20:    <tr>
+    21:    
+    22:    <%= form_for(url: menu_item_path(item.id), method: :put) do %>  
+    23:        <td class="table-data">
+    24:         <%=text_field_tag( name='name',value = item.name,
+    25:            disabled: if(user_role == "owner")
+  
+app/views/menu_items/_menus.html.erb:22
+app/views/menu_items/_menus.html.erb:19
+app/views/menu_items/index.html.erb:28
+app/controllers/menu_items_controller.rb:5:in `index'
+Started GET "/menu_items" for 127.0.0.1 at 2020-05-12 11:45:57 +0530
+Processing by MenuItemsController#index as HTML
+  [1m[36mMenu Load (0.3ms)[0m  [1m[34mSELECT "menus".* FROM "menus" WHERE "menus"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:36:in `current_menu'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:15:in `current_user'
+  Rendering menu_items/index.html.erb within layouts/application
+  [1m[36mMenu Load (6.9ms)[0m  [1m[34mSELECT "menus".* FROM "menus"[0m
+  ↳ app/views/menu_items/index.html.erb:15
+  [1m[36mMenuItem Load (0.7ms)[0m  [1m[34mSELECT "menu_items".* FROM "menu_items" WHERE (category_name = 'Breakfast' and menu_id = 3)[0m
+  ↳ app/views/menu_items/_menus.html.erb:19
+  Rendered menu_items/_menus.html.erb (Duration: 17.7ms | Allocations: 3170)
+  Rendered menu_items/index.html.erb within layouts/application (Duration: 45.0ms | Allocations: 4616)
+Completed 500 Internal Server Error in 61ms (ActiveRecord: 10.1ms | Allocations: 6919)
+
+
+  
+ActionView::Template::Error (undefined method `model_name' for {:url=>"/menu_items/21", :method=>:put}:Hash):
+    21:    
+    22:    
+    23:        <td class="table-data">
+    24:         <%= form_for(url: menu_item_path(item.id), method: :put) do %> 
+    25:         <%=text_field_tag( name='name',value = item.name,
+    26:            disabled: if(user_role == "owner")
+    27:               false else true end)  %>
+  
+app/views/menu_items/_menus.html.erb:24
+app/views/menu_items/_menus.html.erb:19
+app/views/menu_items/index.html.erb:28
+app/controllers/menu_items_controller.rb:5:in `index'
+Started GET "/menu_items" for 127.0.0.1 at 2020-05-12 11:46:16 +0530
+Processing by MenuItemsController#index as HTML
+  [1m[36mMenu Load (2.2ms)[0m  [1m[34mSELECT "menus".* FROM "menus" WHERE "menus"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:36:in `current_menu'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:15:in `current_user'
+  Rendering menu_items/index.html.erb within layouts/application
+  [1m[36mMenu Load (6.0ms)[0m  [1m[34mSELECT "menus".* FROM "menus"[0m
+  ↳ app/views/menu_items/index.html.erb:15
+  [1m[36mMenuItem Load (6.4ms)[0m  [1m[34mSELECT "menu_items".* FROM "menu_items" WHERE (category_name = 'Breakfast' and menu_id = 3)[0m
+  ↳ app/views/menu_items/_menus.html.erb:19
+  Rendered menu_items/_menus.html.erb (Duration: 12.0ms | Allocations: 1650)
+  [1m[36mMenuItem Load (0.6ms)[0m  [1m[34mSELECT "menu_items".* FROM "menu_items" WHERE (category_name = 'lunch' and menu_id = 3)[0m
+  ↳ app/views/menu_items/_menus.html.erb:19
+  Rendered menu_items/_menus.html.erb (Duration: 4.3ms | Allocations: 624)
+  [1m[36mMenuItem Load (1.6ms)[0m  [1m[34mSELECT "menu_items".* FROM "menu_items" WHERE (category_name = 'Dinner' and menu_id = 3)[0m
+  ↳ app/views/menu_items/_menus.html.erb:19
+  Rendered menu_items/_menus.html.erb (Duration: 6.4ms | Allocations: 624)
+  Rendered menu_items/index.html.erb within layouts/application (Duration: 41.7ms | Allocations: 4534)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 80ms (Views: 56.0ms | ActiveRecord: 17.1ms | Allocations: 10865)
+
+
+Started DELETE "/menu_items/21" for 127.0.0.1 at 2020-05-12 11:46:22 +0530
+Processing by MenuItemsController#destroy as JS
+  Parameters: {"authenticity_token"=>"vS0kyml8yVBfs6mgXLGT8peBTS7Aayqt8g4SEEWZEFk9dW3MSSIAvfo2Lb+iBe2nYmsNiMRn9+oZ7swtTEkRHg==", "name"=>"Dosaa", "price"=>"40.0", "id"=>"21"}
+  [1m[36mMenu Load (1.3ms)[0m  [1m[34mSELECT "menus".* FROM "menus" WHERE "menus"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:36:in `current_menu'
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:15:in `current_user'
+  [1m[36mMenuItem Load (0.2ms)[0m  [1m[34mSELECT "menu_items".* FROM "menu_items" WHERE "menu_items"."id" = $1 LIMIT $2[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ app/controllers/menu_items_controller.rb:41:in `destroy'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/menu_items_controller.rb:42:in `destroy'
+  [1m[36mMenuItem Destroy (0.9ms)[0m  [1m[31mDELETE FROM "menu_items" WHERE "menu_items"."id" = $1[0m  [["id", 21]]
+  ↳ app/controllers/menu_items_controller.rb:42:in `destroy'
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/menu_items_controller.rb:42:in `destroy'
+Redirected to http://localhost:3000/menu_items
+Completed 200 OK in 19ms (ActiveRecord: 4.3ms | Allocations: 3699)
+
+
+Started GET "/menu_items" for 127.0.0.1 at 2020-05-12 11:46:22 +0530
+Processing by MenuItemsController#index as HTML
+  [1m[36mMenu Load (0.8ms)[0m  [1m[34mSELECT "menus".* FROM "menus" WHERE "menus"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:36:in `current_menu'
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:15:in `current_user'
+  Rendering menu_items/index.html.erb within layouts/application
+  [1m[36mMenu Load (2.1ms)[0m  [1m[34mSELECT "menus".* FROM "menus"[0m
+  ↳ app/views/menu_items/index.html.erb:15
+  [1m[36mMenuItem Load (2.3ms)[0m  [1m[34mSELECT "menu_items".* FROM "menu_items" WHERE (category_name = 'Breakfast' and menu_id = 3)[0m
+  ↳ app/views/menu_items/_menus.html.erb:19
+  Rendered menu_items/_menus.html.erb (Duration: 4.3ms | Allocations: 625)
+  [1m[36mMenuItem Load (1.6ms)[0m  [1m[34mSELECT "menu_items".* FROM "menu_items" WHERE (category_name = 'lunch' and menu_id = 3)[0m
+  ↳ app/views/menu_items/_menus.html.erb:19
+  Rendered menu_items/_menus.html.erb (Duration: 5.0ms | Allocations: 624)
+  [1m[36mMenuItem Load (0.4ms)[0m  [1m[34mSELECT "menu_items".* FROM "menu_items" WHERE (category_name = 'Dinner' and menu_id = 3)[0m
+  ↳ app/views/menu_items/_menus.html.erb:19
+  Rendered menu_items/_menus.html.erb (Duration: 3.5ms | Allocations: 624)
+  Rendered menu_items/index.html.erb within layouts/application (Duration: 19.7ms | Allocations: 2953)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 41ms (Views: 25.0ms | ActiveRecord: 7.9ms | Allocations: 7797)
+
+
+Started POST "/menus/setmenu" for 127.0.0.1 at 2020-05-12 11:46:31 +0530
+Processing by MenusController#set as HTML
+  Parameters: {"authenticity_token"=>"UTurxmw7ybz2RRbDu0q6/WPGF5ixWwK/MSs5HWa+F6lMDy90nBEXqnFBezbtTHQ5DFzO0ATVuT45mfavmdiZkw==", "menu_id"=>"7,"}
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:15:in `current_user'
+  [1m[36mMenu Load (1.6ms)[0m  [1m[34mSELECT "menus".* FROM "menus" WHERE "menus"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:36:in `current_menu'
+  [1m[36mMenu Load (2.7ms)[0m  [1m[34mSELECT "menus".* FROM "menus" WHERE "menus"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:36:in `current_menu'
+Redirected to http://localhost:3000/menu_items
+Completed 302 Found in 15ms (ActiveRecord: 6.1ms | Allocations: 1954)
+
+
+Started GET "/menu_items" for 127.0.0.1 at 2020-05-12 11:46:31 +0530
+Processing by MenuItemsController#index as HTML
+  [1m[36mMenu Load (1.7ms)[0m  [1m[34mSELECT "menus".* FROM "menus" WHERE "menus"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:36:in `current_menu'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:15:in `current_user'
+  Rendering menu_items/index.html.erb within layouts/application
+  [1m[36mMenu Load (0.4ms)[0m  [1m[34mSELECT "menus".* FROM "menus"[0m
+  ↳ app/views/menu_items/index.html.erb:15
+  [1m[36mMenuItem Load (1.3ms)[0m  [1m[34mSELECT "menu_items".* FROM "menu_items" WHERE (category_name = 'Breakfast' and menu_id = 7)[0m
+  ↳ app/views/menu_items/_menus.html.erb:19
+  Rendered menu_items/_menus.html.erb (Duration: 29.9ms | Allocations: 625)
+  [1m[36mMenuItem Load (0.4ms)[0m  [1m[34mSELECT "menu_items".* FROM "menu_items" WHERE (category_name = 'lunch' and menu_id = 7)[0m
+  ↳ app/views/menu_items/_menus.html.erb:19
+  Rendered menu_items/_menus.html.erb (Duration: 2.9ms | Allocations: 624)
+  [1m[36mMenuItem Load (0.4ms)[0m  [1m[34mSELECT "menu_items".* FROM "menu_items" WHERE (category_name = 'Dinner' and menu_id = 7)[0m
+  ↳ app/views/menu_items/_menus.html.erb:19
+  Rendered menu_items/_menus.html.erb (Duration: 5.7ms | Allocations: 624)
+  Rendered menu_items/index.html.erb within layouts/application (Duration: 46.2ms | Allocations: 2954)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 64ms (Views: 52.9ms | ActiveRecord: 4.4ms | Allocations: 7801)
+
+
+Started POST "/menus/setmenu" for 127.0.0.1 at 2020-05-12 11:46:35 +0530
+Processing by MenusController#set as HTML
+  Parameters: {"authenticity_token"=>"7V88gGJFcvLn+nJ8CIVTeDS88PP/AvIcoaNUgMtam0k9IgyK6lmhpJaIlrIk5r0df0ubEmjch1zzR9e4yBi7aA==", "menu_id"=>"2,"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:15:in `current_user'
+  [1m[36mMenu Load (0.2ms)[0m  [1m[34mSELECT "menus".* FROM "menus" WHERE "menus"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:36:in `current_menu'
+  [1m[36mMenu Load (2.5ms)[0m  [1m[34mSELECT "menus".* FROM "menus" WHERE "menus"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:36:in `current_menu'
+Redirected to http://localhost:3000/menu_items
+Completed 302 Found in 14ms (ActiveRecord: 3.7ms | Allocations: 1931)
+
+
+Started GET "/menu_items" for 127.0.0.1 at 2020-05-12 11:46:35 +0530
+Processing by MenuItemsController#index as HTML
+  [1m[36mMenu Load (0.8ms)[0m  [1m[34mSELECT "menus".* FROM "menus" WHERE "menus"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:36:in `current_menu'
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:15:in `current_user'
+  Rendering menu_items/index.html.erb within layouts/application
+  [1m[36mMenu Load (0.4ms)[0m  [1m[34mSELECT "menus".* FROM "menus"[0m
+  ↳ app/views/menu_items/index.html.erb:15
+  [1m[36mMenuItem Load (1.0ms)[0m  [1m[34mSELECT "menu_items".* FROM "menu_items" WHERE (category_name = 'Breakfast' and menu_id = 2)[0m
+  ↳ app/views/menu_items/_menus.html.erb:19
+  Rendered menu_items/_menus.html.erb (Duration: 13.4ms | Allocations: 1844)
+  [1m[36mMenuItem Load (0.4ms)[0m  [1m[34mSELECT "menu_items".* FROM "menu_items" WHERE (category_name = 'lunch' and menu_id = 2)[0m
+  ↳ app/views/menu_items/_menus.html.erb:19
+  Rendered menu_items/_menus.html.erb (Duration: 5.3ms | Allocations: 1842)
+  [1m[36mMenuItem Load (2.5ms)[0m  [1m[34mSELECT "menu_items".* FROM "menu_items" WHERE (category_name = 'Dinner' and menu_id = 2)[0m
+  ↳ app/views/menu_items/_menus.html.erb:19
+  Rendered menu_items/_menus.html.erb (Duration: 7.0ms | Allocations: 1842)
+  Rendered menu_items/index.html.erb within layouts/application (Duration: 40.8ms | Allocations: 6607)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 63ms (Views: 47.8ms | ActiveRecord: 5.8ms | Allocations: 11454)
+
+
+Started DELETE "/menu_items/7" for 127.0.0.1 at 2020-05-12 11:46:39 +0530
+Processing by MenuItemsController#destroy as JS
+  Parameters: {"authenticity_token"=>"eGwt9YbltrT7Ov79PYWr3ThdMQEkyKDdwlBnwdfpI1nvm9uwC9EPK7qbsB0aKYpl6Lbl/LaERLqkwtq9PSPgOg==", "name"=>"dosaa", "price"=>"30.0", "id"=>"7"}
+  [1m[36mMenu Load (0.3ms)[0m  [1m[34mSELECT "menus".* FROM "menus" WHERE "menus"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:36:in `current_menu'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:15:in `current_user'
+  [1m[36mMenuItem Load (1.2ms)[0m  [1m[34mSELECT "menu_items".* FROM "menu_items" WHERE "menu_items"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/menu_items_controller.rb:41:in `destroy'
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/menu_items_controller.rb:42:in `destroy'
+  [1m[36mMenuItem Destroy (0.2ms)[0m  [1m[31mDELETE FROM "menu_items" WHERE "menu_items"."id" = $1[0m  [["id", 7]]
+  ↳ app/controllers/menu_items_controller.rb:42:in `destroy'
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/menu_items_controller.rb:42:in `destroy'
+Redirected to http://localhost:3000/menu_items
+Completed 200 OK in 24ms (ActiveRecord: 3.4ms | Allocations: 3676)
+
+
+Started GET "/menu_items" for 127.0.0.1 at 2020-05-12 11:46:39 +0530
+Processing by MenuItemsController#index as HTML
+  [1m[36mMenu Load (1.2ms)[0m  [1m[34mSELECT "menus".* FROM "menus" WHERE "menus"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:36:in `current_menu'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:15:in `current_user'
+  Rendering menu_items/index.html.erb within layouts/application
+  [1m[36mMenu Load (0.3ms)[0m  [1m[34mSELECT "menus".* FROM "menus"[0m
+  ↳ app/views/menu_items/index.html.erb:15
+  [1m[36mMenuItem Load (0.7ms)[0m  [1m[34mSELECT "menu_items".* FROM "menu_items" WHERE (category_name = 'Breakfast' and menu_id = 2)[0m
+  ↳ app/views/menu_items/_menus.html.erb:19
+  Rendered menu_items/_menus.html.erb (Duration: 8.8ms | Allocations: 1437)
+  [1m[36mMenuItem Load (0.4ms)[0m  [1m[34mSELECT "menu_items".* FROM "menu_items" WHERE (category_name = 'lunch' and menu_id = 2)[0m
+  ↳ app/views/menu_items/_menus.html.erb:19
+  Rendered menu_items/_menus.html.erb (Duration: 3.7ms | Allocations: 1842)
+  [1m[36mMenuItem Load (0.4ms)[0m  [1m[34mSELECT "menu_items".* FROM "menu_items" WHERE (category_name = 'Dinner' and menu_id = 2)[0m
+  ↳ app/views/menu_items/_menus.html.erb:19
+  Rendered menu_items/_menus.html.erb (Duration: 3.8ms | Allocations: 1842)
+  Rendered menu_items/index.html.erb within layouts/application (Duration: 26.0ms | Allocations: 6200)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 50ms (Views: 35.8ms | ActiveRecord: 3.1ms | Allocations: 11047)
+
+
+Started GET "/menu_items" for 127.0.0.1 at 2020-05-12 11:47:37 +0530
+Processing by MenuItemsController#index as HTML
+  [1m[36mMenu Load (1.3ms)[0m  [1m[34mSELECT "menus".* FROM "menus" WHERE "menus"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:36:in `current_menu'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:15:in `current_user'
+  Rendering menu_items/index.html.erb within layouts/application
+  [1m[36mMenu Load (2.4ms)[0m  [1m[34mSELECT "menus".* FROM "menus"[0m
+  ↳ app/views/menu_items/index.html.erb:15
+  [1m[36mMenuItem Load (2.4ms)[0m  [1m[34mSELECT "menu_items".* FROM "menu_items" WHERE (category_name = 'Breakfast' and menu_id = 2)[0m
+  ↳ app/views/menu_items/_menus.html.erb:19
+  Rendered menu_items/_menus.html.erb (Duration: 12.9ms | Allocations: 2058)
+  [1m[36mMenuItem Load (0.4ms)[0m  [1m[34mSELECT "menu_items".* FROM "menu_items" WHERE (category_name = 'lunch' and menu_id = 2)[0m
+  ↳ app/views/menu_items/_menus.html.erb:19
+  Rendered menu_items/_menus.html.erb (Duration: 5.4ms | Allocations: 1842)
+  [1m[36mMenuItem Load (0.4ms)[0m  [1m[34mSELECT "menu_items".* FROM "menu_items" WHERE (category_name = 'Dinner' and menu_id = 2)[0m
+  ↳ app/views/menu_items/_menus.html.erb:19
+  Rendered menu_items/_menus.html.erb (Duration: 6.0ms | Allocations: 1842)
+  Rendered menu_items/index.html.erb within layouts/application (Duration: 53.7ms | Allocations: 7383)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 79ms (Views: 66.1ms | ActiveRecord: 7.1ms | Allocations: 13717)
+
+
+Started DELETE "/menu_items/8" for 127.0.0.1 at 2020-05-12 11:47:44 +0530
+Processing by MenuItemsController#destroy as JS
+  Parameters: {"authenticity_token"=>"D2Ze8C36Lcck883aLDiA8vGw/M63pPNwpJc2qg2cKqkicIk7PraCZb7yzNQQjEtRfWBGQKKlAvc0mTEb5Bt5Dw==", "name"=>"Fried Rice", "price"=>"80.0", "id"=>"8"}
+  [1m[36mMenu Load (0.3ms)[0m  [1m[34mSELECT "menus".* FROM "menus" WHERE "menus"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:36:in `current_menu'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:15:in `current_user'
+  [1m[36mMenuItem Load (0.3ms)[0m  [1m[34mSELECT "menu_items".* FROM "menu_items" WHERE "menu_items"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/menu_items_controller.rb:41:in `destroy'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/menu_items_controller.rb:42:in `destroy'
+  [1m[36mMenuItem Destroy (8.8ms)[0m  [1m[31mDELETE FROM "menu_items" WHERE "menu_items"."id" = $1[0m  [["id", 8]]
+  ↳ app/controllers/menu_items_controller.rb:42:in `destroy'
+  [1m[35m (2.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/menu_items_controller.rb:42:in `destroy'
+Redirected to http://localhost:3000/menu_items
+Completed 200 OK in 31ms (ActiveRecord: 11.8ms | Allocations: 3680)
+
+
+Started GET "/menu_items" for 127.0.0.1 at 2020-05-12 11:47:44 +0530
+Processing by MenuItemsController#index as HTML
+  [1m[36mMenu Load (0.7ms)[0m  [1m[34mSELECT "menus".* FROM "menus" WHERE "menus"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:36:in `current_menu'
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:15:in `current_user'
+  Rendering menu_items/index.html.erb within layouts/application
+  [1m[36mMenu Load (0.4ms)[0m  [1m[34mSELECT "menus".* FROM "menus"[0m
+  ↳ app/views/menu_items/index.html.erb:15
+  [1m[36mMenuItem Load (2.7ms)[0m  [1m[34mSELECT "menu_items".* FROM "menu_items" WHERE (category_name = 'Breakfast' and menu_id = 2)[0m
+  ↳ app/views/menu_items/_menus.html.erb:19
+  Rendered menu_items/_menus.html.erb (Duration: 5.8ms | Allocations: 1438)
+  [1m[36mMenuItem Load (0.4ms)[0m  [1m[34mSELECT "menu_items".* FROM "menu_items" WHERE (category_name = 'lunch' and menu_id = 2)[0m
+  ↳ app/views/menu_items/_menus.html.erb:19
+  Rendered menu_items/_menus.html.erb (Duration: 8.9ms | Allocations: 1842)
+  [1m[36mMenuItem Load (0.4ms)[0m  [1m[34mSELECT "menu_items".* FROM "menu_items" WHERE (category_name = 'Dinner' and menu_id = 2)[0m
+  ↳ app/views/menu_items/_menus.html.erb:19
+  Rendered menu_items/_menus.html.erb (Duration: 3.8ms | Allocations: 1436)
+  Rendered menu_items/index.html.erb within layouts/application (Duration: 26.2ms | Allocations: 5796)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 45ms (Views: 32.5ms | ActiveRecord: 5.1ms | Allocations: 10652)
+
+
+Started GET "/menu_items" for 127.0.0.1 at 2020-05-12 11:49:05 +0530
+Processing by MenuItemsController#index as HTML
+  [1m[36mMenu Load (1.3ms)[0m  [1m[34mSELECT "menus".* FROM "menus" WHERE "menus"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:36:in `current_menu'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:15:in `current_user'
+  Rendering menu_items/index.html.erb within layouts/application
+  [1m[36mMenu Load (0.3ms)[0m  [1m[34mSELECT "menus".* FROM "menus"[0m
+  ↳ app/views/menu_items/index.html.erb:15
+  [1m[36mMenuItem Load (2.9ms)[0m  [1m[34mSELECT "menu_items".* FROM "menu_items" WHERE (category_name = 'Breakfast' and menu_id = 2)[0m
+  ↳ app/views/menu_items/_menus.html.erb:19
+  Rendered menu_items/_menus.html.erb (Duration: 10.2ms | Allocations: 2072)
+  [1m[36mMenuItem Load (0.4ms)[0m  [1m[34mSELECT "menu_items".* FROM "menu_items" WHERE (category_name = 'lunch' and menu_id = 2)[0m
+  ↳ app/views/menu_items/_menus.html.erb:19
+  Rendered menu_items/_menus.html.erb (Duration: 6.8ms | Allocations: 1842)
+  [1m[36mMenuItem Load (0.4ms)[0m  [1m[34mSELECT "menu_items".* FROM "menu_items" WHERE (category_name = 'Dinner' and menu_id = 2)[0m
+  ↳ app/views/menu_items/_menus.html.erb:19
+  Rendered menu_items/_menus.html.erb (Duration: 6.3ms | Allocations: 1436)
+  Rendered menu_items/index.html.erb within layouts/application (Duration: 38.4ms | Allocations: 6985)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 62ms (Views: 48.6ms | ActiveRecord: 5.6ms | Allocations: 13313)
+
+
+Started PUT "/menu_items/10" for 127.0.0.1 at 2020-05-12 11:49:15 +0530
+Processing by MenuItemsController#update as JS
+  Parameters: {"authenticity_token"=>"Jv012wocS7Xpu3itnPozJJSBxSOmeDtvYFNcklhK/zz2gAXRggCY45jJnGOwmd1B33auwjGmTi8yt9+qWwjfHQ==", "name"=>"Prawn Briyani", "price"=>"145.0", "id"=>"10"}
+  [1m[36mMenu Load (1.7ms)[0m  [1m[34mSELECT "menus".* FROM "menus" WHERE "menus"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:36:in `current_menu'
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:15:in `current_user'
+  [1m[36mMenuItem Load (0.4ms)[0m  [1m[34mSELECT "menu_items".* FROM "menu_items" WHERE "menu_items"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/menu_items_controller.rb:32:in `update'
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/menu_items_controller.rb:35:in `update'
+  [1m[36mMenu Load (0.2ms)[0m  [1m[34mSELECT "menus".* FROM "menus" WHERE "menus"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/menu_items_controller.rb:35:in `update'
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/menu_items_controller.rb:35:in `update'
+Redirected to http://localhost:3000/menu_items
+Completed 200 OK in 49ms (ActiveRecord: 3.8ms | Allocations: 4404)
+
+
+Started GET "/menu_items" for 127.0.0.1 at 2020-05-12 11:49:15 +0530
+Processing by MenuItemsController#index as HTML
+  [1m[36mMenu Load (0.9ms)[0m  [1m[34mSELECT "menus".* FROM "menus" WHERE "menus"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:36:in `current_menu'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:15:in `current_user'
+  Rendering menu_items/index.html.erb within layouts/application
+  [1m[36mMenu Load (0.2ms)[0m  [1m[34mSELECT "menus".* FROM "menus"[0m
+  ↳ app/views/menu_items/index.html.erb:15
+  [1m[36mMenuItem Load (0.4ms)[0m  [1m[34mSELECT "menu_items".* FROM "menu_items" WHERE (category_name = 'Breakfast' and menu_id = 2)[0m
+  ↳ app/views/menu_items/_menus.html.erb:19
+  Rendered menu_items/_menus.html.erb (Duration: 5.1ms | Allocations: 1438)
+  [1m[36mMenuItem Load (0.4ms)[0m  [1m[34mSELECT "menu_items".* FROM "menu_items" WHERE (category_name = 'lunch' and menu_id = 2)[0m
+  ↳ app/views/menu_items/_menus.html.erb:19
+  Rendered menu_items/_menus.html.erb (Duration: 6.7ms | Allocations: 1842)
+  [1m[36mMenuItem Load (0.3ms)[0m  [1m[34mSELECT "menu_items".* FROM "menu_items" WHERE (category_name = 'Dinner' and menu_id = 2)[0m
+  ↳ app/views/menu_items/_menus.html.erb:19
+  Rendered menu_items/_menus.html.erb (Duration: 4.7ms | Allocations: 1436)
+  Rendered menu_items/index.html.erb within layouts/application (Duration: 24.6ms | Allocations: 5796)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 46ms (Views: 37.2ms | ActiveRecord: 2.4ms | Allocations: 10643)
+
+
+Started PUT "/menu_items/17" for 127.0.0.1 at 2020-05-12 11:49:33 +0530
+Processing by MenuItemsController#update as JS
+  Parameters: {"authenticity_token"=>"N64dpBECSonwmQcHfSja0ZsjF7bPEvUAW8lJU1EX04R0NXTMufQDgzwHf8upUWuRQkXqWy3ufQfrvsdvzbpwHQ==", "name"=>"chappathi", "id"=>"17"}
+  [1m[36mMenu Load (1.9ms)[0m  [1m[34mSELECT "menus".* FROM "menus" WHERE "menus"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:36:in `current_menu'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:15:in `current_user'
+  [1m[36mMenuItem Load (0.3ms)[0m  [1m[34mSELECT "menu_items".* FROM "menu_items" WHERE "menu_items"."id" = $1 LIMIT $2[0m  [["id", 17], ["LIMIT", 1]]
+  ↳ app/controllers/menu_items_controller.rb:32:in `update'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/menu_items_controller.rb:35:in `update'
+  [1m[36mMenu Load (0.2ms)[0m  [1m[34mSELECT "menus".* FROM "menus" WHERE "menus"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/menu_items_controller.rb:35:in `update'
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/menu_items_controller.rb:35:in `update'
+Completed 422 Unprocessable Entity in 55ms (ActiveRecord: 3.2ms | Allocations: 6394)
+
+
+  
+ActiveRecord::RecordInvalid (Validation failed: Price can't be blank):
+  
+app/controllers/menu_items_controller.rb:35:in `update'
+Started GET "/menu_items" for 127.0.0.1 at 2020-05-12 11:50:12 +0530
+Processing by MenuItemsController#index as HTML
+  [1m[36mMenu Load (3.0ms)[0m  [1m[34mSELECT "menus".* FROM "menus" WHERE "menus"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:36:in `current_menu'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:15:in `current_user'
+  Rendering menu_items/index.html.erb within layouts/application
+  [1m[36mMenu Load (0.3ms)[0m  [1m[34mSELECT "menus".* FROM "menus"[0m
+  ↳ app/views/menu_items/index.html.erb:15
+  Rendered menu_items/_menus.html.erb (Duration: 2.9ms | Allocations: 1619)
+  Rendered menu_items/index.html.erb within layouts/application (Duration: 18.0ms | Allocations: 3067)
+Completed 500 Internal Server Error in 33ms (ActiveRecord: 3.5ms | Allocations: 5286)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <main id="table-body">
+<div class="MenuList">
+
+<p><%=section_title%></p>
+<table class="menu-table">
+  <tr class="Table-header">
+    
+    <th class="heading"> Item</th>
+    <th class="heading">Rate</th>
+   <% if user_role == "user"%>
+     <th class="heading">Cart</th>
+    <%end%>
+    
+    <% if user_role == "owner"%>
+    <th class="heading">delete</th>
+    <%end%>
+  </tr>
+
+ <% menus.each do |item| %>
+   <tr>
+   
+   
+       <td class="table-data">
+        <%= form_with(url: menu_item_path(item.id), method: :put) do %> 
+        <%=text_field_tag( name='name',value = item.name,
+           disabled: if(user_role == "owner")
+              false else true end)  %>
+              
+        </td>
+       <td class="table-data"> Rs.
+         <%=text_field_tag( name='price',value = item.price,
+           disabled: if(user_role == "owner")
+              false else true end)  %>
+          <%if user_role == "owner"%>     
+          <%=button_tag( value="edit") %>
+          <%end%>
+       </td>
+    
+       
+    <%if user_role == "user"%>
+     <td class="table-data">
+       <%= form_with(url: order_item_path(item.id), method: :put) do %>  
+         <label for="quantity">Quantity:</label>
+         <%= number_field_tag(name = 'quantity' ,nil,min: 1,class: 'quantity_field')%> 
+         <%= button_tag 'Add to cart',type:'submit'%>
+        <% end %>
+     </td>
+    <%end%>
+    <%if user_role == "owner"%>
+     <td>
+       <%= form_with(url: menu_item_path(item.id), method: :delete) do %>  
+        <input class="Img-Trash" type="image" src="interface.png">
+       <%end%>
+      
+     </td>
+    <%end%>
+   </tr>
+ <% end %>
+</table>
+</div>
+</main>
+
+):
+1:    <main id="table-body">
+2:    <div class="MenuList">
+3:    
+4:    <p><%=section_title%></p>
+5:    <table class="menu-table">
+6:      <tr class="Table-header">
+7:        
+8:        <th class="heading"> Item</th>
+9:        <th class="heading">Rate</th>
+10:       <% if user_role == "user"%>
+11:         <th class="heading">Cart</th>
+12:        <%end%>
+13:        
+14:        <% if user_role == "owner"%>
+15:        <th class="heading">delete</th>
+16:        <%end%>
+17:      </tr>
+18:    
+19:     <% menus.each do |item| %>
+20:       <tr>
+21:       
+22:       
+23:           <td class="table-data">
+24:            <%= form_with(url: menu_item_path(item.id), method: :put) do %> 
+25:            <%=text_field_tag( name='name',value = item.name,
+26:               disabled: if(user_role == "owner")
+27:                  false else true end)  %>
+28:                  
+29:            </td>
+30:           <td class="table-data"> Rs.
+31:             <%=text_field_tag( name='price',value = item.price,
+32:               disabled: if(user_role == "owner")
+33:                  false else true end)  %>
+34:              <%if user_role == "owner"%>     
+35:              <%=button_tag( value="edit") %>
+36:              <%end%>
+37:           </td>
+38:        
+39:           
+40:        <%if user_role == "user"%>
+41:         <td class="table-data">
+42:           <%= form_with(url: order_item_path(item.id), method: :put) do %>  
+43:             <label for="quantity">Quantity:</label>
+44:             <%= number_field_tag(name = 'quantity' ,nil,min: 1,class: 'quantity_field')%> 
+45:             <%= button_tag 'Add to cart',type:'submit'%>
+46:            <% end %>
+47:         </td>
+48:        <%end%>
+49:        <%if user_role == "owner"%>
+50:         <td>
+51:           <%= form_with(url: menu_item_path(item.id), method: :delete) do %>  
+52:            <input class="Img-Trash" type="image" src="interface.png">
+53:           <%end%>
+54:          
+55:         </td>
+56:        <%end%>
+57:       </tr>
+58:     <% end %>
+59:    </table>
+60:    </div>
+61:    </main>
+  
+app/views/menu_items/_menus.html.erb:64: syntax error, unexpected end-of-input, expecting end
+app/views/menu_items/_menus.html.erb:64: syntax error, unexpected end-of-input, expecting end
+app/views/menu_items/_menus.html.erb:64: syntax error, unexpected end-of-input, expecting end
+app/views/menu_items/_menus.html.erb:64: syntax error, unexpected end-of-input, expecting end
+app/views/menu_items/_menus.html.erb:64: syntax error, unexpected end-of-input, expecting end
+app/views/menu_items/_menus.html.erb:64: syntax error, unexpected end-of-input, expecting end
+app/views/menu_items/index.html.erb:28
+app/controllers/menu_items_controller.rb:5:in `index'
+Started GET "/menu_items" for 127.0.0.1 at 2020-05-12 11:50:21 +0530
+Processing by MenuItemsController#index as HTML
+  [1m[36mMenu Load (0.2ms)[0m  [1m[34mSELECT "menus".* FROM "menus" WHERE "menus"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:36:in `current_menu'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:15:in `current_user'
+  Rendering menu_items/index.html.erb within layouts/application
+  [1m[36mMenu Load (0.4ms)[0m  [1m[34mSELECT "menus".* FROM "menus"[0m
+  ↳ app/views/menu_items/index.html.erb:15
+  [1m[36mMenuItem Load (1.5ms)[0m  [1m[34mSELECT "menu_items".* FROM "menu_items" WHERE (category_name = 'Breakfast' and menu_id = 2)[0m
+  ↳ app/views/menu_items/_menus.html.erb:19
+  Rendered menu_items/_menus.html.erb (Duration: 8.0ms | Allocations: 2056)
+  [1m[36mMenuItem Load (0.4ms)[0m  [1m[34mSELECT "menu_items".* FROM "menu_items" WHERE (category_name = 'lunch' and menu_id = 2)[0m
+  ↳ app/views/menu_items/_menus.html.erb:19
+  Rendered menu_items/_menus.html.erb (Duration: 4.5ms | Allocations: 1842)
+  [1m[36mMenuItem Load (0.3ms)[0m  [1m[34mSELECT "menu_items".* FROM "menu_items" WHERE (category_name = 'Dinner' and menu_id = 2)[0m
+  ↳ app/views/menu_items/_menus.html.erb:19
+  Rendered menu_items/_menus.html.erb (Duration: 3.1ms | Allocations: 1436)
+  Rendered menu_items/index.html.erb within layouts/application (Duration: 31.9ms | Allocations: 6970)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 58ms (Views: 47.4ms | ActiveRecord: 3.0ms | Allocations: 13301)
+
+
+Started GET "/menus" for 127.0.0.1 at 2020-05-12 11:52:19 +0530
+Processing by MenusController#index as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:15:in `current_user'
+  [1m[36mMenu Load (0.7ms)[0m  [1m[34mSELECT "menus".* FROM "menus" WHERE "menus"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:36:in `current_menu'
+  Rendering menus/index.html.erb within layouts/application
+  [1m[36mMenu Load (0.3ms)[0m  [1m[34mSELECT "menus".* FROM "menus"[0m
+  ↳ app/views/menus/_add_menu.html.erb:21:in `collect'
+  Rendered menus/_add_menu.html.erb (Duration: 82.4ms | Allocations: 8839)
+  Rendered menus/index.html.erb within layouts/application (Duration: 87.2ms | Allocations: 9185)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 111ms (Views: 102.0ms | ActiveRecord: 1.8ms | Allocations: 14518)
+
+
+Started POST "/menu_items" for 127.0.0.1 at 2020-05-12 11:52:42 +0530
+Processing by MenuItemsController#create as JS
+  Parameters: {"authenticity_token"=>"bgGINb4wEP1d258simMRpYK1b3sFHuxFM4KQzr8Wtla9/GmNRcN9HnAXJSTgk1np3/nbpcx7k7fpuU475zunOw==", "item"=>"dosa", "description"=>"south indian", "category"=>"Breakfast", "menu"=>"2", "rate"=>"30", "commit"=>"add"}
+  [1m[36mMenu Load (0.2ms)[0m  [1m[34mSELECT "menus".* FROM "menus" WHERE "menus"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:36:in `current_menu'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:15:in `current_user'
+  [1m[35m (2.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/menu_items_controller.rb:21:in `create'
+  [1m[36mMenu Load (1.7ms)[0m  [1m[34mSELECT "menus".* FROM "menus" WHERE "menus"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/menu_items_controller.rb:21:in `create'
+  [1m[36mMenuItem Create (4.8ms)[0m  [1m[32mINSERT INTO "menu_items" ("name", "description", "price", "created_at", "updated_at", "menu_id", "category_name") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "dosa"], ["description", "south indian"], ["price", "30.0"], ["created_at", "2020-05-12 06:22:42.120592"], ["updated_at", "2020-05-12 06:22:42.120592"], ["menu_id", 2], ["category_name", "Breakfast"]]
+  ↳ app/controllers/menu_items_controller.rb:21:in `create'
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/menu_items_controller.rb:21:in `create'
+Redirected to http://localhost:3000/menu_items
+Completed 200 OK in 29ms (ActiveRecord: 10.7ms | Allocations: 4837)
+
+
+Started GET "/menu_items" for 127.0.0.1 at 2020-05-12 11:52:42 +0530
+Processing by MenuItemsController#index as HTML
+  [1m[36mMenu Load (1.8ms)[0m  [1m[34mSELECT "menus".* FROM "menus" WHERE "menus"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:36:in `current_menu'
+  [1m[36mUser Load (2.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:15:in `current_user'
+  Rendering menu_items/index.html.erb within layouts/application
+  [1m[36mMenu Load (1.9ms)[0m  [1m[34mSELECT "menus".* FROM "menus"[0m
+  ↳ app/views/menu_items/index.html.erb:15
+  [1m[36mMenuItem Load (1.1ms)[0m  [1m[34mSELECT "menu_items".* FROM "menu_items" WHERE (category_name = 'Breakfast' and menu_id = 2)[0m
+  ↳ app/views/menu_items/_menus.html.erb:19
+  Rendered menu_items/_menus.html.erb (Duration: 10.6ms | Allocations: 1845)
+  [1m[36mMenuItem Load (0.4ms)[0m  [1m[34mSELECT "menu_items".* FROM "menu_items" WHERE (category_name = 'lunch' and menu_id = 2)[0m
+  ↳ app/views/menu_items/_menus.html.erb:19
+  Rendered menu_items/_menus.html.erb (Duration: 3.7ms | Allocations: 1842)
+  [1m[36mMenuItem Load (3.9ms)[0m  [1m[34mSELECT "menu_items".* FROM "menu_items" WHERE (category_name = 'Dinner' and menu_id = 2)[0m
+  ↳ app/views/menu_items/_menus.html.erb:19
+  Rendered menu_items/_menus.html.erb (Duration: 8.0ms | Allocations: 1436)
+  Rendered menu_items/index.html.erb within layouts/application (Duration: 30.2ms | Allocations: 6209)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 49ms (Views: 33.1ms | ActiveRecord: 11.2ms | Allocations: 11078)
+
+
