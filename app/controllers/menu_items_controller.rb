@@ -33,7 +33,6 @@ class MenuItemsController < ApplicationController
     menu_item.name = params[:name]
     menu_item.price = params[:price]
     menu_item.save!
-    redirect_to menu_items_path
   end
 
   def destroy

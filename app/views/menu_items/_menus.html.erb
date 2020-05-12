@@ -11,9 +11,6 @@
      <th class="heading">Cart</th>
     <%end%>
     
-    <% if user_role == "owner"%>
-    <th class="heading">delete</th>
-    <%end%>
   </tr>
 
  <% menus.each do |item| %>
@@ -21,19 +18,12 @@
    
    
        <td class="table-data">
-        <%= form_with(url: menu_item_path(item.id), method: :put) do %> 
-        <%=text_field_tag( name='name',value = item.name,
-           disabled: if(user_role == "owner")
-              false else true end)  %>
+        <%= item.name%>
               
         </td>
        <td class="table-data"> Rs.
-         <%=text_field_tag( name='price',value = item.price,
-           disabled: if(user_role == "owner")
-              false else true end)  %>
-          <%if user_role == "owner"%>     
-          <%=button_tag( value="edit") %>
-          <%end%>
+         <%=item.price %>
+         
        </td>
     
        
@@ -44,14 +34,6 @@
          <%= number_field_tag(name = 'quantity' ,nil,min: 1,class: 'quantity_field')%> 
          <%= button_tag 'Add to cart',type:'submit'%>
         <% end %>
-     </td>
-    <%end%>
-    <%if user_role == "owner"%>
-     <td>
-       <%= form_with(url: menu_item_path(item.id), method: :delete) do %>  
-        <input class="Img-Trash" type="image" src="interface.png">
-       <%end%>
-      <% end %>
      </td>
     <%end%>
    </tr>

@@ -20,8 +20,8 @@ class MenusController < ApplicationController
 
   def show
     id = params[:id]
-    @menu = Menu.find(id)
-    @menu_items = MenuItem.of_menu(@menu)
+    @edit_menu = Menu.find(id)
+    @menu_items = MenuItem.of_menu(@edit_menu)
     render "menus/edit"
   end
 

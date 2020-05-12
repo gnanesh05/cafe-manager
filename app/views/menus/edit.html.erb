@@ -1,7 +1,50 @@
 <h1>you can edit your menu </h1>
 
 <div>
- <p> <%=@menu.name%>
+ <p> <%=@edit_menu.name%> </p>
  </div>
 
  <p>menu items are </p>
+ <main>
+ <%= render partial: "edit_menu", locals:{
+              
+         menus:@menu_items.breakfast(@edit_menu),
+         section_title: "Breakfast", 
+         
+            } %>
+
+<%= render partial: "edit_menu", locals:{
+                
+         menus:@menu_items.lunch(@edit_menu),
+         section_title: "Lunch",
+           
+        
+            } %>
+
+<%= render partial: "edit_menu", locals:{
+                
+         menus:@menu_items.dinner(@edit_menu),
+         section_title: "Dinner",
+         
+        
+            } %>
+</main>
+
+<hr>
+<div>
+ <p> Get to menus <p>
+ <%= link_to "menus",menu_items_path%>
+</div>
+<hr>
+<div>
+ 
+  <p><strong>delete menu ? </p>
+  <%Menu.all.each do |m|%>
+             <li>
+               <%= m.name %>
+               <%= form_with(url: menu_path(m.id), method: :delete) do %>
+                 <%= image_submit_tag("interface.png", data: { confirm: "Are you sure?" }) %>
+               <%end%>
+              </li>
+             <% end %>
+ </div> 

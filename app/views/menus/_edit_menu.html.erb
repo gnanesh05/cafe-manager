@@ -1,0 +1,39 @@
+
+<div>
+  <p><%=section_title%></p>
+   <%menus.each do |item| %>
+
+   <section>
+    
+     
+       
+     <div>
+     <li>
+       <div>
+         <p>item</p>
+         <%= form_with(url: menu_item_path(item.id), method: :put) do %> 
+         <%=text_field_tag( name='name',value = item.name)%>
+       </div>
+       <div>
+          <p>price</p>
+           <%=text_field_tag( name='price',value = item.price) %>
+        </div>
+        <div>
+          <%=button_tag( value="edit") %>
+          <%end%>
+          <%= form_with(url: menu_item_path(item.id), method: :delete) do %> 
+          <%= image_submit_tag("interface.png", data: { confirm: "Are you sure?" }) %>
+          <%end%>
+        </div>
+      </div>
+    <%end%>
+     </section>
+
+</div>
+
+
+           
+
+
+
+     
