@@ -58,3 +58,36 @@
   height: 25px;
   border-radius: 10px;
 }
+
+.MenuEdit-title {
+  text-align: center;
+}
+
+.MenuEdit-ListHeading {
+  margin-left: 46%;
+}
+
+.MenuEdit-ListTitle {
+  display: flex;
+  margin-left: 40%;
+}
+.MenuEdit-List {
+  display: flex;
+}
+
+.MenuEdit-ListItem {
+  padding-right: 20%;
+}
+
+.MenuEdit-ListElements {
+  padding-left: 35%;
+}
+
+.MenuEdit-delete {
+  display: flex;
+  width: 11.5%;
+  margin-left: 30%;
+  margin-top: 4px;
+  margin-bottom: 10px;
+  justify-content: space-between;
+}
