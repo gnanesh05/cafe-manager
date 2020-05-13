@@ -12,6 +12,26 @@ class OrderItemsController < ApplicationController
     end
   end
 
+  def add
+    id = params[:id]
+    order_item = OrderItem.find(id)
+
+    order = Order.current_order(current_user)
+    order_item.quantity = order_item.quantity + 1
+    order_item.save!
+    redirect_to order_items_path
+  end
+
+  def remove
+    id = params[:id]
+    order_item = OrderItem.find(id)
+
+    order = Order.current_order(current_user)
+    order_item.quantity = order_item.quantity - 1
+    order_item.save!
+    redirect_to order_items_path
+  end
+
   def update
     id = params[:id]
     item = MenuItem.find(id)

@@ -5,12 +5,17 @@
     <% order_items.each do |item|%>
      <p>item:       <%= item.menu_item_name %>  </p>
      <p>price:       <%= item.menu_item_price%>   </p>
-     <p>quantity:   <%= item.quantity %>         </p>
+     <p> quantity :
+    <%= link_to "−", remove_path(id:item.id), method: "post", class: "minus" %>
+                        <%= item.quantity %>
+    <%= link_to "＋", add_path(id:item.id), method: "post", class: "plus"  %>
+      </p> 
+       
      <p> sum = <%= (item.menu_item_price * item.quantity) %> </p>
      <p>
        <%= form_with(url: order_item_path(item.id), method: :delete) do %>  
           <%= button_tag 'remove',type:'submit'%>
-      <%end%>
+       <%end%>
     </p> 
     <%end%>
     
