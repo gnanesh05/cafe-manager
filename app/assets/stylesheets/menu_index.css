@@ -3,7 +3,7 @@
   padding-left: 35%;
 }
 
-.Menu-title {
+.MenuItem-title {
   padding-left: 40%;
 }
 
@@ -15,7 +15,7 @@
 
 .item-label {
   margin-right: 30px;
-  color: rgb(255, 141, 1);
+  color: rgba(0, 0, 0, 0.904);
 }
 
 .add-section {
@@ -36,7 +36,25 @@
   border-radius: 10px;
 }
 
-.add-MenuHeader {
+.add-MenuItemHeader {
   padding-left: 40%;
-  padding-top: 5%;
+  padding-top: 2%;
+}
+
+.Menu-container {
+  background-color: bisque;
+}
+
+.Menu-list {
+  padding-left: 38%;
+  display: flex;
+  align-items: center;
+  margin: 10px;
+}
+.form-submit {
+  margin-left: 30px;
+  background-color: lightgreen;
+  width: 80px;
+  height: 25px;
+  border-radius: 10px;
 }
