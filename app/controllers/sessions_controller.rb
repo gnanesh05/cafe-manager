@@ -25,5 +25,6 @@ class SessionsController < ApplicationController
     session[:current_user_id] = nil
     @current_user = nil
     redirect_to "/"
+    flash[:notice] = "you logged out"
   end
 end

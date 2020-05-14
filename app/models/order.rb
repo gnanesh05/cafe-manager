@@ -25,4 +25,8 @@ class Order < ApplicationRecord
   def self.last_order(user)
     all.where("user_id = ?", user.id).last
   end
+
+  def self.find_order(order)
+    all.where("id =?", order.id)
+  end
 end

@@ -1,26 +1,20 @@
 
 
 <div>
-<<<<<<< HEAD
-  <h4><%= section_title%> </h4>
-  <li>
-  <% users.each do |user|%> 
-  <%=image_tag("user1.png")%>
-  <strong> name:</strong>  <%= user.name%>
-  <strong> email:</strong> <%= user.email%>
-  <strong> joined on:</strong> <%=user.created_at.to_s(:short)%>
-   <br>
-=======
+  
+  
   <%if users.first%>
     <h4 class="User-role"><%= section_title%> </h4>
     <table border = "1">
         <tr>
-          <td><strong> Name:</strong></td>
-          <td><strong> Email:</strong></td>
-          <td><strong> Joined on:</strong></td>
+          <th> </th>
+          <th><strong> Name:</strong></th>
+          <th><strong> Email:</strong></th>
+          <th><strong> Joined on:</strong></th>
         </tr>
       <% users.each do |user|%>
         <tr>
+          <td>  <%=image_tag("user1.png")%></td>
           <td><%= user.name%></td>
           <td><%= user.email%></td>
           <td><%=user.created_at.to_s(:short)%></td>
@@ -29,6 +23,5 @@
       </table>
   <%else%>
     <p>NO Active :<%=section_title %></p>
->>>>>>> e1d626fc969da4268d95918d7173243cc64bb5b6
   <%end%>
 <div>

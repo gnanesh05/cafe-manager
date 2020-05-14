@@ -12,4 +12,8 @@ class User < ApplicationRecord
   def self.clerk
     all.where("role = ?", "clerk")
   end
+
+  def self.walk_in_customer
+    all.where("name = ?", "walk-in customer")
+  end
 end

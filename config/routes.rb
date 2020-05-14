@@ -6,10 +6,13 @@ Rails.application.routes.draw do
   resources :order_items
   resources :menus
   resources :customers
+  post "/orders/deliver_order", to: "orders#deliver_order", as: :deliver_order
+  post "/order_items/offline_customer", to: "order_items#offline_customer", as: :offline_customer
   post "/order_items/add", to: "order_items#add", as: :add
   post "/order_items/remove", to: "order_items#remove", as: :remove
   post "/menus/setmenu", to: "menus#set", as: :setmenu
   get "/signin" => "sessions#new", as: :new_sessions
   post "/signin" => "sessions#create", as: :sessions
   delete "/signout" => "sessions#destroy", as: :destroy_session
+  delete "/remove" => "order_items#delete", as: :delete
 end

@@ -17,16 +17,6 @@ class OrdersController < ApplicationController
     end
   end
 
-  def modify
-    id = params[:id]
-    order_item = OrderItem.find(id)
-
-    order = Order.current_order(current_user)
-    order_item.quantity = order_item.quantity + 1
-    order_item.save!
-    redirect_to order_items_path
-  end
-
   def create
     Order.create!(user_id: @current_user.id,
                   date: Date.today,
@@ -35,21 +25,22 @@ class OrdersController < ApplicationController
   end
 
   def update
-    if @current_user.role == "user"
-      id = params[:id]
-      order = Order.find(id)
-      order.status = "received"
-      order.save!
-      redirect_to orders_path
-    else
-      id = params[:id]
-      order = Order.find(id)
-      order.status = "delivered"
-      time = Time.now
-      order.delivered_at = Time.now.to_formatted_s(:long)
-      order.save!
-      redirect_to orders_path
-    end
+    id = params[:id]
+    order = Order.find(id)
+    order.status = "received"
+    order.save!
+    redirect_to orders_path
+  end
+
+  def deliver_order
+    id = params[:id]
+    order = Order.find(id)
+    order.status = "delivered"
+    time = Time.now
+    order.delivered_at = Time.now.to_formatted_s(:long)
+    order.save!
+
+    redirect_to orders_path
   end
 
   def destroy
