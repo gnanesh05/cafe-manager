@@ -56,7 +56,7 @@
       <%menu.each do |m|%>
         <div class="Menu-list">
           <%= m.name %>
-          <%= form_with(url: menu_path(m.id), method: :get) do %>
+          <%= form_with(url: menu_path(m.id), method: :get, local: true) do %>
           <%submit_tag("edit" , class: "form-submit")%>
           <%end%>
         </div>

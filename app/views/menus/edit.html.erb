@@ -1,32 +1,32 @@
 <h1>you can edit your menu </h1>
 
 <div>
- <p> <%=@edit_menu.name%> </p>
+ <b><em> <%=@edit_menu.name%> </b></em>
  </div>
 
- <p>menu items are </p>
+ <p class="MenuEdit-title">Menu items:</p>
  <main>
  <%= render partial: "edit_menu", locals:{
-              
+
          menus:@menu_items.breakfast(@edit_menu),
-         section_title: "Breakfast", 
-         
+         section_title: "Breakfast",
+
             } %>
 
 <%= render partial: "edit_menu", locals:{
-                
+
          menus:@menu_items.lunch(@edit_menu),
          section_title: "Lunch",
-           
-        
+
+
             } %>
 
 <%= render partial: "edit_menu", locals:{
-                
+
          menus:@menu_items.dinner(@edit_menu),
          section_title: "Dinner",
-         
-        
+
+
             } %>
 </main>
 
@@ -37,14 +37,14 @@
 </div>
 <hr>
 <div>
- 
-  <p><strong>delete menu ? </p>
+
+  <strong>Delete menu ?</strong>
   <%Menu.all.each do |m|%>
-             <li>
+             <li class="MenuEdit-delete">
                <%= m.name %>
                <%= form_with(url: menu_path(m.id), method: :delete) do %>
                  <%= image_submit_tag("interface.png", data: { confirm: "Are you sure?" }) %>
                <%end%>
               </li>
              <% end %>
- </div> 
+ </div>
