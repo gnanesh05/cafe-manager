@@ -2,11 +2,9 @@
   <hr>
   
     <%if cart !=nil %>
-     <% if user_role == "owner"%>
+     
       <h4>pending orders </h4>
-     <%else%>
-      <h4>pending orders </h4>
-      <%end%>
+      
 
      <% cart.each do |order|%>
        <li> 

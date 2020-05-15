@@ -14,6 +14,6 @@ class User < ApplicationRecord
   end
 
   def self.walk_in_customer
-    all.where("name = ?", "walk-in customer")
+    where("name = ?", "walk-in customer")
   end
 end

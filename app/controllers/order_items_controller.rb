@@ -9,7 +9,7 @@ class OrderItemsController < ApplicationController
       render "index"
     end
     if @current_user.role == "clerk"
-      @customer = User.find_by(name: "walk-in customer")
+      @customer = walk_in_customer
       order = Order.current_order(@customer)
       @order = order
       @order_items = OrderItem.where("order_id = ?", order.id)
@@ -63,10 +63,7 @@ class OrderItemsController < ApplicationController
   end
 
   def offline_customer
-    @customer = User.find_by(name: "walk-in customer")
-    new_order = Order.create!(user_id: @customer.id,
-                              date: Date.today,
-                              status: "not placed")
+    @customer = walk_in_customer
 
     id = params[:id]
     item = MenuItem.find(id)

@@ -18,6 +18,10 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def walk_in_customer
+    return @walk_in_customer = User.find_by(name: "walk-in customer")
+  end
+
   def ensure_clerk_logged_in
     unless current_user.role == "clerk"
       redirect_to sessions_path
