@@ -13,12 +13,16 @@ class SessionsController < ApplicationController
         new_order = Order.create!(user_id: user.id,
                                   date: Date.today,
                                   status: "not placed")
-      else user.role == "clerk"
+        redirect_to "/"
+      elsif user.role == "clerk"
         @customer = walk_in_customer
         new_order = Order.create!(user_id: @customer.id,
                                   date: Date.today,
                                   status: "not placed")
-        redirect_to "/"       end
+        redirect_to "/"
+      else
+        redirect_to "/"
+      end
     else
       flash[:error] = "your login attempt was invalid. please try again"
       redirect_to new_sessions_path

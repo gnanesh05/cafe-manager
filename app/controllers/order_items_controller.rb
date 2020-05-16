@@ -27,7 +27,7 @@ class OrderItemsController < ApplicationController
     order = Order.current_order(current_user)
     order_item.quantity = order_item.quantity + 1
     order_item.save!
-    redirect_to order_items_path
+    redirect_to menu_items_path
   end
 
   def remove
@@ -38,14 +38,14 @@ class OrderItemsController < ApplicationController
     if order_item.quantity > 0
       order_item.quantity = order_item.quantity - 1
       order_item.save!
-      redirect_to order_items_path
+      redirect_to menu_items_path
     end
     if order_item.quantity == 0
       order_item.delete
     end
   end
 
-  def update
+  def create_order_item
     id = params[:id]
     item = MenuItem.find(id)
     order = Order.current_order(current_user)
@@ -53,12 +53,16 @@ class OrderItemsController < ApplicationController
       menu_item_id: id,
       menu_item_name: item.name,
       menu_item_price: item.price,
-      quantity: params[:quantity],
+      quantity: 1,
       order_id: order.id,
     )
-    if !cart_item.save
-      flash[:error] = cart_item.errors.full_messages.join(", ")
-      redirect_to menu_items_path
+    if cart_item.save
+      flash[:notice] = "#{item.name} is added to cart"
+
+      respond_to do |format|
+        format.html { redirect_to menu_items_path }
+        format.json { head :no_content }
+      end
     end
   end
 
@@ -72,7 +76,7 @@ class OrderItemsController < ApplicationController
       menu_item_id: id,
       menu_item_name: item.name,
       menu_item_price: item.price,
-      quantity: params[:quantity],
+      quantity: 1,
       order_id: order.id,
     )
     if cart_item.save

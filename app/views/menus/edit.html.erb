@@ -39,12 +39,12 @@
 <div>
 
   <strong>Delete menu ?</strong>
-  <%Menu.all.each do |m|%>
+  
              <li class="MenuEdit-delete">
-               <%= m.name %>
-               <%= form_with(url: menu_path(m.id), method: :delete) do %>
+               <%= @edit_menu.name %>
+               <%= form_with(url: menu_path(@edit_menu.id), method: :delete) do %>
                  <%= image_submit_tag("interface.png", data: { confirm: "Are you sure?" }) %>
                <%end%>
               </li>
-             <% end %>
+             
  </div>

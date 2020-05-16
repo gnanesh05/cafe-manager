@@ -1,6 +1,9 @@
 class MenuItem < ActiveRecord::Base
   validates :name, presence: true
   validates :price, presence: true
+  validates :description, presence: true
+  validates :category_name, presence: true
+  validates :menu_id, presence: true
   belongs_to :menu
 
   def self.dinner(menu)

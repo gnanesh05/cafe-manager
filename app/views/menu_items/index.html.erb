@@ -30,6 +30,7 @@
          menus:MenuItem.breakfast(@menu),
          section_title: "Breakfast", 
          user_role: @current_user.role
+        
             } %>
 
 <%= render partial: "menus", locals:{
@@ -47,7 +48,7 @@
          user_role: @current_user.role 
         
             } %>
- <%if @current_user.role == "user" || "clerk"%>
+ <%if @current_user.role !="owner"%>
   <div class="box">
 	<a class="button" href="/order_items">view cart</a>
   </div>

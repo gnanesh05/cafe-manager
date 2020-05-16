@@ -1,6 +1,12 @@
 class MenuItemsController < ApplicationController
   def index
-    render "index"
+    if @current_user.role == "clerk"
+      @customer = walk_in_customer
+      render "index"
+    else
+      render "index"
+    end
+
     menu = Menu.all
   end
 
