@@ -1,7 +1,7 @@
 
 
 <body id="Menu-body">
-  
+
    <div class="below1">
      <div class="below1-right">
      <%if @current_user.role == "owner"%>
@@ -19,34 +19,34 @@
               <% end %>
           </select>
       <% end %>
-     
+
      <%end%>
    </div>
    </div>
-  <h1>Menu</h1> 
-  <p>displaying    <%= @menu.name%> </p>
+  <h1>Menu</h1>
+  <h3 class="Menu-Head"><em>Displaying    <%= @menu.name%></em></h3>
 <%= render partial: "menus", locals:{
-              
+
          menus:MenuItem.breakfast(@menu),
-         section_title: "Breakfast", 
+         section_title: "Breakfast",
          user_role: @current_user.role
-        
+
             } %>
 
 <%= render partial: "menus", locals:{
-                
+
          menus:MenuItem.lunch(@menu),
          section_title: "Lunch",
            user_role: @current_user.role
-        
+
             } %>
 
 <%= render partial: "menus", locals:{
-                
+
          menus:MenuItem.dinner(@menu),
          section_title: "Dinner",
-         user_role: @current_user.role 
-        
+         user_role: @current_user.role
+
             } %>
  <%if @current_user.role !="owner"%>
   <div class="box">
@@ -55,5 +55,3 @@
  <%end%>
 
 </body>
-
-

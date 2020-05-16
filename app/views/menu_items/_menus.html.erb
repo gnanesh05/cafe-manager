@@ -3,46 +3,46 @@
 
 <p><%=section_title%></p>
 <table class="menu-table">
+
   <tr class="Table-header">
-    
+
     <th class="heading"> Item</th>
     <th class="heading">Rate</th>
    <% if user_role == "user" || "clerk"%>
      <th class="heading">Cart</th>
     <%end%>
-    
-  </tr>
 
+  </tr>
  <% menus.each do |item| %>
-   <tr>
-   
-   
+   <tr class="TableItem-container">
+
+
        <td class="table-data">
         <%= item.name%>
-              
+
         </td>
        <td class="table-data"> Rs.
          <%=item.price %>
-         
+
        </td>
-    
-       
+
+
     <%if user_role == "user"%>
      <td class="table-data">
      <% order = Order.current_order(@current_user)%>
-    
+
      <% orderitem = OrderItem.find_by(order_id: order.id, menu_item_id: item.id)%>
-     
-     
+
+
        <%if orderitem%>
         <p> quantity :
            <%= link_to "−", remove_path(id:orderitem.id), method: "post", class: "minus" ,:remote => true%>
                         <%= orderitem.quantity %>
            <%= link_to "＋", add_path(id:orderitem.id), method: "post", class: "plus" ,:remote => true %>
-        </p> 
-        
-       <%else%> 
-        <%= form_with(url: create_order_item_path(id:item.id), method: :post) do %>  
+        </p>
+
+       <%else%>
+        <%= form_with(url: create_order_item_path(id:item.id), method: :post) do %>
          <%= button_tag 'Add',type:'submit', :remote => true%>
         <% end %>
        <%end%>
@@ -50,7 +50,7 @@
     <%end%>
     <%if user_role == "clerk"%>
     <% order = Order.current_order(@customer)%>
-    
+
      <% orderitem = OrderItem.find_by(order_id: order.id, menu_item_id: item.id)%>
      <td class="table-data">
      <%if orderitem%>
@@ -58,7 +58,7 @@
            <%= link_to "−", remove_path(id:orderitem.id), method: "post", class: "minus" ,:remote => true%>
                         <%= orderitem.quantity %>
            <%= link_to "＋", add_path(id:orderitem.id), method: "post", class: "plus" ,:remote => true %>
-        </p> 
+        </p>
      <%else%>
         <%= form_with(url: offline_customer_path(id: item.id), method: :post) do %>
          <%= button_tag 'Add',type:'submit',:remote => true%>
