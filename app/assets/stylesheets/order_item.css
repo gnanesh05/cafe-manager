@@ -1,0 +1,48 @@
+.OrderItem-container {
+  display: flex;
+  align-items: center;
+  margin-left: 25%;
+  height: 10%;
+}
+
+.OrderItem-element {
+  padding-left: 4%;
+}
+
+.OrderItem-heading {
+  text-align: center;
+  background-color: aqua;
+}
+
+.OrderItem-remove {
+  background-color: rgba(255, 47, 47, 0.808);
+  width: 80px;
+  height: 30px;
+  border-radius: 10px;
+  color: black;
+}
+
+.OrderItem-remove:hover {
+  background-color: rgb(255, 0, 0);
+}
+
+.OrderItem-cost {
+  padding-left: 40%;
+}
+
+.OrderItem-submit {
+  margin-left: 27.5%;
+  background-color: rgba(0, 255, 0, 0.459);
+  width: 100px;
+  height: 30px;
+  border-radius: 10px;
+  color: black;
+}
+
+.OrderItem-submit:hover {
+  background-color: rgb(6, 255, 6);
+}
+
+.OrderItem-extra {
+  padding-left: 60%;
+}

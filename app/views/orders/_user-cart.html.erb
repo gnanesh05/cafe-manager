@@ -1,64 +1,65 @@
 
-  <hr>
-  
-    <%if cart !=nil %>
-     
-      <h4>pending orders </h4>
-      
+<hr>
 
-     <% cart.each do |order|%>
-       <li> 
-       order id: <%=order.id%>
-       ordered on: <%=order.date%> 
-       order status: <%=order.status%>
-       <br>
-       <% if user_role == "clerk" %>
-       <% user_id = order.user_id %>
-       <% user = User.find(user_id)%>
-       ordered by: <%=user.name %>  
-           <%= form_with(url: deliver_order_path(id:order.id), method: :post) do %>  
-            <%= button_tag 'delivered',type:'submit'%>
-           <% end %>
-        <%end%>
-       </li>
-       <%end%>
-        <% last_order = Order.last_order(@current_user)%>
-        <%if user_role == "user" && last_order.status=="received"%>
-          <%= form_with(url: orders_path, method: :post) do %>  
-            <%= button_tag 'make a another order',type:'submit'%>
-          <% end %>
-        <%end%>
-      <%if user_role == "clerk" || user_role =="owner" %>
-        <%if delivered%>
-         <hr>
-         <h4>delivered orders </h4>
-         <% delivered.each do |order|%>
-         <li>
-          order id: <%=order.id%>
-          ordered on: <%=order.date%> 
-          delivered at: <%=order.delivered_at%>
-          order status: <%=order.status%>
-          <%user_id = order.user_id %>
-          <% user = User.find(user_id)%>
-           ordered by: <%=user.name %>  
-         </li>
-         <%end%>
-        <%end%>
-      <%end%> 
-      <%if user_role == "user" && user_delivered%>
+  <%if cart !=nil %>
+
+    <h3 class="Order-title">Pending orders </h3>
+
+      <% cart.each do |order|%>
+        <li class="Order-list" >
+          order-id: <%=order.id%>
+          ordered-on: <%=order.date%>
+          order-status: <span class=<%= order.status=="received" ? "OrderStatus-received" : "OrderStatus-delivered" %> > <%=order.status%> </span>
+
+          <% if user_role == "clerk" %>
+            <% user_id = order.user_id %>
+              <% user = User.find(user_id)%>
+              ordered by: <%=user.name %>
+              <%= form_with(url: deliver_order_path(id:order.id), method: :post) do %>
+              <%= button_tag 'delivered',type:'submit'%>
+            <% end %>
+          <%end%>
+
+        </li>
+      <%end%>
+
+    <% last_order = Order.last_order(@current_user)%>
+      <%if user_role == "user" && last_order.status=="received"%>
+        <%= form_with(url: orders_path, method: :post) do %>
+        <%= button_tag 'make a another order',type:'submit',class: "Order-extra"%>
+      <% end %>
+    <%end%>
+
+    <%if user_role == "clerk" || user_role =="owner" %>
+      <%if delivered%>
         <hr>
-        <h4> delivered orders </h4>
-        <% user_delivered.each do |order|%>
-         <li>
-          order id: <%=order.id%>
-          ordered on: <%=order.date%> 
-          delivered at: <%=order.delivered_at%>
-          order status: <%=order.status%>
+        <h3 class="Order-title">Delivered orders </h3>
+        <% delivered.each do |order|%>
+          <li class="Order-list">
+            order id: <%=order.id%>
+            ordered on: <%=order.date%>
+            delivered at: <%=order.delivered_at%>
+            order status: <span class=<%= order.status=="received" ? "OrderStatus-received" : "OrderStatus-delivered" %> > <%=order.status%> </span>
+            <%user_id = order.user_id %>
+            <% user = User.find(user_id)%>
+            ordered by: <%=user.name %>
+          </li>
         <%end%>
       <%end%>
-    <%else%>
-      <h3> place an order with just few clicks !! </h3>
-      <%=link_to "menus", menu_items_path%>
-     <%end%>
+    <%end%>
+    <%if user_role == "user" && user_delivered%>
+      <hr>
+      <h3 class="Order-title"> delivered orders </h3
+      <% user_delivered.each do |order|%>
+        <li class="Order-list">
+        order id: <%=order.id%>
+        ordered on: <%=order.date%>
+        delivered at: <%=order.delivered_at%>
+        order status: <span class=<%= order.status=="received" ? "OrderStatus-received" : "OrderStatus-delivered" %> > <%=order.status%> </span>
+      <%end%>
+    <%end%>
 
-   
+  <%else%>
+  <h3> place an order with just few clicks !! </h3>
+  <%=link_to "menus", menu_items_path%>
+<%end%>

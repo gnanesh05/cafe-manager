@@ -5,12 +5,12 @@
   table-layout: fixed;
 }
 .nav-main {
- 
+
     overflow: hidden;
     width: 900 %
   }
-  
-  
+
+
   .nav-main a {
     float: right;
     color: black
@@ -20,26 +20,31 @@
     font-size: 17px;
     text-transform: uppercase;
     align-items: center;
-  
+
   }
 .heading .table-data {
   border: 1px solid #dddddd;
   text-align: center;
-  padding: 3px;
+}
+.heading {
+  padding-left: 0%;
+}
+.table-data {
+  padding-left: 15.5%;
 }
 
 tr:nth-child(even) {
   background-color: #dddddd;
 }
 .MenuList{
-   
+
     width: 80%;
-    
-    margin-left: auto;    
+
+    margin-left: auto;
     position: relative;
     height: 40%;
-    
-    
+
+
     align-items: center;
     justify-content: center;
     margin-top: 40 px;
@@ -51,12 +56,12 @@ tr:nth-child(even) {
 	text-align: center;
 	top: 50%;
 	margin-right: 0px;
-  width: inherit;  
+  width: inherit;
   margin-top: 200 px;
-  margin-bottom: 0;  
+  margin-bottom: 0;
 }
 #Menu-body{
-    
+
     padding: 0;
     margin: 0;
     font-family: Arial;
@@ -77,8 +82,8 @@ tr:nth-child(even) {
 
 .nav-main a:hover {
   background-color: green;
-  
-  text-decoration:underline; 
+
+  text-decoration:underline;
 }
 
 .below1 {
@@ -118,6 +123,7 @@ tr:nth-child(even) {
   text-decoration: none;
   cursor: pointer;
   transition: all 0.3s ease-out;
+  background: lightblue;
 }
 .button:hover {
   background: #06D85F;
@@ -175,7 +181,9 @@ tr:nth-child(even) {
   height: 450px;
   overflow-y: auto;
 }
-
+.Menu-Head {
+  margin-left: 20%;
+}
 @media screen and (max-width: 700px){
   .box{
     width: 70%;

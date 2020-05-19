@@ -1,0 +1,32 @@
+.Order-extra {
+  background-color: rgba(0, 0, 255, 0.459);
+  width: 160px;
+  height: 40px;
+  border-radius: 10px;
+  color: black;
+  margin-left: 45%;
+  margin-top: 10px;
+}
+
+.Order-extra:hover {
+  background-color: rgb(45, 209, 45);
+}
+
+.Order-title {
+  text-align: center;
+}
+
+.Order-list {
+  margin-left: 36%;
+  margin-top: 1%;
+  margin-bottom: 1%;
+  word-spacing: 14px;
+}
+
+.OrderStatus-received {
+  color: red;
+}
+
+.OrderStatus-delivered {
+  color: green;
+}
