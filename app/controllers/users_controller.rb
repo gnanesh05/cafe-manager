@@ -17,4 +17,31 @@ class UsersController < ApplicationController
       redirect_to users_path
     end
   end
+
+  def update
+    id = params[:id]
+    user = User.find(id)
+    user.role = "clerk"
+
+    if user.save!
+      flash[:notice] = " successfully updated #{user.name} to clerk"
+      redirect_to customers_path
+    else
+      flash[:error] = user.errors.full_messages.join(", ")
+      redirect_to customers_path
+    end
+  end
+
+  def destroy
+    id = params[:id]
+    user = User.find(id)
+
+    if user.destroy
+      flash[:notice] = " successfully removed #{user.name}"
+      redirect_to customers_path
+    else
+      flash[:error] = user.errors.full_messages.join(", ")
+      redirect_to customers_path
+    end
+  end
 end

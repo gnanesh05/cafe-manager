@@ -6,6 +6,7 @@ class OrderItemsController < ApplicationController
       order = Order.current_order(current_user)
       @order = order
       @order_items = OrderItem.where("order_id = ?", order.id)
+
       render "index"
     end
     if @current_user.role == "clerk"
@@ -27,7 +28,7 @@ class OrderItemsController < ApplicationController
     order = Order.current_order(current_user)
     order_item.quantity = order_item.quantity + 1
     order_item.save!
-    redirect_to menu_items_path
+    redirect_back fallback_location: order_items_path
   end
 
   def remove
@@ -38,7 +39,7 @@ class OrderItemsController < ApplicationController
     if order_item.quantity > 0
       order_item.quantity = order_item.quantity - 1
       order_item.save!
-      redirect_to menu_items_path
+      redirect_back fallback_location: order_items_path
     end
     if order_item.quantity == 0
       order_item.delete
@@ -58,11 +59,7 @@ class OrderItemsController < ApplicationController
     )
     if cart_item.save
       flash[:notice] = "#{item.name} is added to cart"
-
-      respond_to do |format|
-        format.html { redirect_to menu_items_path }
-        format.json { head :no_content }
-      end
+      redirect_to menu_items_path
     end
   end
 
@@ -96,6 +93,6 @@ class OrderItemsController < ApplicationController
     id = params[:id]
     order_item = OrderItem.find(id)
     order_item.destroy
-    redirect_to menu_items_path
+    redirect_back fallback_location: order_items_path
   end
 end

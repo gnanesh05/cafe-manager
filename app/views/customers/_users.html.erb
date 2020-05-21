@@ -9,6 +9,12 @@
           <th><strong> Name:</strong></th>
           <th><strong> Email:</strong></th>
           <th><strong> Joined on:</strong></th>
+          <%if section_title =="Customers"%>
+          <th><strong>Update </strong></th>
+          <%end%>
+           <%if section_title =="Billing clerk"%>
+          <th><strong>Remove </strong></th>
+          <%end%>
         </tr>
       <% users.each do |user|%>
         <tr>
@@ -16,6 +22,20 @@
           <td><%= user.name%></td>
           <td><%= user.email%></td>
           <td><%=user.created_at.to_s(:short)%></td>
+          <%if section_title =="Customers"%>
+           <td>
+            <%= form_with(url: user_path(user.id), method: :put) do %>
+             <%=submit_tag("Update", data: { confirm: "Are you sure?" }) %>
+            <%end%>
+           </td>
+          <%end%>
+           <%if section_title =="Billing clerk"%>
+           <td>
+            <%= form_with(url: user_path(user.id), method: :delete) do %>
+             <%=submit_tag("Remove", data: { confirm: "Are you sure?" }) %>
+            <%end%>
+           </td>
+          <%end%>
         </tr>
       <%end%>
       </table>

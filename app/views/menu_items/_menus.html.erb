@@ -36,9 +36,9 @@
 
        <%if orderitem%>
         <p> quantity :
-           <%= link_to "−", remove_path(id:orderitem.id), method: "post", class: "minus" ,:remote => true%>
+           <%= link_to "−", remove_path(id:orderitem.id), method: "post", class: "minus" %>
                         <%= orderitem.quantity %>
-           <%= link_to "＋", add_path(id:orderitem.id), method: "post", class: "plus" ,:remote => true %>
+           <%= link_to "＋", add_path(id:orderitem.id), method: "post", class: "plus"  %>
         </p>
 
        <%else%>
@@ -55,13 +55,13 @@
      <td class="table-data">
      <%if orderitem%>
        <p> quantity :
-           <%= link_to "−", remove_path(id:orderitem.id), method: "post", class: "minus" ,:remote => true%>
+           <%= link_to "-", remove_path(id:orderitem.id), method: "post", class: "minus"%>
                         <%= orderitem.quantity %>
-           <%= link_to "＋", add_path(id:orderitem.id), method: "post", class: "plus" ,:remote => true %>
+           <%= link_to "＋", add_path(id:orderitem.id), method: "post", class: "plus" %>
         </p>
      <%else%>
         <%= form_with(url: offline_customer_path(id: item.id), method: :post) do %>
-         <%= button_tag 'Add',type:'submit',:remote => true%>
+         <%= button_tag 'Add',type:'submit'%>
        <% end %>
       <%end%>
      </td>
