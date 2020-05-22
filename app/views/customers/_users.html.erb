@@ -34,6 +34,9 @@
             <%= form_with(url: user_path(user.id), method: :delete) do %>
              <%=submit_tag("Remove", data: { confirm: "Are you sure?" }) %>
             <%end%>
+            <%= form_with(url: change_role_path(id:user.id), method: :post) do %>
+             <%=submit_tag("Change", data: { confirm: "Are you sure?" }) %>
+            <%end%>
            </td>
           <%end%>
         </tr>
