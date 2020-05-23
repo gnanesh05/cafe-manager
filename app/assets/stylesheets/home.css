@@ -1,49 +1,76 @@
+
 #Main-body{
 
     /* The image used */
    
-     background: 
+    /* background: 
          url(https://images.unsplash.com/photo-1484659619207-9165d119dafe?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80) no-repeat;
     background-size: cover;
-    height: 100 vh;
-     
+    height: 100 vh;*/
+    background-color: black; 
   }
   
   .container-below{
    
-   position: fixed;
-    top: 50%;
+   position: absolute;
+    top: 250px;
     left: 50%;
     /* bring your own prefixes */
     transform: translate(-50%, -50%);
-    width: 300 px;
-    height: 300 px;
-    display: inline-grid;
+   width: 100%;
+   height:50vh;
+   padding:0;
+   margin: 0;
     justify-content: center;
      
     align-items: center;
    
   }
   
+
+
   .below-text{
-     color: white;
-    font-size: xx-large;
-    font-family: 'Lato', sans-serif;
-    font-weight: 900 ;
-  
-      padding-left: 100 px ;
-      padding-right:100 px;
-  
-    
+    color: grey;
+   font-size: xx-large;
+   font-family: 'Lato', sans-serif;
+   font-weight: 900 ;
    
+   box-sizing: border-box;
+   display: inline-table;
+   list-style: none;
+   margin-right: 50px;
+   margin-bottom: 50px;
   
   }
-  .container-below .below-text :hover {
-    background-color: green; text-decoration:underline; 
-    background: url(http://i.imgur.com/K3mPv14.jpg) ;
+ .below-text a{
+   display: block;
+   text-align: center;
+   line-height: 50px;
+   color:grey;
+   text-decoration: none;
+   cursor: pointer;
+   transition: 0.5s;
+ }
+ .below-text img{
+   position: fixed;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   z-index: -2;
+   opacity: 0;
+ }
+ .container-below .below-text :hover {
+   background-color: green;
+ }
+
+ .container-below .below-text :hover + img{
+   opacity: 1;
+   transition: 1s;
+ }
     
-   
-  }
+    
+  
   .container2{
   
           
