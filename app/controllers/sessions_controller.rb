@@ -9,17 +9,28 @@ class SessionsController < ApplicationController
     if user && user.authenticate(params[:password])
       session[:current_user_id] = user.id
       flash[:notice] = " you're signed in !"
+
       if user.role == "user"
-        new_order = Order.create!(user_id: user.id,
-                                  date: Date.today,
-                                  status: "not placed")
-        redirect_to "/"
+        order = Order.current_order(user)
+        if order == nil
+          new_order = Order.create!(user_id: user.id,
+                                    date: Date.today,
+                                    status: "not placed")
+          redirect_to "/"
+        else
+          redirect_to menu_items_path
+        end
       elsif user.role == "clerk"
         @customer = walk_in_customer
-        new_order = Order.create!(user_id: @customer.id,
-                                  date: Date.today,
-                                  status: "not placed")
-        redirect_to "/"
+        order = Order.current_order(@customer)
+        if order == nil
+          new_order = Order.create!(user_id: @customer.id,
+                                    date: Date.today,
+                                    status: "not placed")
+          redirect_to "/"
+        else
+          redirect_to "/"
+        end
       else
         redirect_to "/"
       end

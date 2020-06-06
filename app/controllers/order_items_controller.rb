@@ -77,7 +77,7 @@ class OrderItemsController < ApplicationController
       order_id: order.id,
     )
     if cart_item.save
-      #flash[:error] = cart_item.errors.full_messages.join(", ")
+      flash[:notice] = "#{item.name} is added to cart"
       redirect_to menu_items_path
     end
   end

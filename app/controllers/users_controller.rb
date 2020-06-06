@@ -11,7 +11,7 @@ class UsersController < ApplicationController
                         password: params[:password])
     if new_user.save
       flash[:notice] = " successfully registered"
-      redirect_to sessions_path
+      redirect_to menu_items_path
     else
       flash[:error] = new_user.errors.full_messages.join(", ")
       redirect_to users_path

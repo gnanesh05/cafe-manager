@@ -29,4 +29,6 @@ class Order < ApplicationRecord
   def self.find_order(order)
     all.where("id =?", order.id)
   end
+  
+
 end
