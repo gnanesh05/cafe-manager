@@ -1,73 +1,43 @@
 
 <main id="table-body">
-<div class="MenuList">
+   <div class="MenuList">
+      <p><%=section_title%></p>
 
-<p><%=section_title%></p>
-<table class="menu-table">
+      <section class="menu-card">
+         <% menus.each do |item| %>
+            <div class="card">
+               <img src="https://cdn.pixabay.com/photo/2017/06/16/11/38/breakfast-2408818_960_720.jpg" alt="roasted meat">
+               <div class="blogcontent">
+                  <h3> <%= item.name%><span><%=item.price %></span></h3>
+                  <p><%=section_title%></p>
+                  <%if user_role == "user"%>
+                     <% order = Order.current_order(@current_user)%>
+                  <%elsif user_role == "clerk"%>
+                     <% order = Order.current_order(@customer)%>
+                  <% end %>
+                     <% orderitem = OrderItem.find_by(order_id: order.id, menu_item_id: item.id) if order%>
+                     <%if orderitem%>
+                        <p> quantity :
+                           <%= link_to "−", remove_path(id:orderitem.id), method: "post", class: "minus" %>
+                           <%= orderitem.quantity %>
+                           <%= link_to "＋", add_path(id:orderitem.id), method: "post", class: "plus"  %>
+                        </p>
+                     <%else%>
+                        <% if user_role == "user"%>
+                           <%= form_with(url: create_order_item_path(id:item.id), method: :post) do %>
+                              <%= button_tag 'Add',type:'submit', :remote => true%>
+                           <% end %>
+                        <%elsif user_role == ""%>
+                           <%= form_with(url: offline_customer_path(id: item.id), method: :post) do %>
+                              <%= button_tag 'Add',type:'submit'%>
+                           <% end %>
+                     <%end%>
+                  <%end%>
+               </div>
+            </div>
 
-
-   <% if user_role == "user" || "clerk"%>
-    
-    <%end%>
-<section class="menu-card">
- <% menus.each do |item| %>
-
-
-
-
-
-
-		<div class="card">
-		  <img src="https://cdn.pixabay.com/photo/2017/06/16/11/38/breakfast-2408818_960_720.jpg" alt="roasted meat">
-		  <div class="blogcontent">
-		     <h3> <%= item.name%><span><%=item.price %></span></h3>
-            <p><%=section_title%></p>
-
-
-    <%if user_role == "user"%>
-
-     <% order = Order.current_order(@current_user)%>
-
-     <% orderitem = OrderItem.find_by(order_id: order.id, menu_item_id: item.id)%>
-
-
-       <%if orderitem%>
-        <p> quantity :
-           <%= link_to "−", remove_path(id:orderitem.id), method: "post", class: "minus" %>
-                        <%= orderitem.quantity %>
-           <%= link_to "＋", add_path(id:orderitem.id), method: "post", class: "plus"  %>
-        </p>
-
-       <%else%>
-        <%= form_with(url: create_order_item_path(id:item.id), method: :post) do %>
-         <%= button_tag 'Add',type:'submit', :remote => true%>
-        <% end %>
-       <%end%>
-    <%end%>
- 	</div>
-	       </div>
-
-    <%if user_role == "clerk"%>
-    <% order = Order.current_order(@customer)%>
-
-     <% orderitem = OrderItem.find_by(order_id: order.id, menu_item_id: item.id)%>
-
-     <%if orderitem%>
-       <p> quantity :
-           <%= link_to "-", remove_path(id:orderitem.id), method: "post", class: "minus"%>
-                        <%= orderitem.quantity %>
-           <%= link_to "＋", add_path(id:orderitem.id), method: "post", class: "plus" %>
-        </p>
-     <%else%>
-        <%= form_with(url: offline_customer_path(id: item.id), method: :post) do %>
-         <%= button_tag 'Add',type:'submit'%>
-       <% end %>
-      <%end%>
-
-    <%end%>
-   </tr>
- <% end %>
- </section>
+         <% end %>
+</section>
 
 </div>
 </main>

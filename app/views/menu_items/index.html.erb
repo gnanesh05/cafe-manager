@@ -1,88 +1,80 @@
 
 
 <body id="Menu-body">
-
-   <div class="below1">
-     <div class="below1-right">
-     <%if @current_user.role == "owner"%>
-     <%= form_with(url:  setmenu_path, method: :post, class: "Add-menu") do %>
+  <div class="below1">
+    <div class="below1-right">
+      <%if @current_user.role == "owner"%>
+        <%= form_with(url:  setmenu_path, method: :post, class: "Add-menu") do %>
           <select name="menu_id"
-                  class="Menu-select"
-                  onchange ='if(this.value != 0) { this.form.submit(); }'
-                  autofocus>
+            class="Menu-select"
+            onchange ='if(this.value != 0) { this.form.submit(); }'
+            autofocus>
 
-              <option selected disabled>Choose a  menu</option>
-              <%Menu.all.each do |menu|%>
-                <option value=<%= menu.id %>, class="Menuselect-option">
-                    <%= menu.name %>
-                  </option>
-              <% end %>
+            <option selected disabled>Choose a  menu</option>
+            <%Menu.all.each do |menu|%>
+              <option value=<%= menu.id %>, class="Menuselect-option">
+                <%= menu.name %>
+              </option>
+            <% end %>
           </select>
-      <% end %>
-
-     <%end%>
-   </div>
-   </div>
-  <h1>Menu</h1>
-  <h3 class="Menu-Head"><em>Displaying    <%= @menu.name%></em></h3>
-<%= render partial: "menus", locals:{
-
-         menus:MenuItem.breakfast(@menu),
-         section_title: "Breakfast",
-         user_role: @current_user.role
-
-            } %>
-
-<%= render partial: "menus", locals:{
-
-         menus:MenuItem.lunch(@menu),
-         section_title: "Lunch",
-           user_role: @current_user.role
-
-            } %>
-
-<%= render partial: "menus", locals:{
-
-         menus:MenuItem.dinner(@menu),
-         section_title: "Dinner",
-         user_role: @current_user.role
-
-            } %>
- <%if @current_user.role !="owner"%>
-  <div class="box">
-	<a class="button" href="/order_items">view cart</a>
-  </div>
- <%end%>
- <div class ="box">
-   <a class="button" href ="#popup1" >popup </a>
-     
-  <div>
-  <div id="popup1" class="overlay">
-   <div class ="popup">
-    <h2> Cart </h2>
-    <a class = "close" href="#" >&times;</a>
-    <div class="content">
-     <% if @current_user.role == "user" %>
-     <%order = Order.current_order(@current_user)%> 
-     <%@order = order%> 
-      <%@order_items = OrderItem.where("order_id = ?", order.id)%>
-     
-    <%end%>
-    <%if @current_user.role == "clerk"%>
-      <%@customer = @walk_in_customer%>
-     <% order = Order.current_order(@customer)%>
-      <%@order = order%> 
-      <%@order_items = OrderItem.where("order_id = ?", order.id)%>
-     
-   <% end%>
-  
-
-   <%= render partial: "order_items/order_cart",locals:{
-    
-    order_items: @order_items,
-    order: @order
-   }%>
+        <% end %>
+      <%end%>
     </div>
   </div>
-  
+
+  <h1>Menu</h1>
+  <h3 class="Menu-Head"><em>Displaying <%= @menu.name%></em></h3>
+  <%= render partial: "menus", locals:{
+  menus:MenuItem.breakfast(@menu),
+  section_title: "Breakfast",
+  user_role: @current_user.role
+  } %>
+
+  <%= render partial: "menus", locals:{
+  menus:MenuItem.lunch(@menu),
+  section_title: "Lunch",
+  user_role: @current_user.role
+  } %>
+
+  <%= render partial: "menus", locals:{
+  menus:MenuItem.dinner(@menu),
+  section_title: "Dinner",
+  user_role: @current_user.role
+  } %>
+
+
+  <%if @current_user.role !="owner"%>
+    <div class="box">
+      <a class="button" href="/order_items">view cart</a>
+    </div>
+  <%end%>
+
+  <div class ="box">
+  <a class="button" href ="#popup1" >popup </a>
+  </div>
+
+  <div id="popup1" class="overlay">
+    <div class ="popup">
+      <h2> Cart </h2>
+      <a class = "close" href="#" >&times;</a>
+      <div class="content">
+        <% if @current_user.role == "user" %>
+          <%order = Order.current_order(@current_user)%>
+          <%@order = order%>
+          <%@order_items = OrderItem.where("order_id = ?", order.id)%>
+        <%end%>
+        <%if @current_user.role == "clerk"%>
+          <%@customer = @walk_in_customer%>
+          <% order = Order.current_order(@customer)%>
+          <%@order = order%>
+          <%@order_items = OrderItem.where("order_id = ?", order.id)%>
+        <% end%>
+        <%= render partial: "order_items/order_cart",locals:{
+        order_items: @order_items,
+        order: @order
+        }%>
+      </div>
+    </div>
+  </div>
+
 </body>

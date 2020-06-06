@@ -6,9 +6,9 @@
     <table border = "1">
         <tr>
           <th> </th>
-          <th><strong> Name:</strong></th>
-          <th><strong> Email:</strong></th>
-          <th><strong> Joined on:</strong></th>
+          <th><strong> Name</strong></th>
+          <th><strong> Email</strong></th>
+          <th><strong> Joined on</strong></th>
           <%if section_title =="Customers"%>
           <th><strong>Update </strong></th>
           <%end%>
@@ -16,31 +16,32 @@
           <th><strong>Remove </strong></th>
           <%end%>
         </tr>
-      <% users.each do |user|%>
-        <tr>
-          <td>  <%=image_tag("user1.png")%></td>
-          <td><%= user.name%></td>
-          <td><%= user.email%></td>
-          <td><%=user.created_at.to_s(:short)%></td>
-          <%if section_title =="Customers"%>
-           <td>
-            <%= form_with(url: user_path(user.id), method: :put) do %>
-             <%=submit_tag("Update", data: { confirm: "Are you sure?" }) %>
+
+        <% users.each do |user|%>
+          <tr>
+            <td>  <%=image_tag("user1.png")%></td>
+            <td><%= user.name%></td>
+            <td><%= user.email%></td>
+            <td><%=user.created_at.to_s(:short)%></td>
+            <%if section_title =="Customers"%>
+              <td>
+                <%= form_with(url: user_path(user.id), method: :put) do %>
+                <%=submit_tag("Update", data: { confirm: "Are you sure?" }) %>
+                <%end%>
+              </td>
             <%end%>
-           </td>
-          <%end%>
-           <%if section_title =="Billing clerk"%>
-           <td>
-            <%= form_with(url: user_path(user.id), method: :delete) do %>
-             <%=submit_tag("Remove", data: { confirm: "Are you sure?" }) %>
+            <%if section_title =="Billing clerk"%>
+              <td>
+                <%= form_with(url: user_path(user.id), method: :delete) do %>
+                <%=submit_tag("Remove", data: { confirm: "Are you sure?" }) %>
+                <%end%>
+                <%= form_with(url: change_role_path(id:user.id), method: :post) do %>
+                <%=submit_tag("Change", data: { confirm: "Are you sure?" }) %>
+                <%end%>
+              </td>
             <%end%>
-            <%= form_with(url: change_role_path(id:user.id), method: :post) do %>
-             <%=submit_tag("Change", data: { confirm: "Are you sure?" }) %>
-            <%end%>
-           </td>
-          <%end%>
-        </tr>
-      <%end%>
+          </tr>
+        <%end%>
       </table>
   <%else%>
     <p>NO Active :<%=section_title %></p>
