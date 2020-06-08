@@ -20,6 +20,10 @@
       </div>
 
       <div class="add-section">
+        <p class="item-label">Item Image: </p>
+        <%= form.text_field 'image' ,class:"item-input"%>
+      </div>
+      <div class="add-section">
         <p class="item-label">Category Id: </p>
         <%= form.select 'category', raw("<option selected disabled>select</option><option>Breakfast</option><option>lunch</option><option>Dinner</option><optionCold Drinks</option>"), class:"item-input"%>
       </div>

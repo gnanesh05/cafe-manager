@@ -14,6 +14,7 @@ class MenuItemsController < ApplicationController
     name = params[:item]
     price = params[:rate]
     description = params[:description]
+    image = params[:image]
     category = params[:category]
     menu = params[:menu]
 
@@ -21,7 +22,8 @@ class MenuItemsController < ApplicationController
                             price: price,
                             description: description,
                             category_name: category,
-                            menu_id: menu)
+                            menu_id: menu,
+                            image: image)
     if new_item.save
       flash[:notice] = "added a new menu item"
       redirect_to menu_items_path

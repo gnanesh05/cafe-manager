@@ -44,7 +44,7 @@
     <%end%>
     <%if user_role == "user" && user_delivered%>
       <hr>
-      <h3 class="Order-title"> delivered orders </h3
+      <h3 class="Order-title"> delivered orders </h3>
       <% user_delivered.each do |order|%>
         <li class="Order-list">
         order id: <%=order.id%>
