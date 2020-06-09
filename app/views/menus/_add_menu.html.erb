@@ -16,7 +16,7 @@
 
       <div class="add-section">
         <p class="item-label">description : </p>
-        <%= form.select'description', raw("<option selected disabled>select</option><option>south indian</option><option>north indian</option><option>chineese</option><option>tandoori</option>"), class:"item-input"%>
+        <%= form.select'description', raw("<option selected disabled>select</option><option>south indian</option><option>north indian</option><option>Asian</option>chineese</option><option>tandoori</option><option>Italian</option>"), class:"item-input"%>
       </div>
 
       <div class="add-section">
@@ -60,8 +60,8 @@
       <%menu.each do |m|%>
         <div class="Menu-list">
           <%= m.name %>
-          <%= form_with(url: menu_path(m.id), method: :get, local: true) do %>
-          <%submit_tag("edit" , class: "form-submit")%>
+          <%= form_with(url: edit_menu_path(m.id), method: :get, local: true) do %>
+             <%submit_tag("edit" , class: "form-submit")%>
           <%end%>
         </div>
       <% end %>

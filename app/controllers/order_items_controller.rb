@@ -65,7 +65,6 @@ class OrderItemsController < ApplicationController
 
   def offline_customer
     @customer = walk_in_customer
-
     id = params[:id]
     item = MenuItem.find(id)
     order = Order.current_order(@customer)

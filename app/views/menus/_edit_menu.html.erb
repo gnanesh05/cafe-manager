@@ -3,38 +3,34 @@
   <% if menus.first %>
     <h4 class="MenuEdit-ListHeading"><%=section_title%></h4>
     <div class=MenuEdit-ListTitle>
-    <p class="MenuEdit-ListItem">Item-Name</p>
-    <p class="MenuEdit-ListItem">price</p>
+     <p class="MenuEdit-ListItem">Item-Name</p>
+     <p class="MenuEdit-ListItem">price</p>
     </div>
   <%end%>
 
-   <%menus.each do |item| %>
+  <%menus.each do |item| %>
 
    <section>
-
-
-
      <div class="MenuEdit-List">
-       <div class="MenuEdit-ListElements">
+        <div class="MenuEdit-ListElements">
          <%= form_with(url: menu_item_path(item.id), method: :put) do %>
-         <%=text_field_tag( name='name',value = item.name)%>
-       </div>
-       <div>
-
+           <%=text_field_tag( name='name',value = item.name)%>
+        </div>
+        <div>
            <%=text_field_tag( name='price',value = item.price) %>
         </div>
         <div>
           <%=button_tag( value="edit") %>
-          <%end%>
+         <%end%>
         </div>
         <div >
           <%= form_with(url: menu_item_path(item.id), method: :delete) do %>
-          <%= image_submit_tag("interface.png", data: { confirm: "Are you sure?" }) %>
+            <%= image_submit_tag("interface.png", data: { confirm: "Are you sure?" }) %>
           <%end%>
         </div>
-        </div>
       </div>
-    <%end%>
-     </section>
+    </section>
+  <%end%>
+     
 
 </div>

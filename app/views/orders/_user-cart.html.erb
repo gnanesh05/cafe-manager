@@ -12,19 +12,15 @@
           order-status: <span class=<%= order.status=="received" ? "OrderStatus-received" : "OrderStatus-delivered" %> > <%=order.status%> </span>
 
           <% if user_role == "clerk" %>
-            <% user_id = order.user_id %>
+              <% user_id = order.user_id %>
               <% user = User.find(user_id)%>
               ordered by: <%=user.name %>
               <%= form_with(url: deliver_order_path(id:order.id), method: :post) do %>
-              <%= button_tag 'delivered',type:'submit'%>
-            <% end %>
+               <%= button_tag 'delivered',type:'submit'%>
+              <%end %>
           <%end%>
-
         </li>
       <%end%>
-
-   
-
     <%if user_role == "clerk" || user_role =="owner" %>
       <%if delivered%>
         <hr>

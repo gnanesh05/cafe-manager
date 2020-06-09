@@ -3,7 +3,7 @@
 <div>
   <%if users.first%>
     <h4 class="User-role"><%= section_title%> </h4>
-    <table border = "1">
+    <table>
         <tr>
           <th> </th>
           <th><strong> Name</strong></th>
@@ -26,17 +26,17 @@
             <%if section_title =="Customers"%>
               <td>
                 <%= form_with(url: user_path(user.id), method: :put) do %>
-                <%=submit_tag("Update", data: { confirm: "Are you sure?" }) %>
+                  <%=submit_tag("Update", data: { confirm: "Are you sure?" }) %>
                 <%end%>
               </td>
             <%end%>
             <%if section_title =="Billing clerk"%>
               <td>
                 <%= form_with(url: user_path(user.id), method: :delete) do %>
-                <%=submit_tag("Remove", data: { confirm: "Are you sure?" }) %>
+                  <%=submit_tag("Remove", data: { confirm: "Are you sure?" }) %>
                 <%end%>
                 <%= form_with(url: change_role_path(id:user.id), method: :post) do %>
-                <%=submit_tag("Change", data: { confirm: "Are you sure?" }) %>
+                  <%=submit_tag("Change", data: { confirm: "Are you sure?" }) %>
                 <%end%>
               </td>
             <%end%>

@@ -1,22 +1,5 @@
 
-.nav-main {
 
-    overflow: hidden;
-    width: 900 %
-  }
-
-
-  .nav-main a {
-    float: right;
-    color: black
-    text-align: center;
-    padding: 14px 35px;
-    text-decoration: none;
-    font-size: 17px;
-    text-transform: uppercase;
-    align-items: center;
-
-  }
 .heading  {
   border: 1px solid #dddddd;
   text-align: center;

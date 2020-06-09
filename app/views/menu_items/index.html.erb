@@ -3,8 +3,8 @@
 <body id="Menu-body">
   <div class="below1">
     <div class="below1-right">
-    <h3>choose a menu to display</h3>
-      <%if @current_user.role == "owner"%>
+     <%if @current_user.role == "owner"%>
+        <h3>choose a menu to display</h3>
         <%= form_with(url:  setmenu_path, method: :post, class: "Add-menu") do %>
           <select name="menu_id"
             class="Menu-select"
