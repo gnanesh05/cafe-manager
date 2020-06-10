@@ -2,7 +2,7 @@
   <%if cart !=nil %>
 
     <h2 class="Order-title">Pending orders </h3>
-
+  <%if cart.first%>
     <% cart.each do |order|%>
       <ul class="Order-contentList">
         <span class="Order-contentId">Order-id: <%=order.id%> </span>
@@ -13,11 +13,14 @@
             <% user = User.find(user_id)%>
             <li>Ordered by: <%=user.name %> </li>
             <%= form_with(url: deliver_order_path(id:order.id), method: :post) do %>
-            <li><%= button_tag 'delivered',type:'submit',class: 'Delivery_button'%></li>
-          <% end %>
+              <li><%= button_tag 'deliver',type:'submit',class: 'Delivery_button'%></li>
+            <% end %>
         <%end%>
       </ul>
     <%end%>
+  <%else%>
+    <h4>no pending orders </h4>
+  <%end%>
 
     <%if user_role == "clerk" || user_role =="owner" %>
       <%if delivered%>
@@ -30,7 +33,7 @@
           <li>Order status: <span class=<%= order.status=="received" ? "OrderStatus-received" : "OrderStatus-delivered" %> > <%=order.status%> </span> </li>
             <%user_id = order.user_id %>
             <% user = User.find_by(id:user_id)%>
-          <li>ordered by:<%=user.name %> </li>
+          <li>ordered by: </li>
           </ul>
         <%end%>
       <%end%>

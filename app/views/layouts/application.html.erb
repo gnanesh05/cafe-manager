@@ -14,21 +14,25 @@
       <div class="nav-main">
         <%if @current_user %>
           <%if @current_user.role == "user"%>
-            <%= link_to "My Orders", orders_path %>
             <%= link_to "Sign-Out" ,destroy_session_path, method:"delete"%>
+            <%= link_to "My Orders", orders_path %>
+             <%= link_to "My Cart", order_items_path %>
             <%= link_to "Menus", menu_items_path %>
+           
           <%end%>
           <%if @current_user.role == "clerk"%>
-            <%= link_to "All Orders" ,orders_path%>
             <%= link_to "Sign-Out" ,destroy_session_path, method:"delete"%>
+            <%= link_to "All Orders" ,orders_path%>
+            <%= link_to "My Cart", order_items_path %>
             <%= link_to "Menus", menu_items_path %>
+            
           <%end%>
           <%if @current_user.role == "owner"%>
             <%= link_to "Sign-Out" ,destroy_session_path, method:"delete"%>
             <%= link_to "All Orders" ,orders_path%>
-            <%= link_to "Menus", menu_items_path %>
             <%= link_to "Edit Menu", menus_path %>
             <%= link_to "Users", customers_path %>
+             <%= link_to "Menus", menu_items_path %>
           <%end%>
         <%else%>
         <%= link_to "Create Account" ,users_path%>

@@ -37,7 +37,7 @@ class OrdersController < ApplicationController
     order = Order.find(id)
     order.status = "delivered"
     time = Time.now
-    order.delivered_at = Time.now.to_formatted_s(:long)
+    order.delivered_at = time.to_time.strftime("%B %e at %l:%M %p")
     order.save!
 
     redirect_to orders_path

@@ -41,27 +41,11 @@
     font-weight: 100;
 }
 
-.nav-main a {
-  float: right;
-  color: rgb(38, 0, 255);
-  text-align: center;
-  padding: 14px 35px;
-  text-decoration: none;
-  font-size: 15px;
-  text-transform: uppercase;
-  align-items: center;
 
-}
-
-.nav-main a:hover {
-  color: rgb(255, 0, 0);
-
-  text-decoration:underline;
-}
 
 .below1 {
 	height:100px;
-  background-color:lightblue;
+  
   margin-top: 20 px;
   margin-bottom: 30 px;
   margin-left: 12 px;

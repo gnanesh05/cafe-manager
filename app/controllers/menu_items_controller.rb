@@ -1,9 +1,17 @@
 class MenuItemsController < ApplicationController
   def index
+    if @current_user.role == "user"
+      order = Order.current_order(current_user)
+      @order = order
+      @order_items = OrderItem.where("order_id = ?", order.id)
+
+      render "index"
+    end
     if @current_user.role == "clerk"
       @customer = walk_in_customer
-      render "index"
-    else
+      order = Order.current_order(@customer)
+      @order = order
+      @order_items = OrderItem.where("order_id = ?", order.id)
       render "index"
     end
 
