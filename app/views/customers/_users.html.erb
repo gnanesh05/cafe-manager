@@ -3,14 +3,14 @@
 <div>
   <%if users.first%>
     <h4 class="User-role"><%= section_title%> </h4>
-    <table>
+    <table class="User-table">
         <tr>
           <th> </th>
-          <th><strong> Name</strong></th>
-          <th><strong> Email</strong></th>
-          <th><strong> Joined on</strong></th>
+          <th class="User-tableElement"><strong> Name</strong></th>
+          <th class="User-tableElement"><strong> Email</strong></th>
+          <th class="User-tableElement"><strong> Joined on</strong></th>
           <%if section_title =="Customers"%>
-          <th><strong>Update </strong></th>
+          <th class="User-tableElement"><strong>Update </strong></th>
           <%end%>
            <%if section_title =="Billing clerk"%>
           <th><strong>Remove </strong></th>
@@ -20,9 +20,9 @@
         <% users.each do |user|%>
           <tr>
             <td>  <%=image_tag("user1.png")%></td>
-            <td><%= user.name%></td>
-            <td><%= user.email%></td>
-            <td><%=user.created_at.to_s(:short)%></td>
+            <td class="User-tableElement"><%= user.name%></td>
+            <td class="User-tableElement"><%= user.email%></td>
+            <td class="User-tableElement"><%=user.created_at.to_s(:short)%></td>
             <%if section_title =="Customers"%>
               <td>
                 <%= form_with(url: user_path(user.id), method: :put) do %>
@@ -31,7 +31,7 @@
               </td>
             <%end%>
             <%if section_title =="Billing clerk"%>
-              <td>
+              <td class="User-tableElement">
                 <%= form_with(url: user_path(user.id), method: :delete) do %>
                   <%=submit_tag("Remove", data: { confirm: "Are you sure?" }) %>
                 <%end%>
