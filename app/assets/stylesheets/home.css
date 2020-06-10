@@ -61,13 +61,12 @@
 }
 
 .nav-main a {
-  color: violet;
   float: right;
-  background-color: whitesmoke;
   text-align: center;
   padding: 14px 35px;
   font-size: 12px;
   align-items: center;
+  color: white;
 }
 
 }
@@ -95,7 +94,7 @@
   width: 500px;
   height: 30px;
   border-radius: 25px;
-  display: block; 
+  display: block;
   line-height:25px;
   text-align: center;
   justify-content: center;
@@ -108,7 +107,7 @@
   width: 500px;
   height: 30px;
   border-radius: 25px;
-  display: block; 
+  display: block;
   line-height:25px;
   text-align: center;
   justify-content: center;

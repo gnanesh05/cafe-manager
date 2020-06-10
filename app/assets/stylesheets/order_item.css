@@ -1,12 +1,12 @@
 .OrderItem-container {
-  display: flex;
-  align-items: center;
-  margin-left: 25%;
-  height: 10%;
 }
 
 .OrderItem-element {
-  padding-left: 4%;
+  width: 106px;
+}
+
+.Order-table {
+  margin-top: 5%;
 }
 
 .OrderItem-heading {
@@ -27,16 +27,17 @@
 }
 
 .OrderItem-cost {
-  padding-left: 40%;
+  height: 5px;
+  margin-left: 60%;
 }
 
 .OrderItem-submit {
-  margin-left: 27.5%;
-  background-color: rgba(0, 255, 0, 0.459);
+  background-color: rgb(14, 243, 14);
   width: 100px;
   height: 30px;
-  border-radius: 10px;
+  border-radius: 14px;
   color: black;
+  margin-left: 350%;
 }
 
 .OrderItem-submit:hover {
@@ -44,5 +45,34 @@
 }
 
 .OrderItem-extra {
-  padding-left: 60%;
+  background-color: rgb(51, 255, 0);
+  border-radius: 14px;
+  padding: 5px;
+}
+
+.OrderItem-extra:hover {
+  background-color: lawngreen;
+}
+
+.Order-finalize {
+  display: flex;
+  align-items: center;
+  margin-left: 0%;
+  margin-top: 2px;
+}
+
+.Order-empty {
+  text-align: center;
+  margin: 40px 0px;
+}
+
+.Cart-link {
+  background-color: rgb(51, 255, 0);
+  border-radius: 14px;
+  padding: 5px;
+  margin-left: 41%;
+}
+
+.Cart-link :hover {
+  background-color: lawngreen;
 }

@@ -1,44 +1,49 @@
 <hr>
 <section>
  <div>
+     <table class="Order-table">
    <% order_items.each do |item|%>
-    <div class="OrderItem-container">
-      <p class="OrderItem-element">Item:       <%= item.menu_item_name %>  </p>
-      <p class="OrderItem-element">Price:       <%= item.menu_item_price%>   </p>
-      <p class="OrderItem-element"> Quantity :
-      <%= link_to "−", remove_path(id:item.id), method: "post", class: "minus" %>
-                      <%= item.quantity %>
-      <%= link_to "＋", add_path(id:item.id), method: "post", class: "plus"  %>
-      </p>
-      <p class="OrderItem-element"> sum = <%= (item.menu_item_price * item.quantity) %> </p>
-      <p class="OrderItem-element">
-       <%= form_with(url: order_item_path(item.id), method: :delete) do %>
-          <%= button_tag 'remove',type:'submit',class: "OrderItem-remove"%>
-       <%end%>
-      </p>
-    </div>
+      <tr class="OrderItem-container">
+        <th class="OrderItem-element">Item:  <%= item.menu_item_name %>  </th>
+        <th class="OrderItem-element">Price  :<%= item.menu_item_price%>   </th>
+        <th class="OrderItem-element"> Qty :
+          <%= link_to "−", remove_path(id:item.id), method: "post", class: "minus" %>
+                        <%= item.quantity %>
+          <%= link_to "＋", add_path(id:item.id), method: "post", class: "plus"  %>
+        </th>
+        <th class="OrderItem-element"> sum = <%= (item.menu_item_price * item.quantity) %> </th>
+        <th class="OrderItem-element">
+        <%= form_with(url: order_item_path(item.id), method: :delete) do %>
+            <%= button_tag 'remove',type:'submit',class: "OrderItem-remove"%>
+        <%end%>
+        </th>
+      </tr>
    <%end%>
+      </table>
 
-    <p class="OrderItem-cost"> Order cost =
+    <p class= <%= "OrderItem-cost" =%> > Order cost =
       <% sum = 0%>
       <% order_items.each do |item|%>
          <% sum = sum + (item.menu_item_price * item.quantity) %>
       <%end%>
       <%= sum %>
+
     </p>
-    <p><% if sum !=0%>
-       <%= form_with(url: order_path(order.id), method: :put) do %>
+    <div  class="Order-finalize">
+      <% if sum !=0%>
+       <i class="OrderItem-extra">
+        <%= link_to "  Add More  ", menu_items_path %>
+       </i>
+        <%= form_with(url: order_path(order.id), method: :put) do %>
          <%= button_tag 'place order',type:'submit' ,class: "OrderItem-submit"%>
        <% end %>
-       <i class="OrderItem-extra">
-        <%= link_to "Add More", menu_items_path %>
-       </i>
        <%else%>
-        <h3> why don't you try out some from our menu ? </h3>
-        <p>
-        <%=link_to "go back", menu_items_path%>
-        <p>
+       </div>
+
+        <h3 class="Order-empty"> why don't you try out some from our menu ? </h3>
+        <i class="Cart-link">
+          <%=link_to "go back", menu_items_path%>
+        </i>
         <%end%>
-    </p>
   </div>
   </section>

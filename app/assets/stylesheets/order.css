@@ -12,21 +12,38 @@
   background-color: rgb(45, 209, 45);
 }
 
-.Order-title {
-  text-align: center;
-}
-
-.Order-list {
-  margin-left: 36%;
-  margin-top: 1%;
-  margin-bottom: 1%;
-  word-spacing: 14px;
-}
-
 .OrderStatus-received {
   color: red;
 }
 
 .OrderStatus-delivered {
   color: green;
+}
+
+.Order-title {
+  text-align: center;
+}
+
+.Order-contentList {
+  display: flex;
+  list-style-type: none;
+  margin-left: 20%;
+}
+
+.Order-contentList li {
+  margin: 0px 5px;
+  width: 280px;
+  font-size: 20px;
+}
+
+.Order-contentId {
+  width: 140px;
+  font-size: 20px;
+}
+
+.Delivery_button {
+  background-color: rgb(32, 212, 32);
+  padding: 5px;
+  border-radius: 13px;
+  font-size: 20px;
 }
