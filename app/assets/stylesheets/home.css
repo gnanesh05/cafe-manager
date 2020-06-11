@@ -48,7 +48,7 @@
   opacity: 0;
 }
 .container-below .below-text :hover {
-  text-shadow: 0 0 5px #ff0000;
+  text-shadow: 0 0 8px #ff0000;
   text-decoration: underline;
 }
 
@@ -62,12 +62,12 @@
   width: 100%;
   color: black;
   font-size: small;
-  background-color: blanchedalmond;
+  background-color: black;
 }
 
 .nav-main a {
   float: right;
-  color: black;
+  color: white;
   text-align: center;
   padding: 14px 35px;
   text-decoration: none;
@@ -78,7 +78,7 @@
 }
 
 .nav-main a:hover {
-  text-shadow: 0 0 5px #ff0000;
+  text-shadow: 0 0 10px white;
   text-decoration:underline;
 }
 

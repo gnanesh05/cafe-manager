@@ -5,6 +5,7 @@
     <div class=MenuEdit-ListTitle>
      <p class="MenuEdit-ListItem">Item-Name</p>
      <p class="MenuEdit-ListItem">price</p>
+     <p class="MenuEdit-ListItem">Image</p>
     </div>
   <%end%>
 
@@ -18,6 +19,9 @@
         </div>
         <div>
            <%=text_field_tag( name='price',value = item.price) %>
+        </div>
+         <div>
+           <%=text_field_tag( name='image',value = item.image) %>
         </div>
         <div>
           <%=button_tag( value="edit") %>

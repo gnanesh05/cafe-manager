@@ -46,7 +46,10 @@ class MenuItemsController < ApplicationController
     menu_item = MenuItem.find(id)
     menu_item.name = params[:name]
     menu_item.price = params[:price]
+    menu_item.image = params[:image]
     menu_item.save!
+    flash[:notice] = "updated #{menu_item.name}"
+    redirect_to menu_items_path
   end
 
   def destroy
