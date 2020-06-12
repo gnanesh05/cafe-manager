@@ -2,7 +2,8 @@
 <section>
  <div>
      <table class="Order-table">
-   <% order_items.each do |item|%>
+  <%if order_items !=nil%>
+    <%order_items.each do |item|%>
       <tr class="OrderItem-container">
         <th class="OrderItem-element">Item:  <%= item.menu_item_name %>  </th>
         <th class="OrderItem-element">Price  :<%= item.menu_item_price%>   </th>
@@ -18,7 +19,7 @@
         <%end%>
         </th>
       </tr>
-   <%end%>
+    <%end%>
       </table>
 
     <p class= <%= "OrderItem-cost" =%> > Order cost =
@@ -37,13 +38,14 @@
         <%= form_with(url: order_path(order.id), method: :put) do %>
          <%= button_tag 'place order',type:'submit' ,class: "OrderItem-submit"%>
        <% end %>
-       <%else%>
+      <%end%> 
        </div>
 
+  <%else%>
         <h3 class="Order-empty"> why don't you try out some from our menu ? </h3>
         <i class="Cart-link">
           <%=link_to "go back", menu_items_path%>
         </i>
-        <%end%>
+  <%end%>
   </div>
   </section>

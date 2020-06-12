@@ -5,7 +5,9 @@ class OrderItemsController < ApplicationController
     if @current_user.role == "user"
       order = Order.current_order(current_user)
       @order = order
-      @order_items = OrderItem.where("order_id = ?", order.id)
+      if order != nil
+        @order_items = OrderItem.where("order_id = ?", order.id)
+      end
 
       render "index"
     end
@@ -13,7 +15,9 @@ class OrderItemsController < ApplicationController
       @customer = walk_in_customer
       order = Order.current_order(@customer)
       @order = order
-      @order_items = OrderItem.where("order_id = ?", order.id)
+      if order != nil
+        @order_items = OrderItem.where("order_id = ?", order.id)
+      end
       render "index"
     end
     if @current_user == nil

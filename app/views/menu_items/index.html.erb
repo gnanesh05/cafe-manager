@@ -47,7 +47,11 @@
 
   <%if @current_user.role !="owner"%>
     <div class="box">
-      <a class="button" href="/order_items">view cart(<%=@order_items.length%>)</a>
+      <a class="button" href="/order_items">view cart
+      <%if @order_items %>
+      (<%=@order_items.length%>)
+      <%end%>
+      </a>
     </div>
 
 
