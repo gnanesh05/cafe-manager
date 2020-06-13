@@ -1,0 +1,23 @@
+
+
+<table class="Order-table">
+
+   <%order_items.each do |item|%>
+      <tr class="OrderItem-container">
+        <th class="OrderItem-element">Item:  <%= item.menu_item_name %>  </th>
+        <th class="OrderItem-element">Price  :<%= item.menu_item_price%>   </th>
+        <th class="OrderItem-element"> Qty : <%=item.quantity%></th>
+        <th class="OrderItem-element"> sum = <%= (item.menu_item_price * item.quantity) %> </th>
+      </tr>
+    <%end%>
+</table>
+
+    <p class= <%= "OrderItem-cost" =%> > Order cost =
+      <% sum = 0%>
+      <% order_items.each do |item|%>
+         <% sum = sum + (item.menu_item_price * item.quantity) %>
+      <%end%>
+      <%= sum %>
+
+    </p>
+

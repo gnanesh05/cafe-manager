@@ -15,6 +15,7 @@
       <div class="nav-main">
         <%if @current_user %>
           <%if @current_user.role == "user"%>
+            <a href="#"> Contact Us </a>
             <%= link_to "Sign-Out" ,destroy_session_path, method:"delete"%>
             <%= link_to "My Orders", orders_path %>
              <%= link_to "My Cart", order_items_path %>
@@ -36,6 +37,7 @@
              <%= link_to "Menus", menu_items_path %>
           <%end%>
         <%else%>
+        <a href="#"> Contact Us </a>
         <%= link_to "Create Account" ,users_path%>
         <%= link_to "Login" ,sessions_path%>
         <%= link_to "Menus", menu_items_path %>

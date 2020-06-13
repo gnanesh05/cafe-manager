@@ -40,8 +40,8 @@
        <% end %>
       <%end%> 
        </div>
-
-  <%else%>
+  <%end%>
+  <%if sum==0%>
         <h3 class="Order-empty"> why don't you try out some from our menu ? </h3>
         <i class="Cart-link">
           <%=link_to "go back", menu_items_path%>

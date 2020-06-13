@@ -43,6 +43,13 @@ class OrdersController < ApplicationController
     redirect_to orders_path
   end
 
+  def show
+    id = params[:id]
+    @order = Order.find(id)
+    @order_items = OrderItem.current_order_items(@order)
+    render "show"
+  end
+
   def destroy
     id = params[:id]
     order = Order.of_user(current_user).find(id)
