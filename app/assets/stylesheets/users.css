@@ -1,30 +1,41 @@
 .User-Section {
-  width: 30%;
-  margin-top: 3%;
-  margin-left: 37%;
+  width: 400px;
+  height: 500px;
+  margin-left: 700px;
+  padding-top: 30px;
+  padding-left: 100px;
+  background-color: cornsilk;
+  border: 5px solid black;
+  border-radius: 25px;
 }
-
+.User-title {
+  padding-left: 840px;
+  font-size: 1.5em;
+  color: blue;
+}
 .Form-Input {
-  font-size: 20 px;
-  width: 60%;
+  width: 260px;
+  height: 26px;
   padding: 3.5px;
+  background-color: rgb(255, 255, 255);
+  font-size: large;
+  border-radius: 10px;
+  border-color: rgb(5, 5, 5);
 }
 
 .Form-Label {
-  color: gray;
+  color: rgb(8, 8, 8);
   height: 20px;
+  font-size: x-large;
 }
 
 .Form-submit {
   margin-top: 5%;
-  font-size: 20 px;
-  width: 50px;
-  height: 25px;
-  background-color: #4ece4e;
-  border-radius: 4px;
+  background-color: blue;
   border: 0;
-  width: 72px;
-  height: 32px;
-  font-size: 14px;
+  border-radius: 10px;
+  width: 90px;
+  height: 40px;
+  font-size: 20px;
   color: #fff;
 }
