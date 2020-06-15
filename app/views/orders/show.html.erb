@@ -2,5 +2,6 @@
 
 <%= render partial: "show_order",locals:{
     order_items: @order_items,
-    order: @order
+    order: @order,
+    user_role: @current_user.role
 }%>

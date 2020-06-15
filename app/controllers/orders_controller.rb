@@ -47,7 +47,17 @@ class OrdersController < ApplicationController
     id = params[:id]
     @order = Order.find(id)
     @order_items = OrderItem.current_order_items(@order)
+    @customer = walk_in_customer
     render "show"
+  end
+
+  def repeat_order
+    id1 = params[:id1]
+    order1 = Order.find(id1)
+    id2 = params[:id2]
+    order2 = Order.find(id2)
+    order2.status = "not placed"
+    redirect_to order_items_path
   end
 
   def destroy

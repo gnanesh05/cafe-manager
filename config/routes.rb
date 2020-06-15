@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   resources :order_items
   resources :menus
   resources :customers
+
+  post "/orders/repeat_order", to: "orders#repeat_order", as: :repeat_order
   post "/orders/deliver_order", to: "orders#deliver_order", as: :deliver_order
   post "/users/change_role", to: "users#change_role", as: :change_role
   post "/order_items/offline_customer", to: "order_items#offline_customer", as: :offline_customer
