@@ -17,3 +17,24 @@
 .User-tableElement {
   width: 120px;
 }
+
+.User-tableElement-update {
+  display: flex;
+  margin-top: 21px;
+  margin-left: 30px;
+  width: 120px;
+}
+
+.remove-user {
+  margin-left: 5px;
+  margin-top: 2px;
+  padding: 4px 9px;
+  border-radius: 100px;
+  background-color: red;
+}
+
+.update-user {
+  background-color: rgb(1, 255, 1);
+  border-radius: 10px;
+  padding: 5px 10px;
+}

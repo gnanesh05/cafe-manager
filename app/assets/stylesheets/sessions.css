@@ -1,6 +1,6 @@
-.Form-container{
-  background:url(https://images.pexels.com/photos/995743/pexels-photo-995743.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);
- 
+.Form-container {
+  background: url(https://images.pexels.com/photos/995743/pexels-photo-995743.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);
+
   /* Center and scale the image nicely */
   height: 100vh;
   margin: 0px;
@@ -8,11 +8,11 @@
 }
 .Form-Section {
   margin-bottom: 30 px;
-  
 }
 .login-title {
-  padding-left: 550px;
+  padding-left: 840px;
   margin-top: 0px;
+  padding-top: 100px;
   font-size: 1.5em;
   color: blue;
 }
@@ -21,22 +21,17 @@
   width: 400px;
   height: 300px;
   margin-top: 20px;
-  margin-left: 500px;
+  margin-left: 600px;
   padding-top: 30px;
   padding-left: 100px;
   border: 5px solid black;
   border-radius: 25px;
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0, 0.4); /* Black w/opacity/see-through */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/opacity/see-through */
   color: white;
   font-weight: bold;
   border: 3px solid #f1f1f1;
-  position: absolute;
-  top: 400px;
-  left: 220px;
-  transform: translate(-50%, -50%);
-  z-index: 2;
-  width: 50%;
+  width: 30%;
   padding: 20px;
   text-align: center;
 }
@@ -46,9 +41,15 @@ input {
   border-right-style: hidden;
   border-left-style: hidden;
   border-bottom-style: groove;
-
 }
 
 .no-outline:focus {
   outline: none;
+}
+
+.title-role {
+  margin: 0;
+  padding: 0;
+  line-height: 30px;
+  height: 25px;
 }

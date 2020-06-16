@@ -26,17 +26,17 @@
             <%if section_title =="Customers"%>
               <td>
                 <%= form_with(url: user_path(user.id), method: :put) do %>
-                  <%=submit_tag("Update", data: { confirm: "Are you sure?" }) %>
+                  <%=submit_tag("Update", data: { confirm: "Are you sure?" }, class: "update-user") %>
                 <%end%>
               </td>
             <%end%>
             <%if section_title =="Billing clerk"%>
-              <td class="User-tableElement">
-                <%= form_with(url: user_path(user.id), method: :delete) do %>
-                  <%=submit_tag("Remove", data: { confirm: "Are you sure?" }) %>
-                <%end%>
+              <td class="User-tableElement-update">
                 <%= form_with(url: change_role_path(id:user.id), method: :post) do %>
-                  <%=submit_tag("Change", data: { confirm: "Are you sure?" }) %>
+                  <%=submit_tag("Change", data: { confirm: "Are you sure?" }, class: "update-user" ) %>
+                <%end%>
+                <%= form_with(url: user_path(user.id), method: :delete) do %>
+                  <%=submit_tag("X", data: { confirm: "Are you sure?" }, class: "remove-user") %>
                 <%end%>
               </td>
             <%end%>
