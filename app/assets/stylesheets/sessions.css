@@ -1,9 +1,18 @@
+.Form-container{
+  background:url(https://images.pexels.com/photos/995743/pexels-photo-995743.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);
+ 
+  /* Center and scale the image nicely */
+  height: 100vh;
+  margin: 0px;
+  background-size: cover;
+}
 .Form-Section {
   margin-bottom: 30 px;
+  
 }
 .login-title {
-  padding-left: 840px;
-  margin-top: 80px;
+  padding-left: 550px;
+  margin-top: 0px;
   font-size: 1.5em;
   color: blue;
 }
@@ -12,10 +21,34 @@
   width: 400px;
   height: 300px;
   margin-top: 20px;
-  margin-left: 680px;
+  margin-left: 500px;
   padding-top: 30px;
   padding-left: 100px;
   border: 5px solid black;
   border-radius: 25px;
-  background-color: cornsilk;
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0, 0.4); /* Black w/opacity/see-through */
+  color: white;
+  font-weight: bold;
+  border: 3px solid #f1f1f1;
+  position: absolute;
+  top: 400px;
+  left: 220px;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  width: 50%;
+  padding: 20px;
+  text-align: center;
+}
+
+input {
+  border-top-style: hidden;
+  border-right-style: hidden;
+  border-left-style: hidden;
+  border-bottom-style: groove;
+
+}
+
+.no-outline:focus {
+  outline: none;
 }

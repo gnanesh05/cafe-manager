@@ -1,15 +1,32 @@
+.user-body{
+  background:url(https://images.pexels.com/photos/995743/pexels-photo-995743.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);
+ 
+  /* Center and scale the image nicely */
+  height: 100vh;
+  margin: 0px;
+  
+  background-size: cover;
+}
 .User-Section {
-  width: 400px;
-  height: 500px;
-  margin-left: 700px;
-  padding-top: 30px;
-  padding-left: 100px;
-  background-color: cornsilk;
+
   border: 5px solid black;
   border-radius: 25px;
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0, 0.4); /* Black w/opacity/see-through */
+  color: white;
+  font-weight: bold;
+  border: 3px solid #f1f1f1;
+  position: absolute;
+  top: 430px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  width: 50%;
+  padding: 20px;
+  text-align: center;
 }
 .User-title {
-  padding-left: 840px;
+  padding-left: 550px;
   font-size: 1.5em;
   color: blue;
 }
@@ -17,10 +34,11 @@
   width: 260px;
   height: 26px;
   padding: 3.5px;
-  background-color: rgb(255, 255, 255);
+  background: transparent;
   font-size: large;
   border-radius: 10px;
-  border-color: rgb(5, 5, 5);
+  color:white;
+
 }
 
 .Form-Label {
@@ -38,4 +56,8 @@
   height: 40px;
   font-size: 20px;
   color: #fff;
+}
+
+textarea:focus, input:focus{
+  outline: none;
 }

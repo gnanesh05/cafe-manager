@@ -1,4 +1,5 @@
-<main id="user-body">
+<div class="user-body">
+
 <header class="User-title">
   <h2> Sign Up </h2>
 </header>
@@ -7,23 +8,23 @@
    <%=form_with url:users_path do |form|%>
      <div class="Form-Section">
       <p class="Form-Label">Name : </p>
-      <%= form.text_field :name ,class:"Form-Input"%>
+      <%= form.text_field :name ,class:"Form-Input no-ouline"%>
      <div>
      <div class="Form-Section">
       <p class="Form-Label">Email : </p>
-      <%= form.email_field :email, class:"Form-Input"%>
+      <%= form.email_field :email, class:"Form-Input no-outline"%>
      </div>
      <div class="Form-Section">
       <p class="Form-Label">Password : </p>
-      <%= form.password_field :password, class:"Form-Input"%>
+      <%= form.password_field :password, class:"Form-Input no-outline"%>
       </div>
        <div class="Form-Section">
       <p class="Form-Label">Address : </p>
-      <%= form.text_area :address, class:"Form-Input"%>
+      <%= form.text_area :address, class:"Form-Input no-outline"%>
       </div>
       <div class="Form-Section">
-       <%= form.submit "Sign-Up", class:"Form-submit" %>
+       <%= form.submit "Sign-Up", class:"Form-submit no-outline" %>
       </div>
     <%end%>
   </section>
-</main>
+</div>
