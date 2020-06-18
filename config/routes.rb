@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
   get "/" => "home#index"
-  get "/about" => "home#about"
   resources :menu_items
   resources :orders
   resources :users
@@ -20,4 +19,7 @@ Rails.application.routes.draw do
   post "/signin" => "sessions#create", as: :sessions
   delete "/signout" => "sessions#destroy", as: :destroy_session
   delete "/remove" => "order_items#delete", as: :delete
+
+  get "/about" => "about#index"
+
 end
