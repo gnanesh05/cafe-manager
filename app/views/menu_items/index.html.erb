@@ -46,33 +46,48 @@
   } %>
 
   <%= render partial: "menus", locals:{
-  menus:MenuItem.lunch(@menu),
-  section_title: "Lunch",
+  menus:MenuItem.description("north indian",@menu),
+  section_title: "North Indian",
   user_role: @current_user.role
   } %>
 
   <%= render partial: "menus", locals:{
-  menus:MenuItem.dinner(@menu),
-  section_title: "Dinner",
+  menus:MenuItem.description("Starters",@menu),
+  section_title: "Starters",
+  user_role: @current_user.role
+  } %>
+
+  <%= render partial: "menus", locals:{
+  menus:MenuItem.description("Briyani",@menu),
+  section_title: "Briyani",
+  user_role: @current_user.role
+  } %>
+
+  <%= render partial: "menus", locals:{
+  menus:MenuItem.description("Rice And Noodles",@menu),
+  section_title: "Rice And Noodles",
+  user_role: @current_user.role
+  } %>
+
+  <%= render partial: "menus", locals:{
+  menus:MenuItem.description("Tandoori",@menu),
+  section_title: "Tandoori",
+  user_role: @current_user.role
+  } %>
+
+  <%= render partial: "menus", locals:{
+  menus:MenuItem.description("Milk Shakes",@menu),
+  section_title: "Milk Shakes",
   user_role: @current_user.role
   } %>
 
 
   <%if @current_user.role !="owner"%>
-    <div class="box">
-      <a class="button" href="/order_items">view cart
-      <%if @order_items %>
-      (<%=@order_items.length%>)
-      <%end%>
-      </a>
-    </div>
+   <div class ="box">
+    <a class="button" href ="#popup1" >popup </a>
+   </div>
 
-
-  <div class ="box">
-  <a class="button" href ="#popup1" >popup </a>
-  </div>
-
-  <div id="popup1" class="overlay">
+   <div id="popup1" class="overlay">
     <div class ="popup">
       <h2> Cart </h2>
       <a class = "close" href="#" >&times;</a>
@@ -94,7 +109,7 @@
         }%>
       </div>
     </div>
-  </div>
+   </div>
   <%end%>
-</main>
+ </main>
 </body>

@@ -22,14 +22,15 @@
     <%end%>
       </table>
 
-    <p class= <%= "OrderItem-cost" =%> > Order cost =
+    <p class= "OrderItem-cost" > 
       <% sum = 0%>
       <% order_items.each do |item|%>
          <% sum = sum + (item.menu_item_price * item.quantity) %>
       <%end%>
-      <%= sum %>
-
-    </p>
+      <%if sum!=0%>
+       Order Total =<%= sum %>
+      <%end%>
+     </p>
     <div  class="Order-finalize">
       <% if sum !=0%>
        <i class="OrderItem-extra">
@@ -43,6 +44,7 @@
   <%end%>
   <%if sum==0%>
         <h3 class="Order-empty"> why don't you try out some from our menu ? </h3>
+        <img src="https://cdn.dribbble.com/users/204955/screenshots/4930541/emptycart.png" class="EmptyCart">
         <i class="Cart-link">
           <%=link_to "go back", menu_items_path%>
         </i>

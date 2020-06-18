@@ -36,8 +36,7 @@ class OrdersController < ApplicationController
     id = params[:id]
     order = Order.find(id)
     order.status = "delivered"
-    time = Time.now
-    order.delivered_at = Time.now.utc.getlocal.strftime("%I:%M%p")
+    order.delivered_at = DateTime.now.strftime("%H:%M")
     order.save!
 
     redirect_to orders_path

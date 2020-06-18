@@ -29,6 +29,11 @@
   color: rgb(255, 141, 1);
 }
 
+.CurrentMenu{
+margin-left: 600px;
+margin-top: 50px;
+margin-bottom: 50px;
+}
 .item-submit {
   width: 100px;
   height: 30px;
@@ -38,19 +43,22 @@
 }
 
 .add-MenuItemHeader {
+  margin-top: 50px;
   padding-left: 40%;
   padding-top: 2%;
 }
 
 .Menu-container {
-  background-color: bisque;
+margin-top: 50px;
 }
-
+.MenuItem-conatiner{
+  margin-top: 50px;
+}
 .Menu-list {
   padding-left: 38%;
   display: flex;
   align-items: center;
-  margin: 10px;
+  margin: 50px;
 }
 .form-submit {
   margin-left: 30px;

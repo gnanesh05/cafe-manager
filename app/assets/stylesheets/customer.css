@@ -5,11 +5,13 @@
 
 .User-role {
   padding: 0px;
+  margin-top: 50px;
   margin-bottom: 10px;
   text-align: center;
 }
 
 .User-table {
+  margin-top: 50px;
   text-align: center;
   margin-left: 35%;
 }

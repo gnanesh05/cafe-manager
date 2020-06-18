@@ -61,3 +61,8 @@ textarea:focus,
 input:focus {
   outline: none;
 }
+
+#address{
+width:370px;
+height:67px;
+}

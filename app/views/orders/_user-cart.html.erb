@@ -33,7 +33,7 @@
           <li>Order status: <span class=<%= order.status=="received" ? "OrderStatus-received" : "OrderStatus-delivered" %> > <%=order.status%> </span> </li>
             <%user_id = order.user_id %>
             <% user = User.find_by(id:user_id)%>
-          <li>Ordered by: <%=user.name %> </li>
+          <li>Ordered by:  </li>
           </ul>
         <%end%>
       <%end%>
