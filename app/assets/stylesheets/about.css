@@ -12,6 +12,7 @@
 }
 .navigation {
   position: absolute;
+  top:600px;
   bottom: 20px;
   left: 50%;
   transform: translateX(-50%);

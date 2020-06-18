@@ -18,6 +18,10 @@ class MenuItem < ActiveRecord::Base
     all.where("category_name = ? and menu_id = ?", "lunch", menu.id)
   end
 
+  def self.description(description, menu)
+    all.where("description = ? and menu_id = ?", description, menu.id)
+  end
+
   def self.of_menu(menu)
     all.where("menu_id = ?", menu.id)
   end
