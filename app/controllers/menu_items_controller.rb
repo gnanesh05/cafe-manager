@@ -36,7 +36,7 @@ class MenuItemsController < ApplicationController
                             menu_id: menu,
                             image: image)
     if new_item.save
-      flash[:notice] = "added a new menu item"
+      flash[:notice] = "added a new menu item #{menu_item.name}"
       redirect_to menu_items_path
     else
       flash[:error] = new_item.errors.full_messages.join(", ")

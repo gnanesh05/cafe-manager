@@ -1,9 +1,6 @@
 class SessionsController < ApplicationController
   skip_before_action :ensure_user_logged_in
 
-  def new
-  end
-
   def create
     user = User.find_by(email: params[:email])
     if user && user.authenticate(params[:password])
@@ -16,10 +13,8 @@ class SessionsController < ApplicationController
           new_order = Order.create!(user_id: user.id,
                                     date: Date.today,
                                     status: "not placed")
-          redirect_to "/"
-        else
-          redirect_to menu_items_path
         end
+        redirect_to "/"
       elsif user.role == "clerk"
         @customer = walk_in_customer
         order = Order.current_order(@customer)
@@ -27,11 +22,7 @@ class SessionsController < ApplicationController
           new_order = Order.create!(user_id: @customer.id,
                                     date: Date.today,
                                     status: "not placed")
-          redirect_to "/"
-        else
-          redirect_to "/"
         end
-      else
         redirect_to "/"
       end
     else

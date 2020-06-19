@@ -23,20 +23,8 @@
       <%end%>
     </div>
   </div>
-  <%if @current_user.role!="owner"%>
-   <div class="box">
-      <a class="button" href="/order_items">view cart
-      <%if @order_items %>
-       (<%=@order_items.length%>)
-       <% sum = 0%>
-       <% @order_items.each do |item|%>
-         <% sum = sum + (item.menu_item_price * item.quantity) %>
-       <%end%>
-       <%="Cost: Rs." + String(sum) %> 
-      <%end%>
-      </a>
-    </div>
-  <%end%>
+<div class="cart-container">
+<div class="display-element">
   <h1>Menu</h1>
   <h3 class="Menu-Head"><em>Displaying <%= @menu.name%></em></h3>
   <%= render partial: "menus", locals:{
@@ -80,8 +68,24 @@
   section_title: "Milk Shakes",
   user_role: @current_user.role
   } %>
-
-
+</div>
+<div class="cart-detail">
+  <%if @current_user.role!="owner"%>
+   <div class="box">
+      <a class="button" href="/order_items">view cart
+      <%if @order_items %>
+       (<%=@order_items.length%>)
+       <% sum = 0%>
+       <% @order_items.each do |item|%>
+         <% sum = sum + (item.menu_item_price * item.quantity) %>
+       <%end%>
+       <%="Cost: Rs." + String(sum) %>
+      <%end%>
+      </a>
+  <%end%>
+   </div>
+      </div>
+</div>
   <%if @current_user.role !="owner"%>
    <div class ="box">
     <a class="button" href ="#popup1" >popup </a>

@@ -9,7 +9,7 @@ class UsersController < ApplicationController
     new_user = User.new(name: params[:name],
                         email: params[:email],
                         password: params[:password])
-    if new_user.save
+    if new_user.save!
       flash[:notice] = " successfully registered"
       redirect_to menu_items_path
     else

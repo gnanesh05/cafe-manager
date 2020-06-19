@@ -1,7 +1,7 @@
 .Menu-heading {
   color: red;
   padding-left: 35%;
-  margin-top: 50px;
+  margin-top: 30px;
 }
 
 .MenuItem-title {
@@ -29,10 +29,11 @@
   color: rgb(255, 141, 1);
 }
 
-.CurrentMenu{
-margin-left: 600px;
-margin-top: 50px;
-margin-bottom: 50px;
+.CurrentMenu {
+  color: rgb(118, 74, 241);
+  margin-left: 400px;
+  margin-top: 50px;
+  margin-bottom: 50px;
 }
 .item-submit {
   width: 100px;
@@ -43,23 +44,29 @@ margin-bottom: 50px;
 }
 
 .add-MenuItemHeader {
-  margin-top: 50px;
+  margin-top: 30px;
   padding-left: 40%;
   padding-top: 2%;
 }
 
 .Menu-container {
-margin-top: 50px;
+  margin-top: 30px;
 }
-.MenuItem-conatiner{
-  margin-top: 50px;
+.MenuItem-conatiner {
+  margin-top: 30px;
 }
 .Menu-list {
+  list-style: none;
   padding-left: 38%;
   display: flex;
   align-items: center;
-  margin: 50px;
+  margin-top: 10px;
 }
+
+.MenuList-item {
+  width: 100px;
+}
+
 .form-submit {
   margin-left: 30px;
   background-color: lightgreen;

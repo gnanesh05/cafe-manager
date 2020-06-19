@@ -1,7 +1,6 @@
 class ApplicationController < ActionController::Base
   before_action :ensure_user_logged_in
   before_action :current_menu
-  helper_method :repeat_order_item
 
   def ensure_user_logged_in
     unless current_user
