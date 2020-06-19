@@ -8,8 +8,8 @@
             <div class="card">
                <img src="<%=item.image%>"  alt="roasted meat">
                <div class="blogcontent">
+                  <span><%=item.description%></span>
                   <h3> <%= item.name%><span>Rs.<%=item.price %></span></h3>
-                  <p><%=item.description%></p>
                   <%if user_role == "user"%>
                      <% order = Order.current_order(@current_user)%>
                      <%if order==nil%>
@@ -28,9 +28,11 @@
                      <% orderitem = OrderItem.find_by(order_id: order.id, menu_item_id: item.id) if order%>
                      <%if orderitem%>
                         <p> quantity :
+                           <span class="quantity-box">
                            <%= link_to "−", remove_path(id:orderitem.id), method: "post", class: "minus" %>
                            <%= orderitem.quantity %>
                            <%= link_to "＋", add_path(id:orderitem.id), method: "post", class: "plus"  %>
+                           </span>
                         </p>
                      <%else%>
                         <% if user_role == "user"%>
@@ -41,7 +43,7 @@
                            <%= form_with(url: offline_customer_path(id: item.id), method: :post) do %>
                               <%= button_tag 'Add',type:'submit'%>
                            <% end %>
-                     <%end%>  
+                     <%end%>
                   <%end%>
                </div>
             </div>

@@ -59,12 +59,16 @@
     <em class="CurrentMenu">Currently displaying-<%=@menu.name%> </em>
 
       <%menu.each do |m|%>
-        <div class="Menu-list">
-          <%= m.name %>
-          <%= form_with(url: edit_menu_path(m.id), method: :get, local: true) do %>
-             <%submit_tag("edit" , class: "form-submit")%>
-          <%end%>
-        </div>
+        <ul class="Menu-list">
+          <li class="MenuList-item">
+            <%= m.name %>
+          </li>
+          <li>
+            <%= form_with(url: edit_menu_path(m.id), method: :get, local: true) do %>
+              <%submit_tag("edit" , class: "form-submit")%>
+            <%end%>
+          </li>
+        </ul>
       <% end %>
 
   </div>

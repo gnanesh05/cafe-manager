@@ -1,16 +1,14 @@
 <h1>you can edit your menu </h1>
 
-<div>
-  <b>
-    <em>
-       <%=@edit_menu.name%>
-    </em>
-  </b>
-</div>
-
 <p class="MenuEdit-title">Menu items:</p>
 <main>
- 
+
+  <div class="Menu-Titlename">
+    <strong>
+       <%=@edit_menu.name%>
+    </strong>
+</div>
+
   <%= render partial: "edit_menu", locals:{
   menus:MenuItem.description("south indian",@menu),
   section_title: "South Indian"
@@ -24,7 +22,7 @@
   <%= render partial: "edit_menu", locals:{
   menus:MenuItem.description("Starters",@menu),
   section_title: "Starters"
-  
+
   } %>
 
   <%= render partial: "edit_menu", locals:{
@@ -36,7 +34,7 @@
   <%= render partial: "edit_menu", locals:{
   menus:MenuItem.description("Rice And Noodles",@menu),
   section_title: "Rice And Noodles"
-  
+
   } %>
 
   <%= render partial: "edit_menu", locals:{
@@ -50,15 +48,18 @@
   } %>
 </main>
 
+
 <hr>
 
 
-<div>
-  <strong>Delete menu ?</strong>
-  <li class="MenuEdit-delete">
-    <%= @edit_menu.name %>
+<div class="MenuDelete-container">
+  <p class="MenuDelete-title">Delete menu ?</p>
+
+    <div class="Menu-deletename"><%= @edit_menu.name %></div>
+    <div>
     <%= form_with(url: menu_path(@edit_menu.id), method: :delete) do %>
-      <%= image_submit_tag("interface.png", data: { confirm: "Are you sure?" }) %>
+      <%= image_submit_tag("interface.png", data: { confirm: "Are you sure?" }, class: 'Menu-delete') %>
     <%end%>
-  </li>
+    </div>
+
 </div>

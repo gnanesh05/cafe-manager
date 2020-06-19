@@ -64,7 +64,12 @@ body {
 
 .Order-empty {
   text-align: center;
-  margin: 40px 0px;
+}
+
+.EmptyCart {
+  margin-left: 600px;
+  width: 700px;
+  margin-top: 20px;
 }
 
 .Cart-link {

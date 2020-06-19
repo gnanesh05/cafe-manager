@@ -2,39 +2,40 @@
 <div>
   <% if menus.first %>
     <h4 class="MenuEdit-ListHeading"><%=section_title%></h4>
-    <div class=MenuEdit-ListTitle>
-     <p class="MenuEdit-ListItem">Item-Name</p>
-     <p class="MenuEdit-ListItem">price</p>
-     <p class="MenuEdit-ListItem">Image</p>
-    </div>
+    <table class=MenuEdit-ListTitle>
+    <tr>
+      <th class="MenuEdit-ListElement">Item-Name</li>
+      <th class="MenuEdit-ListElement">price</li>
+      <th class="MenuEdit-ListElement">Image</li>
+     </tr>
   <%end%>
 
   <%menus.each do |item| %>
 
    <section>
-     <div class="MenuEdit-List">
-        <div class="MenuEdit-ListElements">
+      <tr>
+        <td class="MenuEdit-ListElement">
          <%= form_with(url: menu_item_path(item.id), method: :put) do %>
-           <%=text_field_tag( name='name',value = item.name)%>
-        </div>
-        <div>
-           <%=text_field_tag( name='price',value = item.price) %>
-        </div>
-         <div>
-           <%=text_field_tag( name='image',value = item.image) %>
-        </div>
-        <div>
-          <%=button_tag( value="edit") %>
+           <%=text_field_tag( name='name',value = item.name, class: 'MenuEdit-element')%>
+        </td>
+        <td class="MenuEdit-ListElement" >
+           <%=text_field_tag( name='price',value = item.price, class: 'MenuEdit-element') %>
+        </td>
+         <td class="MenuEdit-ListElement" >
+           <%=text_field_tag( name='image',value = item.image, class: 'MenuEdit-element') %>
+        </td>
+        <td class="MenuEdit-Listupdate">
+          <%=button_tag( value="edit", class: "Menuedit-update") %>
          <%end%>
-        </div>
-        <div >
+        </td>
+        <td class="MenuEdit-Listupdate">
           <%= form_with(url: menu_item_path(item.id), method: :delete) do %>
-            <%= image_submit_tag("interface.png", data: { confirm: "Are you sure?" }) %>
+            <%= image_submit_tag("interface.png", data: { confirm: "Are you sure?" }, class: 'Menuedit-delete') %>
           <%end%>
-        </div>
-      </div>
+        </td>
+      </tr>
     </section>
   <%end%>
-     
+      </table>
 
 </div>
