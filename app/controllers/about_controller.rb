@@ -8,7 +8,7 @@ class AboutController < ApplicationController
 
   def ensure_user_available
     unless current_user
-      render "index"
+      render "about"
     end
   end
 end
