@@ -53,9 +53,23 @@ class OrdersController < ApplicationController
   def repeat_order
     id1 = params[:id1]
     order1 = Order.find(id1)
-    id2 = params[:id2]
-    order2 = Order.find(id2)
-    order2.status = "not placed"
+    order2 = Order.create!(user_id: order1.user_id,
+                           date: Date.today,
+                           status: "not placed")
+    order_items = OrderItem.current_order_items(order1)
+    order_items.each do |item|
+      order_item = OrderItem.find(item.id)
+      order = Order.find(order2.id)
+      menu_item_id = order_item.menu_item_id
+      menu_item = MenuItem.find(menu_item_id)
+      repeat_item = OrderItem.create!(
+        menu_item_id: menu_item.id,
+        menu_item_name: menu_item.name,
+        menu_item_price: order_item.menu_item_price,
+        quantity: order_item.quantity,
+        order_id: order.id,
+      )
+    end
     redirect_to order_items_path
   end
 

@@ -4,10 +4,10 @@
 
    <%order_items.each do |item|%>
       <tr class="OrderItem-container">
-        <td class="OrderItem-element">Item:  <%= item.menu_item_name %>  </th>
-        <td class="OrderItem-element">Price  :<%= item.menu_item_price%>   </th>
-        <td class="OrderItem-element"> Qty : <%=item.quantity%></th>
-        <td class="OrderItem-element"> sum = <%= (item.menu_item_price * item.quantity) %> </th>
+        <th class="OrderItem-element">Item:  <%= item.menu_item_name %>  </th>
+        <th class="OrderItem-element">Price  :<%= item.menu_item_price%>   </th>
+        <th class="OrderItem-element"> Qty : <%=item.quantity%></th>
+        <th class="OrderItem-element"> sum = <%= (item.menu_item_price * item.quantity) %> </th>
       </tr>
     <%end%>
 </table>
@@ -21,27 +21,28 @@
 
     </p>
 
-<%= link_to "Back To All Orders" ,orders_path,class: 'OrderItem-return' %>
+  <%= link_to "Back To All Orders" ,orders_path%>
 
-<%if user_role == "user"%>
-          <% order2 = Order.current_order(@current_user)%>
-             <%if order2==nil%>
-               <%order2= Order.create!(user_id: @current_user.id,
+  <%if user_role == "user"%>
+        <% order2 = Order.current_order(@current_user)%>
+            <%if order2==nil%>
+              <%order2= Order.create!(user_id: @current_user.id,
+                                    date: Date.today,
+
+                                    status: "not placed")%>
+            <%end%>
+  <%elsif user_role == "clerk"%>
+        <% order2 = Order.current_order(@customer)%>
+            <%if order2==nil%>
+                <%order2= Order.create!(user_id: @customer.id,
                                     date: Date.today,
                                     status: "not placed")%>
-             <%end%>
-             <%elsif user_role == "clerk"%>
-             <% order2 = Order.current_order(@customer)%>
-             <%if order2==nil%>
-                  <%order2= Order.create!(user_id: @customer.id,
-                                    date: Date.today,
-                                    status: "not placed")%>
-             <%end%>
-<% end %>
+            <%end%> 
 
-       <%= form_with(url: repeat_order_path(id1:order.id,id2:order2.id), method: :post) do %>
-           <%order_items.each do |item|%>
-               <%repeat_order_item(item.id, order2.id)%>
-           <%end%>
-           <%= button_tag 'Repeat Order',type:'submit', class: "OrderItem-repeat"%>
+  <% end %>
+
+       <%= form_with(url: repeat_order_path(id1:order.id), method: :post) do %>
+           
+           <%= button_tag 'Repeat Order',type:'submit'%>
        <% end %>
+ 
