@@ -16,6 +16,9 @@ development:
 test:
   <<: *default
   database: test_project
+  password: changeme
+  user: postgres
+ 
 
 production:
   <<: *default
