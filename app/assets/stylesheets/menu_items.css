@@ -183,7 +183,7 @@ body {
   background: linear-gradient(
     62deg,
     rgb(149, 21, 153) 0%,
-    rgba(144, 192, 299) 100%
+    rgb(144, 192, 299) 100%
   );
   transition: all 0.5s;
   text-align: center;
