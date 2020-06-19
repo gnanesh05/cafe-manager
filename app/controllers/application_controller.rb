@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   before_action :ensure_user_logged_in
   before_action :current_menu
+  helper_method :repeat_order_item
 
   def ensure_user_logged_in
     unless current_user
@@ -19,7 +20,7 @@ class ApplicationController < ActionController::Base
   end
 
   def walk_in_customer
-    return @walk_in_customer = User.find_by(name: "walk-in customer")
+    return @walk_in_customer = User.find_by(name: "Walk-in customer")
   end
 
   def ensure_clerk_logged_in

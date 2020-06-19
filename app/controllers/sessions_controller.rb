@@ -24,6 +24,8 @@ class SessionsController < ApplicationController
                                     status: "not placed")
         end
         redirect_to "/"
+      else
+        redirect_to "/"
       end
     else
       flash[:error] = "your login attempt was invalid. please try again"
