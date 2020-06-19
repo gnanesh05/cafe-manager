@@ -23,7 +23,7 @@
       <%end%>
     </div>
   </div>
-<div class="cart-container">
+<div class= <%=(@current_user.role == "owmner")?"cartContainer":"cart-container" %> >
 <div class="display-element">
   <h1>Menu</h1>
   <h3 class="Menu-Head"><em>Displaying <%= @menu.name%></em></h3>
