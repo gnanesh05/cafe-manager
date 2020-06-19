@@ -4,10 +4,10 @@
 
    <%order_items.each do |item|%>
       <tr class="OrderItem-container">
-        <th class="OrderItem-element">Item:  <%= item.menu_item_name %>  </th>
-        <th class="OrderItem-element">Price  :<%= item.menu_item_price%>   </th>
-        <th class="OrderItem-element"> Qty : <%=item.quantity%></th>
-        <th class="OrderItem-element"> sum = <%= (item.menu_item_price * item.quantity) %> </th>
+        <td class="OrderItem-element">Item:  <%= item.menu_item_name %>  </th>
+        <td class="OrderItem-element">Price  :<%= item.menu_item_price%>   </th>
+        <td class="OrderItem-element"> Qty : <%=item.quantity%></th>
+        <td class="OrderItem-element"> sum = <%= (item.menu_item_price * item.quantity) %> </th>
       </tr>
     <%end%>
 </table>
@@ -21,7 +21,7 @@
 
     </p>
 
-<%= link_to "Back To All Orders" ,orders_path%>
+<%= link_to "Back To All Orders" ,orders_path,class: 'OrderItem-return' %>
 
 <%if user_role == "user"%>
           <% order2 = Order.current_order(@current_user)%>
@@ -43,6 +43,5 @@
            <%order_items.each do |item|%>
                <%repeat_order_item(item.id, order2.id)%>
            <%end%>
-           <%= button_tag 'Repeat Order',type:'submit'%>
+           <%= button_tag 'Repeat Order',type:'submit', class: "OrderItem-repeat"%>
        <% end %>
- 
