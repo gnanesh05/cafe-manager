@@ -1,15 +1,40 @@
-<h3> enter the dates </h3>
+<h3> enter the delievery dates </h3>
            
-             <%= form_with(url: show_report_path, method: :post) do%>
-            <p>
-                From:   <%=date_field_tag(name='from_date',value=nil, :required => true)  %> 
-                To  :   <%=date_field_tag(name='to_date',value=nil, :required => true)  %> 
-                <%=button_tag(value='Go')  %>
-            </p>
-             <%end%>
-             <%=@orders%>
-<%if @orders%>
-    <%@orders.each do |order|%>
-      <%=order.id%>
-    <%end%>
-<%end%>
+           
+             
+             <form action="/report/" method= "GET">
+               <div>
+              <label >From date:</label>
+               <input type="date" name="from_date" required>
+              </div>
+             <div>
+             <label>To date:</label>
+              <input type="date" name="to_date"required>
+            </div>
+            <button type="submit">get</button>
+          </form>
+
+ <%report = Order.getorders(from_date,to_date)%>
+    <%report.each do |order|%>
+      <ul class="Order-contentList">
+          <li>Ordered on: <%=order.date%></li>
+          <li>Delivered at: <%= order.delivered_at%></li>
+          <li>Order status: <span class= "OrderStatus-delivered"> <%=order.status%> </span> </li>
+            <%user_id = order.user_id %>
+            <% user = User.find_by(id:user_id)%>
+          <li>Ordered by: <%=user.name%>  </li>
+          
+          </ul>
+        <%end%>
+    <h3> Menu Item wise report </h3>
+  <% reports=OrderItem.reports(from_date,to_date) %>
+      <% reports.each_key do |item_name|%>
+      
+          
+          <p>name: <%= item_name %></p>
+          <p>total orders: <%= reports[item_name][:quantity] %></p>
+          <p>cost: Rs. <%= reports[item_name][:sum]%></td>
+          
+      
+     <%end%>
+<p>no order exits </p>

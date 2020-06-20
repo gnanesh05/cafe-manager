@@ -18,8 +18,8 @@ class Order < ApplicationRecord
     all.where.not("status=?", "not placed")
   end
 
-  def self.report_orders(date1)
-    all.where("created_at < ?", date1)
+  def self.getorders(date1, date2)
+    all.where("delivered_at >= ? AND delivered_at <= ? ", date1, date2)
   end
 
   def self.received_orders()
@@ -28,6 +28,14 @@ class Order < ApplicationRecord
 
   def self.delivered_orders()
     all.where(status: "delivered")
+  end
+
+  def self.getcost(order)
+    order = Order.find(id: order.id)
+    order_items = OrderItem.where("order_id = ?", order.id)
+    sum = order_items.sum { |menu_item, menu_item_price, quantity| menu_item_price }
+    qty = order_items.sum { |menu_item, menu_item_price, quantity| quantity }
+    sum
   end
 
   def self.user_delivered(user)
