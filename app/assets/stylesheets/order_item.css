@@ -2,17 +2,27 @@ body {
   margin: 0px;
 }
 
+.cart-wrapper {
+  margin-top: 10%;
+  margin-left: 30%;
+  padding: 10px 10px 20px 20px;
+  width: 35%;
+  border-radius: 13px;
+  -webkit-box-shadow: 2px 29px 210px 66px rgba(212, 177, 74, 1);
+  -moz-box-shadow: 2px 29px 210px 66px rgba(212, 177, 74, 1);
+  box-shadow: 2px 2px 20px 6px rgba(3, 3, 3, 0.671);
+}
+
 .OrderItem-element {
   width: 126px;
 }
 
 .Order-table {
   margin-top: 5%;
-  margin-left: 36%;
 }
 
 .OrderItem-heading {
-  text-align: center;
+  margin-left: 44%;
 }
 
 .OrderItem-remove {
@@ -29,7 +39,8 @@ body {
 
 .OrderItem-cost {
   height: 5px;
-  margin-left: 51%;
+  margin-bottom: 5%;
+  margin-left: 54%;
 }
 
 .OrderItem-submit {
@@ -38,7 +49,7 @@ body {
   height: 30px;
   border-radius: 14px;
   color: black;
-  margin-left: 430px;
+  margin-left: 345%;
 }
 
 .OrderItem-submit:hover {
@@ -49,7 +60,6 @@ body {
   background-color: rgb(51, 255, 0);
   border-radius: 14px;
   padding: 5px;
-  margin-left: 100px;
 }
 
 .OrderItem-extra:hover {
@@ -59,18 +69,18 @@ body {
 .Order-finalize {
   display: flex;
   align-items: center;
-  margin-left: 31%;
   margin-top: 10px;
 }
 
 .Order-empty {
   text-align: center;
+  margin-top: 0px;
 }
 
 .EmptyCart {
-  margin-left: 600px;
-  width: 700px;
-  margin-top: 20px;
+  margin-left: opx;
+  width: 100%;
+  margin-top: ;
 }
 
 .Cart-link {

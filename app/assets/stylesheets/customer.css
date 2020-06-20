@@ -1,6 +1,5 @@
 .Customer-title {
   color: red;
-  padding-left: 35%;
 }
 
 .User-role {
@@ -13,7 +12,6 @@
 .User-table {
   margin-top: 50px;
   text-align: center;
-  margin-left: 35%;
 }
 
 .User-tableElement {
