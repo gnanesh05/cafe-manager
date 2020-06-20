@@ -78,9 +78,9 @@ body {
 }
 
 .EmptyCart {
-  margin-left: opx;
+  margin-left: 0px;
   width: 100%;
-  margin-top: ;
+  margin-top: 40px ;
 }
 
 .Cart-link {
