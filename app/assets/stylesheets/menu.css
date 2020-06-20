@@ -1,0 +1,132 @@
+.Menuadder-wrapper {
+  margin-top: 5%;
+  margin-left: 30%;
+  width: 40%;
+  padding: 10px 10px 20px 70px;
+  border-radius: 13px;
+  -webkit-box-shadow: 2px 29px 210px 66px rgba(212, 177, 74, 1);
+  -moz-box-shadow: 2px 29px 210px 66px rgba(212, 177, 74, 1);
+  box-shadow: 2px 2px 20px 6px rgba(3, 3, 3, 0.671);
+}
+
+.Menu-heading {
+  color: red;
+  margin-top: 30px;
+  margin-left: 15%;
+  font-size: larger;
+  font-weight: bold;
+}
+
+.MenuItem-title {
+  padding-left: 40%;
+}
+
+.item-label {
+  color: rgba(0, 0, 0, 0.904);
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.add-item {
+  display: flex;
+  margin-left: 10%;
+  align-items: center;
+}
+
+.MenuCreate-input {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.MenuCreate-submit {
+  width: 100px;
+  height: 30px;
+  margin-left: 5px;
+  color: aquamarine;
+  background-color: blueviolet;
+  border-radius: 10px;
+}
+
+.CurrentMenu {
+  color: rgb(118, 74, 241);
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+.item-submit {
+  width: 100px;
+  height: 30px;
+  margin-left: 1px;
+  color: aquamarine;
+  background-color: blueviolet;
+  border-radius: 10px;
+}
+
+.add-MenuItemHeader {
+  margin-top: 30px;
+  padding-top: 2%;
+  margin-left: 36%;
+}
+
+.Menu-container {
+  margin-top: 30px;
+}
+.MenuItem-conatiner {
+  margin-left: 2.5%;
+  margin-top: 30px;
+  width: 85%;
+  background-color: rgb(225, 226, 225);
+  display: flex;
+  padding: 2% 5%;
+  box-shadow: 1px 1px 0px #999, 2px 2px 0px #999, 3px 3px 0px #999;
+}
+.Menu-list {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+  margin-left: 20%;
+}
+
+.MenuList-item {
+  width: 150px;
+}
+
+.form-submit {
+  background-color: lightgreen;
+  width: 80px;
+  height: 25px;
+  border-radius: 10px;
+}
+
+.MenuEdit-title {
+  text-align: center;
+}
+
+.MenuEdit-ListHeading {
+  margin-left: 46%;
+}
+
+.MenuEdit-ListTitle {
+  display: flex;
+  margin-left: 40%;
+}
+.MenuEdit-List {
+  display: flex;
+}
+
+.MenuEdit-ListItem {
+  padding-right: 20%;
+}
+
+.MenuEdit-ListElements {
+  padding-left: 35%;
+}
+
+.MenuEdit-delete {
+  display: flex;
+  width: 11.5%;
+  margin-left: 30%;
+  margin-top: 4px;
+  margin-bottom: 10px;
+  justify-content: space-between;
+}

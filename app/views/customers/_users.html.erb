@@ -1,6 +1,6 @@
 
 
-<div>
+<div class="user-wrapper">
   <%if users.first%>
     <h4 class="User-role"><%= section_title%> </h4>
     <table class="User-table">
@@ -44,6 +44,6 @@
         <%end%>
       </table>
   <%else%>
-    <p>NO Active :<%=section_title %></p>
+<h2 style="text-align: center;color: red">No Active:<%=section_title %></p>
   <%end%>
-<div>
+</div>
