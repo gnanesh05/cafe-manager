@@ -27,13 +27,13 @@ class MenuItemsController < ApplicationController
     description = params[:description]
     image = params[:image]
     category = params[:category]
-    menu = params[:menu]
+    menu_id = params[:menu_id]
 
     new_item = MenuItem.new(name: name,
                             price: price,
                             description: description,
                             category_name: category,
-                            menu_id: menu,
+                            menu_id: menu_id,
                             image: image)
     if new_item.save
       flash[:notice] = "added a new menu item #{new_item.name}"

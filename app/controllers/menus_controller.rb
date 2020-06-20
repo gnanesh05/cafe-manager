@@ -10,7 +10,7 @@ class MenusController < ApplicationController
     name = params[:menu]
     new_menu = Menu.new(name: name)
     if new_menu.save
-      flash[:notice] = "added a new menu menu"
+      flash[:notice] = "added a new menu- #{new_menu.name}"
       redirect_to menus_path
     else
       flash[:error] = new_menu.errors.full_messages.join(", ")

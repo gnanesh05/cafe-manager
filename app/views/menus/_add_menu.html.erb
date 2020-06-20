@@ -1,45 +1,6 @@
 
 
-  <div class="MenuItem-conatiner">
-    <h4 class="MenuItem-title"><%=section_title_1%></h4>
-    <%=form_with url:menu_items_path ,method: :post do |form|%>
-
-      <div class="add-item">
-        <p class="item-label">Item Name: </p>
-        <%= form.text_field :item ,class:"item-input"%>
-      </div>
-
-      <div class ="add-section">
-      <p class="item-label">Item Rate: </p>
-      <%= form.text_field :rate, class:"item-input"%>
-      </div>
-
-      <div class="add-section">
-        <p class="item-label">description : </p>
-        <%= form.select'description', raw("<option selected disabled>select</option><option>South Indian</option><option>North Indian</option><option>Starters</option><option>Rice And Noodles</option><option>Briyani</option><option>Italian</option>
-        <option>Tandoori</option><option>Milk Shakes</option>"), class:"item-input"%>
-      </div>
-
-      <div class="add-section">
-        <p class="item-label">Item Image: </p>
-        <%= form.text_field 'image' ,class:"item-input"%>
-      </div>
-      <div class="add-section">
-        <p class="item-label">Category of: </p>
-        <%= form.select 'category', raw("<option selected disabled>select</option><option>Breakfast</option><option>lunch</option><option>Dinner</option><option>Cold Drinks</option>"), class:"item-input"%>
-      </div>
-
-      <div class="add-section">
-        <p class="item-label">MenuName: </p>
-        <%= form.select 'menu', options_for_select(menu.collect{ |u| [u.name, u.id] }) , class:"item-input"%>
-      </div>
-
-      <div class="add-section">
-        <%=form.submit "add", class:"item-submit" %>
-      </div>
-
-     <%end%>
-  </div>
+  
 
   <div class="AddMenu-container">
     <h4 class="add-MenuItemHeader"><%= section_title_2%></h4>
