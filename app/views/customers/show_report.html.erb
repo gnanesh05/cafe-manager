@@ -1,0 +1,15 @@
+<h3> enter the dates </h3>
+           
+             <%= form_with(url: show_report_path, method: :post) do%>
+            <p>
+                From:   <%=date_field_tag(name='from_date',value=nil, :required => true)  %> 
+                To  :   <%=date_field_tag(name='to_date',value=nil, :required => true)  %> 
+                <%=button_tag(value='Go')  %>
+            </p>
+             <%end%>
+             <%=@orders%>
+<%if @orders%>
+    <%@orders.each do |order|%>
+      <%=order.id%>
+    <%end%>
+<%end%>

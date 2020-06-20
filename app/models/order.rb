@@ -6,8 +6,20 @@ class Order < ApplicationRecord
     all.where("user_id = ? and status = ?", user.id, "received")
   end
 
+  def self.all_user(user)
+    all.where("user_id = ?", user.id)
+  end
+
   def self.current_order(user)
     all.where("user_id = ? and status = ?", user.id, "not placed").last
+  end
+
+  def self.all_orders()
+    all.where.not("status=?", "not placed")
+  end
+
+  def self.report_orders(date1)
+    all.where("created_at < ?", date1)
   end
 
   def self.received_orders()
@@ -29,6 +41,4 @@ class Order < ApplicationRecord
   def self.find_order(order)
     all.where("id =?", order.id)
   end
-  
-
 end

@@ -6,7 +6,7 @@ class User < ApplicationRecord
   has_many :orders
 
   def self.customers
-    all.where("role= ? and name != ?", "user", "walk-in customer")
+    all.where("role= ? and name != ?", "user", "Walk-in customer")
   end
 
   def self.clerk

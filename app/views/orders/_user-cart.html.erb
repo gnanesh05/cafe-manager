@@ -1,6 +1,6 @@
 
 
-<%if cart.first!=nil%>
+<%if all_orders.first !=nil%>
     <h2 class="Order-title">Pending orders </h3>
     <%if cart.first%>
       <% cart.each do |order|%>
@@ -8,14 +8,23 @@
         <span class="Order-contentId">Order_id :<%= link_to order.id , order_path(id: order.id) %> </span>
           <li> Ordered-on: <%=order.date%> </li>
           <li>Order-status: <span class=<%= order.status=="received" ? "OrderStatus-received" : "OrderStatus-delivered" %> > <%=order.status%> </span></li>
+          <% if user_role == "user"%>
+           <%= form_with(url: order_path(id:order.id), method: :delete) do %>
+                <li> <%= button_tag 'Cancel',type:'submit',class: 'Cancel_button'%></li>
+           <% end %>
+          <%end%>
           <% if user_role == "clerk"%>
             <% user_id = order.user_id %>
               <% user = User.find(user_id)%>
               <li>Ordered by: <%=user.name %> </li>
+              <%= form_with(url: order_path(id:order.id), method: :delete) do %>
+                <li> <%= button_tag 'Cancel',type:'submit',class: 'Cancel_button'%></li>
+              <% end %>
               <%= form_with(url: deliver_order_path(id:order.id), method: :post) do %>
                 <li><%= button_tag 'Deliver',type:'submit',class: 'Delivery_button'%></li>
               <% end %>
           <%end%>
+
         </ul>
       <%end%>
     <%else%>

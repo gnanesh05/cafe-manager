@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
     user = User.find_by(email: params[:email])
     if user && user.authenticate(params[:password])
       session[:current_user_id] = user.id
-      flash[:notice] = " you're signed in !"
+      flash[:notice] = " Hi #{user.name} !"
 
       if user.role == "user"
         order = Order.current_order(user)
@@ -14,7 +14,7 @@ class SessionsController < ApplicationController
                                     date: Date.today,
                                     status: "not placed")
         end
-        redirect_to "/"
+        redirect_to menu_items_path
       elsif user.role == "clerk"
         @customer = walk_in_customer
         order = Order.current_order(@customer)
@@ -23,7 +23,7 @@ class SessionsController < ApplicationController
                                     date: Date.today,
                                     status: "not placed")
         end
-        redirect_to "/"
+        redirect_to menu_items_path
       else
         redirect_to "/"
       end
@@ -37,6 +37,6 @@ class SessionsController < ApplicationController
     session[:current_user_id] = nil
     @current_user = nil
     redirect_to "/"
-    flash[:notice] = "you logged out"
+    flash[:notice] = "come back soon!"
   end
 end

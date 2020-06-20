@@ -5,11 +5,13 @@ class OrdersController < ApplicationController
     if @current_user.role == "user"
       @orders = Order.of_user(current_user)
       @user_delivered = Order.user_delivered(current_user)
+      @all_orders = Order.all_user(current_user).all_orders()
       render "index"
     end
     if @current_user.role == "clerk" || @current_user.role == "owner"
       @orders = Order.received_orders
       @delivered = Order.delivered_orders
+      @all_orders = Order.all_orders()
       render "index"
     end
     if @current_user == nil
@@ -75,8 +77,8 @@ class OrdersController < ApplicationController
 
   def destroy
     id = params[:id]
-    order = Order.of_user(current_user).find(id)
+    order = Order.find(id)
     order.destroy
-    redirect_to menus_path
+    redirect_to orders_path
   end
 end
