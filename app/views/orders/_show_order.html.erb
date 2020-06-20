@@ -40,9 +40,13 @@
             <%end%> 
 
   <% end %>
+ 
+
      <% if user_role != "owner"%>
        <%= form_with(url: repeat_order_path(id1:order.id), method: :post) do %>
            
            <%= button_tag 'Repeat Order',type:'submit'%>
        <% end %>
      <%end%>
+     
+     

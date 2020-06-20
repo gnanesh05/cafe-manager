@@ -1,0 +1,21 @@
+<h3> this is your account </h3>
+
+<p>name:<%=@user.name%></p>
+<p>email:<%=@user.email%></p>
+<p>address:<%=@user.address%></p>
+<p>joined on:<%=@user.created_at%>
+
+ <tr> <h4>edit details </h4>
+        <td class="MenuEdit-ListElement">
+         <%= form_with(url:  change_identity_path(id: @user.id), method: :post) do %>
+           name:<%=text_field_tag( name='name',value = @user.name, class: 'MenuEdit-element')%>
+        </td>
+         <td class="MenuEdit-ListElement" >
+          address:<%=text_field_tag( name='address',value = @user.address, class: 'MenuEdit-element') %>
+        </td>
+        <td class="MenuEdit-Listupdate">
+          <%=button_tag( value="edit", class: "Menuedit-update") %>
+         <%end%>
+        </td>
+        
+    </tr>

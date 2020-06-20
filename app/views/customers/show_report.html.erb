@@ -13,8 +13,10 @@
             </div>
             <button type="submit">get</button>
           </form>
-
+(*initially showing report of last 10 days)
  <%report = Order.getorders(from_date,to_date)%>
+ <%if report.first%>
+    <%total=0%>
     <%report.each do |order|%>
       <ul class="Order-contentList">
           <li>Ordered on: <%=order.date%></li>
@@ -23,10 +25,13 @@
             <%user_id = order.user_id %>
             <% user = User.find_by(id:user_id)%>
           <li>Ordered by: <%=user.name%>  </li>
-          
+          <li>Order cost: Rs.<%= sum=OrderItem.current_order_items_cost(order) %> 
+           <%total = total+sum%>
+          </li>
           </ul>
         <%end%>
-    <h3> Menu Item wise report </h3>
+      <li>Total cost: <%=total%>  </li>  
+     <h3> Menu Item wise report </h3>
   <% reports=OrderItem.reports(from_date,to_date) %>
       <% reports.each_key do |item_name|%>
       
@@ -37,4 +42,6 @@
           
       
      <%end%>
+<%else%>
 <p>no order exits </p>
+<%end%>

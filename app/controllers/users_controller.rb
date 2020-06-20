@@ -8,7 +8,8 @@ class UsersController < ApplicationController
   def create
     new_user = User.new(name: params[:name],
                         email: params[:email],
-                        password: params[:password])
+                        password: params[:password],
+                        address: params[:address])
     if new_user.save!
       flash[:notice] = " successfully registered"
       session[:current_user_id] = new_user.id
@@ -45,6 +46,22 @@ class UsersController < ApplicationController
       flash[:error] = user.errors.full_messages.join(", ")
       redirect_to customers_path
     end
+  end
+
+  def show
+    id = params[:id]
+    @user = User.find(id)
+    render "show"
+  end
+
+  def change_identity
+    id = params[:id]
+    user = User.find(id)
+    user.name = params[:name]
+    user.address = params[:address]
+    user.save!
+    flash[:notice] = "updated account details"
+    redirect_to "/"
   end
 
   def destroy

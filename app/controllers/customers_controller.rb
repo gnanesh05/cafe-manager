@@ -8,10 +8,10 @@ class CustomersController < ApplicationController
   end
 
   def report
-    from_date = params[:from_date].presence || DateTime.now - 30
-    to_date = params[:to_date].presence || DateTime.now
+    from_date = params[:from_date].presence || Date.today - 10
+    to_date = params[:to_date].presence || Date.today
     if from_date.to_date > to_date.to_date
-      from_date = to_date.to_date - 30
+      from_date = to_date.to_date - 10
     end
     render :show_report, locals: { from_date: from_date,
                                    to_date: to_date }
@@ -23,4 +23,6 @@ class CustomersController < ApplicationController
     @reports = Order.getorders(date1, date2)
     redirect_to report_path
   end
+
+  
 end

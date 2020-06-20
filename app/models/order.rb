@@ -31,7 +31,6 @@ class Order < ApplicationRecord
   end
 
   def self.getcost(order)
-    order = Order.find(id: order.id)
     order_items = OrderItem.where("order_id = ?", order.id)
     sum = order_items.sum { |menu_item, menu_item_price, quantity| menu_item_price }
     qty = order_items.sum { |menu_item, menu_item_price, quantity| quantity }

@@ -3,8 +3,17 @@ class OrderItem < ApplicationRecord
   belongs_to :order
   validates :quantity, presence: true
 
+  def self.current_order_items_cost(order)
+    order_items = where("order_id = ?", order.id)
+    sum = 0
+    order_items.each do |item|
+      sum = sum + (item.menu_item_price * item.quantity)
+    end
+    sum
+  end
+
   def self.current_order_items(order)
-    where("order_id = ?", order.id)
+    all.where("order_id = ?", order.id)
   end
 
   def self.gettotal(date1, date2)
