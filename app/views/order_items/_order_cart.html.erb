@@ -1,14 +1,15 @@
 
 <section style="margin-bottom: 50px;">
 <div class="cart-wrapper">
-   <%if order_items !=nil%>
+   <%if order_items.first!=nil%>
      <table class="Order-table">
       <tr class="OrderItem-container">
           <th class="OrderItem-element">Item:   </th>
           <th class="OrderItem-element">Price  :</th>
           <th class="OrderItem-element"> Qty : </th>
           <th class="OrderItem-element"> sum :  </th>
-        </tr>
+      </tr>
+
     <%order_items.each do |item|%>
       <tr class="OrderItem-container">
         <td class="OrderItem-element"> <%= item.menu_item_name %>  </th>
@@ -36,7 +37,8 @@
        Order Total =<%= sum %>
       <%end%>
      </p>
-    <div  class="Order-finalize">
+
+    <div class="Order-finalize">
       <% if sum !=0%>
        <i class="OrderItem-extra">
         <%= link_to "  Add More  ", menu_items_path %>
@@ -45,9 +47,9 @@
          <%= button_tag 'place order',type:'submit' ,class: "OrderItem-submit"%>
        <% end %>
       <%end%>
-       </div>
-  <%end%>
-  <%if sum==0%>
+    </div>
+  <%else%>
+  
         <h3 class="Order-empty"> Why don't you try out something from our menu ? </h3>
         <img src="https://cdn.dribbble.com/users/204955/screenshots/4930541/emptycart.png" class="EmptyCart">
 

@@ -35,4 +35,8 @@ class OrderItem < ApplicationRecord
     }
     report
   end
+
+  def self.get_items(order, menu_item)
+    where("order_id = ? and menu_item_id =?", order.id, menu_item.id)
+  end
 end

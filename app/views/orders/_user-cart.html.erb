@@ -16,8 +16,8 @@
           <%end%>
           <% if user_role == "clerk"%>
             <% user_id = order.user_id %>
-              <% %>
-              <li>Ordered by: RAj Kishore </li>
+              <%user=User.find(user_id) %>
+              <li>Ordered by: <%=user.name%>  </li>
               <%= form_with(url: order_path(id:order.id), method: :delete) do %>
                 <li> <%= button_tag 'Cancel',type:'submit',class: 'Cancel_button'%></li>
               <% end %>
