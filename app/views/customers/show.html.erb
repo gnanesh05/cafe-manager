@@ -1,5 +1,5 @@
-<h3>Order Details Of <%=@user.name%> </h3>
-
+<h1 class="Profile-Order">Order Details Of <%=@user.name%> </h1>
+<div class="Profile-OrderContainer">
  <%if @orders.first%>
      <%total=0%>
       <% @orders.each do |order|%>
@@ -11,5 +11,7 @@
           <li>Order-status: <span class="OrderStatus-delivered" > <%=order.status%> </span></li>
         </ul>
       <%end%>
-      <p> Total Order Cost: Rs. <%=total%> </p>
+            <h3 class="Profile-OrderCost"> Total Order Cost: Rs. <%=total%> </h3>
+</div>
+
  <%end%>
