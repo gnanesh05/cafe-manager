@@ -43,12 +43,12 @@
 .Order-contentList {
   display: flex;
   list-style-type: none;
-  margin-left: 20%;
+  margin-left: 25%;
 }
 
 .Order-contentList li {
   margin: 0px 2.5px;
-  width: 280px;
+  width: 240px;
   font-size: 20px;
 }
 
@@ -77,4 +77,40 @@
   padding: 5px;
   border-radius: 13px;
   font-size: 20px;
+}
+
+.Cancel_button {
+  background-color: red;
+  color: white;
+  padding: 5px;
+  border-radius: 13px;
+  font-size: 20px;
+  margin-left: -5%;
+  margin-top: -5%;
+}
+
+.Orderid-wrapper {
+  margin-top: 5%;
+  margin-left: 35%;
+  padding: 10px 10px 20px 20px;
+  width: 30%;
+  height: 90%;
+  border-radius: 13px;
+  -webkit-box-shadow: 2px 29px 210px 66px rgba(212, 177, 74, 1);
+  -moz-box-shadow: 2px 29px 210px 66px rgba(212, 177, 74, 1);
+  box-shadow: 2px 2px 20px 6px rgba(3, 3, 3, 0.671);
+}
+
+.Repeat-Order {
+  display: flex;
+}
+
+.RepeatOrder-button {
+  background-color: rgb(32, 212, 32);
+  padding: 1px;
+  border-radius: 13px;
+  font-size: 20px;
+  width: 200px;
+  margin-top: -2px;
+  margin-left: 80%;
 }

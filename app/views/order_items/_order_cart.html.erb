@@ -3,17 +3,22 @@
 <div class="cart-wrapper">
    <%if order_items !=nil%>
      <table class="Order-table">
-
+      <tr class="OrderItem-container">
+          <th class="OrderItem-element">Item:   </th>
+          <th class="OrderItem-element">Price  :</th>
+          <th class="OrderItem-element"> Qty : </th>
+          <th class="OrderItem-element"> sum :  </th>
+        </tr>
     <%order_items.each do |item|%>
       <tr class="OrderItem-container">
-        <td class="OrderItem-element">Item:  <%= item.menu_item_name %>  </th>
-        <td class="OrderItem-element">Price  :<%= item.menu_item_price%>   </th>
-        <td class="OrderItem-element"> Qty :
+        <td class="OrderItem-element"> <%= item.menu_item_name %>  </th>
+        <td class="OrderItem-element"><%= item.menu_item_price%>   </th>
+        <td class="OrderItem-element">
           <%= link_to "−", remove_path(id:item.id), method: "post", class: "minus" %>
                         <%= item.quantity %>
           <%= link_to "＋", add_path(id:item.id), method: "post", class: "plus"  %>
         </td>
-        <td class="OrderItem-element"> sum = <%= (item.menu_item_price * item.quantity) %> </th>
+        <td class="OrderItem-element">  <%= (item.menu_item_price * item.quantity) %> </th>
         <td class="OrderItem-element">
         <%= form_with(url: order_item_path(item.id), method: :delete) do %>
             <%= button_tag 'remove',type:'submit',class: "OrderItem-remove"%>

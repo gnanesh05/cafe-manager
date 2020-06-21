@@ -72,7 +72,36 @@ input:focus {
   outline: none;
 }
 
-#address {
-  width: 370px;
+.Profile-wrapper {
+  margin-top: 5%;
+  margin-left: 35%;
+  padding: 10px 10px 20px 20px;
+  width: 35%;
+  height: auto;
+  border-radius: 13px;
+  -webkit-box-shadow: 2px 29px 210px 66px rgba(212, 177, 74, 1);
+  -moz-box-shadow: 2px 29px 210px 66px rgba(212, 177, 74, 1);
+  box-shadow: 2px 2px 20px 6px rgba(3, 3, 3, 0.671);
+}
+
+.Profile-name {
+  text-align: center;
+  border: 2px dotted #333;
+  border-radius: 15px;
+  background-color: rgb(165, 160, 160);
+  margin-left: 8%;
+}
+
+.Profile-address {
+  width: 70%;
   height: 67px;
+  text-align: center;
+  border: 2px dotted #333;
+  border-radius: 15px;
+  background-color: rgb(165, 160, 160);
+  margin-left: 5%;
+}
+
+.Profile-element {
+  margin-left: 25%;
 }

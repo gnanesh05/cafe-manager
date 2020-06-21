@@ -43,102 +43,104 @@
 
      <%end%>
   </div>
-
-
-
-
 <%end%>
-<div class= <%=(@current_user.role == "owmner") ? "cartContainer":"cart-container" %> >
-<div class="display-element">
-  <h1>Menu</h1>
-  <h3 class="Menu-Head"><em>Displaying <%= @menu.name%></em></h3>
-  <%= render partial: "menus", locals:{
-  menus:MenuItem.description("south indian",@menu),
-  section_title: "South Indian",
-  user_role: @current_user.role
-  } %>
 
-  <%= render partial: "menus", locals:{
-  menus:MenuItem.description("north indian",@menu),
-  section_title: "North Indian",
-  user_role: @current_user.role
-  } %>
 
-  <%= render partial: "menus", locals:{
-  menus:MenuItem.description("Starters",@menu),
-  section_title: "Starters",
-  user_role: @current_user.role
-  } %>
+  <h1 class="SectionHeading" >Menu</h1>
+<div class= <%=(@current_user.role != "owmner" ) ? "cart-container":"cartContainer" %> >
+  <div class="display-element">
+    <h3 class="Menu-Head"><em>Displaying<%= @menu.name%></em></h3>
+    <%= render partial: "menus", locals:{
+    menus:MenuItem.description("south indian",@menu),
+    section_title: "South Indian",
+    user_role: @current_user.role
+    } %>
 
-  <%= render partial: "menus", locals:{
-  menus:MenuItem.description("Briyani",@menu),
-  section_title: "Briyani",
-  user_role: @current_user.role
-  } %>
+    <%= render partial: "menus", locals:{
+    menus:MenuItem.description("north indian",@menu),
+    section_title: "North Indian",
+    user_role: @current_user.role
+    } %>
 
-  <%= render partial: "menus", locals:{
-  menus:MenuItem.description("Rice And Noodles",@menu),
-  section_title: "Rice And Noodles",
-  user_role: @current_user.role
-  } %>
+    <%= render partial: "menus", locals:{
+    menus:MenuItem.description("Starters",@menu),
+    section_title: "Starters",
+    user_role: @current_user.role
+    } %>
 
-  <%= render partial: "menus", locals:{
-  menus:MenuItem.description("Tandoori",@menu),
-  section_title: "Tandoori",
-  user_role: @current_user.role
-  } %>
+    <%= render partial: "menus", locals:{
+    menus:MenuItem.description("Briyani",@menu),
+    section_title: "Briyani",
+    user_role: @current_user.role
+    } %>
 
-  <%= render partial: "menus", locals:{
-  menus:MenuItem.description("Milk Shakes",@menu),
-  section_title: "Milk Shakes",
-  user_role: @current_user.role
-  } %>
-</div>
-<div class="cart-detail">
-  <%if @current_user.role!="owner"%>
-   <div class="box">
-      <a class="button" href="/order_items">view cart
-      <%if @order_items %>
-       (<%=@order_items.length%>)
-       <% sum = 0%>
-       <% @order_items.each do |item|%>
-         <% sum = sum + (item.menu_item_price * item.quantity) %>
-       <%end%>
-       <%="Cost: Rs." + String(sum) %>
+    <%= render partial: "menus", locals:{
+    menus:MenuItem.description("Rice And Noodles",@menu),
+    section_title: "Rice And Noodles",
+    user_role: @current_user.role
+    } %>
+
+    <%= render partial: "menus", locals:{
+    menus:MenuItem.description("Tandoori",@menu),
+    section_title: "Tandoori",
+    user_role: @current_user.role
+    } %>
+
+    <%= render partial: "menus", locals:{
+    menus:MenuItem.description("Milk Shakes",@menu),
+    section_title: "Milk Shakes",
+    user_role: @current_user.role
+    } %>
+  </div>
+
+  <div class="cart-detail">
+      <%if @current_user.role!="owner"%>
+        <div class="box">
+            <a class="button" href="/order_items">view cart
+            <%if @order_items %>
+            (<%=@order_items.length%>)
+            <% sum = 0%>
+            <% @order_items.each do |item|%>
+              <% sum = sum + (item.menu_item_price * item.quantity) %>
+            <%end%>
+            <%="Cost: Rs." + String(sum) %>
+            <%end%>
+            </a>
       <%end%>
-      </a>
-  <%end%>
-   </div>
-      </div>
-</div>
-  <%if @current_user.role !="owner"%>
-   <div class ="box">
-    <a class="button" href ="#popup1" >popup </a>
-   </div>
-
-   <div id="popup1" class="overlay">
-    <div class ="popup">
-      <h2> Cart </h2>
-      <a class = "close" href="#" >&times;</a>
-      <div class="content">
-        <% if @current_user.role == "user" %>
-          <%order = Order.current_order(@current_user)%>
-          <%@order = order%>
-          <%@order_items = OrderItem.where("order_id = ?", order.id)%>
-        <%end%>
-        <%if @current_user.role == "clerk"%>
-          <%@customer = @walk_in_customer%>
-          <% order = Order.current_order(@customer)%>
-          <%@order = order%>
-          <%@order_items = OrderItem.where("order_id = ?", order.id)%>
-        <% end%>
-        <%= render partial: "order_items/order_cart",locals:{
-        order_items: @order_items,
-        order: @order
-        }%>
-      </div>
+       </div>
     </div>
-   </div>
-  <%end%>
+</div>
+
+    <%if @current_user.role !="owner"%>
+      <div class ="box">
+        <a class="button" href ="#popup1" >popup </a>
+      </div>
+
+      <div id="popup1" class="overlay">
+        <div class ="popup">
+          <h2> Cart </h2>
+          <a class = "close" href="#" >&times;</a>
+          <div class="content">
+            <% if @current_user.role == "user" %>
+              <%order = Order.current_order(@current_user)%>
+              <%@order = order%>
+              <%@order_items = OrderItem.where("order_id = ?", order.id)%>
+            <%end%>
+            <%if @current_user.role == "clerk"%>
+              <%@customer = @walk_in_customer%>
+              <% order = Order.current_order(@customer)%>
+              <%@order = order%>
+              <%@order_items = OrderItem.where("order_id = ?", order.id)%>
+            <% end%>
+            <%= render partial: "order_items/order_cart",locals:{
+            order_items: @order_items,
+            order: @order
+            }%>
+          </div>
+        </div>
+      </div>
+      <%end%>
+
+
  </main>
 </body>

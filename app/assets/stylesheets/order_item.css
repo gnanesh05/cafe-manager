@@ -15,6 +15,7 @@ body {
 
 .OrderItem-element {
   width: 126px;
+  text-align: center;
 }
 
 .Order-table {
@@ -60,6 +61,7 @@ body {
   background-color: rgb(51, 255, 0);
   border-radius: 14px;
   padding: 5px;
+  margin-left: 6%;
 }
 
 .OrderItem-extra:hover {
@@ -80,7 +82,7 @@ body {
 .EmptyCart {
   margin-left: 0px;
   width: 100%;
-  margin-top: 40px ;
+  margin-top: 40px;
 }
 
 .Cart-link {

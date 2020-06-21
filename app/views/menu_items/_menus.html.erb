@@ -1,6 +1,6 @@
 
 <main id="table-body">
-   <div class= <%=(@current_user.role == "user")?"MenuList":"MenuList-box" %>>
+   <div class= <%=(@current_user.role != "owner")?"MenuList":"MenuList-box" %>>
       <p><%=section_title%></p>
 
       <section class="menu-card">
@@ -8,8 +8,8 @@
             <div class="card">
                <img src="<%=item.image%>"  alt="roasted meat">
                <div class="blogcontent">
+                  <h3> <%= item.name%><span style="margin: 10px 0px;" >Rs.<%=item.price %></span></h3>
                   <span><%=item.description%></span>
-                  <h3> <%= item.name%><span>Rs.<%=item.price %></span></h3>
                   <%if user_role == "user"%>
                      <% order = Order.current_order(@current_user)%>
                      <%if order==nil%>
