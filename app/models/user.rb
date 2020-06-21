@@ -4,7 +4,6 @@ class User < ApplicationRecord
   validates_uniqueness_of :email
   validates :address, presence: true
   has_secure_password
-  validates :password, length: { minimum: 5, maximum: 10 }
 
   has_many :orders
 
