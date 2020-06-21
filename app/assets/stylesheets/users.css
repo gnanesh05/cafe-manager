@@ -50,11 +50,6 @@
   color: white;
 }
 
-#address{
-  width: 382px;
-  height: 81px;
-}
-
 .Form-Label {
   color: rgb(8, 8, 8);
   height: 20px;
@@ -72,7 +67,7 @@
   color: #fff;
 }
 
-.Heading-h2{
+.Heading-h2 {
   margin-top: 100px;
   margin-left: 650px;
   margin-bottom: 0;
@@ -95,25 +90,46 @@ input:focus {
   box-shadow: 2px 2px 20px 6px rgba(3, 3, 3, 0.671);
 }
 
+.Profile-wrapper h2 {
+  text-align: center;
+}
+
 .Profile-name {
   text-align: center;
-  border: 2px solid #333;
+  border: 2px dotted #333;
   border-radius: 15px;
-  background-color: white;
+  background-color: rgb(165, 160, 160);
   margin-left: 8%;
 }
 
 .Profile-address {
   width: 70%;
   height: 67px;
-  text-align: center;
-  border: 2px solid #333;
+  border: 2px dotted #333;
   border-radius: 15px;
-  background-color: white;
+  background-color: rgb(165, 160, 160);
   margin-left: 5%;
 }
 
 .Profile-element {
-  margin-left: 25%;
-  margin-bottom: 35px;
+  margin-left: 10%;
+}
+
+.Profile-update {
+  background-color: rgb(50, 50, 168);
+  border-radius: 15px;
+  color: #fff;
+  padding: 5px 15px;
+  margin-left: 70%;
+}
+
+.Profile-mail {
+  margin-left: 7.5%;
+  display: inline;
+  font-weight: normal;
+}
+.Profile-date {
+  margin-left: 3%;
+  display: inline;
+  font-weight: normal;
 }
