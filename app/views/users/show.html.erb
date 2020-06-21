@@ -1,27 +1,24 @@
-
-<h2 class="Heading-h2">Your account details </h2>
-
 <div class="Profile-wrapper">
-  <h3> Hola Amigo!!! </h3>
+  <h2> Hola Amigo!!! </h2>
 
 
-          <div class="Profile-element">
+          <h3 class="Profile-element">
           <%= form_with(url:  change_identity_path(id: @user.id), method: :post) do %>
-            Name: <%=text_field_tag( name='name',value = @user.name, class: 'Profile-name')%>
-          </div>
-          <div class="Profile-element">
-            <p>Email: <%=@user.email%></p>
-          </div>
+            Name:<%=text_field_tag( name='name',value = @user.name, class: 'Profile-name')%>
+          </h3>
+          <h3 class="Profile-element">
+            Email: <p class = "Profile-mail"> <%=@user.email%> </p>
+          </h3>
 
 
-          <div class="Profile-element" >
-            Address: <%=text_field_tag( name='address',value = @user.address, class: 'Profile-address') %>
-          </div>
-          <div class="Profile-element">
-          <p>Joined on: <%=@user.created_at%>
-          </div>
-          <div class="MenuEdit-Listupdate">
-            <%=button_tag( value="edit", class: "Menuedit-update") %>
+          <h3 class="Profile-element" >
+            Address:<%=text_field_tag( name='address',value = @user.address, class: 'Profile-address') %>
+          </h3>
+          <h3 class="Profile-element">
+          Joined on: <p class = "Profile-date"> <%=@user.created_at%> </p>
+          </h3>
+          <h3 class="MenuEdit-Listupdate">
+            <%=button_tag( value="edit", class: "Profile-update") %>
           <%end%>
-          </div>
+          </h3>
 </div>
