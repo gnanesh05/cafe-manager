@@ -1,6 +1,6 @@
-<h1>you can edit your menu </h1>
+<h1 class="heading-menu">you can edit your menu </h1>
 
-<p class="MenuEdit-title">Menu items:</p>
+<h2 class="MenuEdit-title">Menu items:</h2>
 <main>
 
   <div class="Menu-Titlename">
@@ -49,14 +49,10 @@
 </main>
 
 
-<hr>
-
-
 <div class="MenuDelete-container">
-  <p class="MenuDelete-title">Delete menu ?</p>
+  <h2 class="MenuDelete-title">Delete menu ?</h2>
 
-    <div class="Menu-deletename"><%= @edit_menu.name %></div>
-    <div>
+    <div class="Menu-deletename"><%= @edit_menu.name %>
     <%= form_with(url: menu_path(@edit_menu.id), method: :delete) do %>
       <%= image_submit_tag("interface.png", data: { confirm: "Are you sure?" }, class: 'Menu-delete') %>
     <%end%>

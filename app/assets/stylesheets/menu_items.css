@@ -236,6 +236,7 @@ body {
 .MenuDelete-container {
   display: flex;
   margin-left: 40%;
+  margin-top: 3%;
   width: 60%;
 }
 
@@ -249,6 +250,8 @@ body {
   border: 2px dotted #333;
   border-radius: 15px;
   background-color: rgb(165, 160, 160);
+  font-size: larger;
+  padding: 5px 10px;
 }
 
 .Menuedit-update {
@@ -270,26 +273,36 @@ body {
 }
 
 .Menu-deletename {
+  height: 40px;
   font-size: large;
   color: #0a06d8;
   margin-left: 3%;
-  margin-top: 15px;
+  margin-top: 10px;
+  background-color: #06d85f;
+  display: flex;
+  align-items: center;
+  padding: 0px 10px;
+  border-radius: 10px;
 }
 
 .Menu-delete {
   margin-left: 10px;
-  margin-top: 11px;
+  margin-top: 2px;
   border-bottom-style: hidden;
+}
+
+.Menu-deletename:hover {
+  background-color: red;
 }
 
 .Menuedit-delete {
   border-bottom-style: hidden;
-  margin-left: 30px;
+  margin-left: 10px;
 }
 
 .MenuEdit-ListTitle {
   list-style: none;
-  margin-left: 600px;
+  margin-left: 20%;
   text-align: center;
 }
 

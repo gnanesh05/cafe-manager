@@ -79,8 +79,8 @@ input:focus {
 }
 
 .Profile-wrapper {
-  margin-top: 100px;
-  margin-left: 35%;
+  margin-top: 3%;
+  margin-left: 32%;
   padding: 10px 10px 20px 20px;
   width: 35%;
   height: auto;
@@ -119,8 +119,8 @@ input:focus {
   background-color: rgb(50, 50, 168);
   border-radius: 15px;
   color: #fff;
-  padding: 5px 15px;
-  margin-left: 70%;
+  padding: 10px 30px;
+  margin-left: 40%;
 }
 
 .Profile-mail {
@@ -132,4 +132,9 @@ input:focus {
   margin-left: 3%;
   display: inline;
   font-weight: normal;
+}
+
+.Profile-title {
+  margin-left: 43%;
+  margin-top: 5%;
 }
