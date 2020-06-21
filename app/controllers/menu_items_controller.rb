@@ -59,6 +59,7 @@ class MenuItemsController < ApplicationController
     id = params[:id]
     menu_item = MenuItem.find(id)
     menu_item.destroy
+    flash[:notice] = "updated #{menu_item.name}"
     redirect_to menu_items_path
   end
 end
