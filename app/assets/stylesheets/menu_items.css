@@ -224,13 +224,15 @@ body {
   background-color: rgb(165, 160, 160);
   font-size: larger;
   padding: 5px 10px;
+  margin: 5px 5px 15px 0px;
 }
 
 .Menuedit-update {
   background-color: rgb(50, 50, 168);
   border-radius: 15px;
   color: #fff;
-  padding: 5px 15px;
+  padding: 7px 20px;
+  margin-top: -10px;
 }
 
 .Menuedit-update:hover {
@@ -250,7 +252,7 @@ body {
   color: #0a06d8;
   margin-left: 3%;
   margin-top: 10px;
-  background-color: #06d85f;
+  background-color: red;
   display: flex;
   align-items: center;
   padding: 0px 10px;
@@ -261,15 +263,22 @@ body {
   margin-left: 10px;
   margin-top: 2px;
   border-bottom-style: hidden;
+  opacity: 0;
 }
 
 .Menu-deletename:hover {
-  background-color: red;
+  background-color: green;
+}
+
+.Menu-deletename:hover .Menu-delete {
+  opacity: 1;
 }
 
 .Menuedit-delete {
   border-bottom-style: hidden;
-  margin-left: 10px;
+  padding: 5px;
+  margin-left: 5px;
+  margin-top: -5px;
 }
 
 .MenuEdit-ListTitle {
