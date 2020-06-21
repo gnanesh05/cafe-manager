@@ -52,9 +52,9 @@
 <div class="MenuDelete-container">
   <h2 class="MenuDelete-title">Delete menu ?</h2>
 
-    <div class="Menu-deletename"><%= @edit_menu.name %>
+    <div class="Menu-deletename">
     <%= form_with(url: menu_path(@edit_menu.id), method: :delete) do %>
-      <%= image_submit_tag("interface.png", data: { confirm: "Are you sure?" }, class: 'Menu-delete') %>
+      <%= button_tag("Delete", data: { confirm: "Are you sure?" }, class: 'Menu-delete') %>
     <%end%>
     </div>
 
