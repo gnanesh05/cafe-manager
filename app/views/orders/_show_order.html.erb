@@ -30,24 +30,14 @@
 
     <%if user_role == "user"%>
           <% order2 = Order.current_order(@current_user)%>
-              <%if order2==nil%>
-                <%order2= Order.create!(user_id: @current_user.id,
-                                      date: Date.today,
-
-                                      status: "not placed")%>
-              <%end%>
+              
     <%elsif user_role == "clerk"%>
           <% order2 = Order.current_order(@customer)%>
-              <%if order2==nil%>
-                  <%order2= Order.create!(user_id: @customer.id,
-                                      date: Date.today,
-                                      status: "not placed")%>
-              <%end%>
-
+              
     <% end %>
 
       <% if user_role != "owner"%>
-        <%= form_with(url: repeat_order_path(id1:order.id), method: :post) do %>
+        <%= form_with(url: repeat_order_path(id1:order.id , id2:order2.id), method: :post) do %>
             <%= button_tag 'Repeat Order',type:'submit', class: 'RepeatOrder-button'%>
         <% end %>
       <%end%>

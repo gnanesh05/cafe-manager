@@ -54,10 +54,14 @@ class OrdersController < ApplicationController
 
   def repeat_order
     id1 = params[:id1]
+    id2 = params[:id2]
     order1 = Order.find(id1)
-    order2 = Order.create!(user_id: order1.user_id,
-                           date: Date.today,
-                           status: "not placed")
+    order2 = Order.find(id2)
+    if order2 == nil
+      order2 = Order.create!(user_id: order1.user_id,
+                             date: Date.today,
+                             status: "not placed")
+    end
     order_items = OrderItem.current_order_items(order1)
     order_items.each do |item|
       order_item = OrderItem.find(item.id)

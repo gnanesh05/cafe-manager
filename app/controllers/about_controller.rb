@@ -1,14 +1,8 @@
 class AboutController < ApplicationController
   skip_before_action :ensure_user_logged_in
-  before_action :ensure_user_available
+  before_action :current_user
 
   def index
     render "about"
-  end
-
-  def ensure_user_available
-    unless current_user
-      render "about"
-    end
   end
 end
