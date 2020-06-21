@@ -3,7 +3,7 @@
 
 
 <%if @current_user.role =="owner"%>
-
+  <h2 class="AddMenu-Subtitle"> Add a Menu </h2>
   <div class="MenuItem-conatiner">
     <%=form_with url:menu_items_path(menu_id:@menu.id) ,method: :post do |form|%>
 

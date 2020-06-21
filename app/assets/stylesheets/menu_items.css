@@ -306,6 +306,11 @@ body {
   font-size: larger;
 }
 
+.AddMenu-Subtitle {
+  margin-left: 46%;
+  margin-top: 3%;
+}
+
 @media screen and (max-width: 700px) {
   .box {
     width: 70%;
