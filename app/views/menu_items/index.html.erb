@@ -11,7 +11,7 @@
       <%= form.text_field :item ,class:"item-input" %>
       <span class="item-label">Item Rate: </span>
       <%= form.text_field :rate, class:"item-input"%>
-      <span class="item-label">description : </span>
+      <span class="item-label">Description : </span>
       <%= form.select'description', raw("<option selected disabled>select</option><option>South Indian</option><option>North Indian</option><option>Starters</option><option>Rice And Noodles</option><option>Briyani</option><option>Italian</option>
       <option>Tandoori</option><option>Milk Shakes</option>"), class:"item-input"%>
       <span class="item-label">Item Image: </span>
@@ -22,12 +22,12 @@
 
      <%end%>
   </div>
-<%end%>
+
 
 <main class='menu-body'>
   <div class="below1">
     <div class="below1-right">
-     <%if @current_user.role == "owner"%>
+    
         <h3>choose a menu to display</h3>
         <%= form_with(url:  setmenu_path, method: :post, class: "Add-menu") do %>
           <select name="menu_id"
@@ -43,21 +43,22 @@
             <% end %>
           </select>
         <% end %>
-      <%end%>
+    
     </div>
   </div>
+<%end%>
 
 <div class= <%=(@current_user.role != "owmner" ) ? "cart-container":"cartContainer" %> >
   <div class="display-element">
     <h3 class="Menu-Head"><em>Displaying<%= @menu.name%></em></h3>
     <%= render partial: "menus", locals:{
-    menus:MenuItem.description("south indian",@menu),
+    menus:MenuItem.description("South Indian",@menu),
     section_title: "South Indian",
     user_role: @current_user.role
     } %>
 
     <%= render partial: "menus", locals:{
-    menus:MenuItem.description("north indian",@menu),
+    menus:MenuItem.description("North Indian",@menu),
     section_title: "North Indian",
     user_role: @current_user.role
     } %>
