@@ -9,6 +9,12 @@
   text-align: center;
 }
 
+#Customer-id{
+  text-align: center;
+   margin-top: 50px;
+   margin-bottom: 30px;
+   margin-left:650px ;
+}
 .User-table {
   margin-top: 50px;
   text-align: center;

@@ -8,7 +8,7 @@
             <div class="card">
                <img src="<%=item.image%>"  alt="roasted meat">
                <div class="blogcontent">
-                  <h3> <%= item.name%><span style="margin: 10px 0px;" >Rs.<%=item.price %></span></h3>
+                  <h3> <%= item.name%><span style="margin: 10px 0px; color:white;" >Rs.<%=item.price %></span></h3>
                   <span><%=item.description%></span>
                   <%if user_role == "user"%>
                      <% order = Order.current_order(@current_user)%>
@@ -37,11 +37,11 @@
                      <%else%>
                         <% if user_role == "user"%>
                            <%= form_with(url: create_order_item_path(id:item.id), method: :post) do %>
-                              <%= button_tag 'Add',type:'submit', :remote => true%>
+                              <%= button_tag 'Add',type:'submit', class:"cart-add"%>
                            <% end %>
                         <%elsif user_role == "clerk"%>
                            <%= form_with(url: offline_customer_path(id: item.id), method: :post) do %>
-                              <%= button_tag 'Add',type:'submit'%>
+                              <%= button_tag 'Add',type:'submit', class:"cart-add"%>
                            <% end %>
                        <%end%>
                     <%end%>
