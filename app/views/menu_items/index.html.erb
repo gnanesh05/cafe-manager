@@ -93,18 +93,25 @@
     } %>
   </div>
 
-  
+
      <%if @current_user.role!="owner"%>
        <div class="cart-detail">
-        
+
         <div class="box">
          <%if @order_items %>
+            <table class="Cart-DislpayTable">
+              <tr>
+                <th class="OrderItem-element">Name</th>
+                <th class="OrderItem-element">Qty</th>
              <%@order_items.each do |item|%>
-              <p class="OrderItem-element">name: <%= item.menu_item_name %>  </p>
-              <p class="OrderItem-element">quantity: <%= item.quantity%>   </p>
+             <tr class="cart-Display">
+              <td class="OrderItem-element"><%= item.menu_item_name %>  </td>
+              <td class="OrderItem-element"> <%= item.quantity%>   </td>
+            </tr>
              <%end%>
+            </table>
              <a class="button" href="/order_items">view cart
-            
+
               (<%=@order_items.length%>)
               <% sum = 0%>
               <% @order_items.each do |item|%>
@@ -116,8 +123,7 @@
          </div>
        </div>
      <%end%>
-       
-   
+
+
    </div>
  </main>
-
