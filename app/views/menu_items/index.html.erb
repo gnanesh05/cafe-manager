@@ -111,36 +111,7 @@
     </div>
 </div>
 
-    <%if @current_user.role !="owner"%>
-      <div class ="box">
-        <a class="button" href ="#popup1" >popup </a>
-      </div>
-
-      <div id="popup1" class="overlay">
-        <div class ="popup">
-          <h2> Cart </h2>
-          <a class = "close" href="#" >&times;</a>
-          <div class="content">
-            <% if @current_user.role == "user" %>
-              <%order = Order.current_order(@current_user)%>
-              <%@order = order%>
-              <%@order_items = OrderItem.where("order_id = ?", order.id)%>
-            <%end%>
-            <%if @current_user.role == "clerk"%>
-              <%@customer = @walk_in_customer%>
-              <% order = Order.current_order(@customer)%>
-              <%@order = order%>
-              <%@order_items = OrderItem.where("order_id = ?", order.id)%>
-            <% end%>
-            <%= render partial: "order_items/order_cart",locals:{
-            order_items: @order_items,
-            order: @order
-            }%>
-          </div>
-        </div>
-      </div>
-      <%end%>
-
+    
 
  </main>
 </body>

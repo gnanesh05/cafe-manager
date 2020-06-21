@@ -38,7 +38,7 @@
   margin-top: 0px;
   padding-top: 50px;
   font-size: 1.5em;
-  color: blue;
+  color: rgb(24, 24, 26);
 }
 .Form-Input {
   width: 300px;
@@ -58,7 +58,7 @@
 
 .Form-submit {
   margin-top: 5%;
-  background-color: blue;
+  background-color: rgb(120, 211, 35);
   border: 0;
   border-radius: 10px;
   width: 90px;
@@ -67,13 +67,19 @@
   color: #fff;
 }
 
+.Heading-h2{
+  margin-top: 100px;
+  margin-left: 650px;
+  margin-bottom: 0;
+}
+
 textarea:focus,
 input:focus {
   outline: none;
 }
 
 .Profile-wrapper {
-  margin-top: 5%;
+  margin-top: 100px;
   margin-left: 35%;
   padding: 10px 10px 20px 20px;
   width: 35%;
@@ -86,9 +92,9 @@ input:focus {
 
 .Profile-name {
   text-align: center;
-  border: 2px dotted #333;
+  border: 2px solid #333;
   border-radius: 15px;
-  background-color: rgb(165, 160, 160);
+  background-color: white;
   margin-left: 8%;
 }
 
@@ -96,12 +102,13 @@ input:focus {
   width: 70%;
   height: 67px;
   text-align: center;
-  border: 2px dotted #333;
+  border: 2px solid #333;
   border-radius: 15px;
-  background-color: rgb(165, 160, 160);
+  background-color: white;
   margin-left: 5%;
 }
 
 .Profile-element {
   margin-left: 25%;
+  margin-bottom: 35px;
 }

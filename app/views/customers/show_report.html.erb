@@ -30,7 +30,7 @@
           </li>
           </ul>
         <%end%>
-      <li>Total cost: <%=total%>  </li>  
+      <li>Total cost: Rs. <%=total%>  </li>  
      <h3> Menu Item wise report </h3>
   <% reports=OrderItem.reports(from_date,to_date) %>
       <% reports.each_key do |item_name|%>

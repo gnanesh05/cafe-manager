@@ -20,7 +20,7 @@
         <% users.each do |user|%>
           <tr>
             <td>  <%=image_tag("user1.png")%></td>
-            <td class="User-tableElement"><%= user.name%></td>
+            <td class="User-tableElement"><%= link_to user.name , customer_path(id: user.id) %></td>
             <td class="User-tableElement"><%= user.email%></td>
             <td class="User-tableElement"><%=user.created_at.to_s(:short)%></td>
             <%if section_title =="Customers"%>

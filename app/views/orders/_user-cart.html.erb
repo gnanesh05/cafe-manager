@@ -7,6 +7,7 @@
         <ul class="Order-contentList">
         <span class="Order-contentId">Order_id :<%= link_to order.id , order_path(id: order.id) %> </span>
           <li> Ordered-on: <%=order.date%> </li>
+           <li>Order cost: Rs.<%= sum=OrderItem.current_order_items_cost(order) %> 
           <li>Order-status: <span class=<%= order.status=="received" ? "OrderStatus-received" : "OrderStatus-delivered" %> > <%=order.status%> </span></li>
           <% if user_role == "user"%>
            <%= form_with(url: order_path(id:order.id), method: :delete) do %>
@@ -39,6 +40,7 @@
           <span class="Order-contentId">Order id : <%= link_to  order.id , order_path(id: order.id) %></span>
           <li>Ordered on: <%=order.date%></li>
           <li>Delivered at: <%= order.delivered_at%></li>
+           <li>Order cost: Rs.<%= sum=OrderItem.current_order_items_cost(order) %> 
           <li>Order status: <span class=<%= order.status=="received" ? "OrderStatus-received" : "OrderStatus-delivered" %> > <%=order.status%> </span> </li>
             <%user_id = order.user_id %>
             <% user = User.find_by(id:user_id)%>
@@ -55,6 +57,7 @@
          <ul class="Order-contentList">
          <span class="Order-contentId">order id : <%= link_to  order.id , order_path(id: order.id) %>  </span>
          <li>Ordered on: <%=order.date%> </li>
+         <li>Order cost: Rs.<%= sum=OrderItem.current_order_items_cost(order) %> 
          <li>Delivered at: <%=order.delivered_at%></li>
          <li>Order status: <span class=<%= order.status=="received" ? "OrderStatus-received" : "OrderStatus-delivered" %> > <%=order.status%> </span> </li>
          </ul>
