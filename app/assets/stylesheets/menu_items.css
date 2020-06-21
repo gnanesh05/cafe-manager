@@ -100,8 +100,7 @@ body {
   opacity: 1;
 }
 
-.cart-detail{
-  
+.cart-detail {
 }
 
 .Menu-Head {
@@ -181,8 +180,8 @@ body {
   transition: all 0.5s;
 }
 
-.cart-add{
-  background-color: #4CAF50;
+.cart-add {
+  background-color: #4caf50;
   border-radius: 5px;
   font-size: 16px;
 }
@@ -305,6 +304,11 @@ body {
 
 .Cart-DislpayTable tr th {
   font-size: larger;
+}
+
+.AddMenu-Subtitle {
+  margin-left: 46%;
+  margin-top: 3%;
 }
 
 @media screen and (max-width: 700px) {

@@ -9,11 +9,11 @@
   text-align: center;
 }
 
-#Customer-id{
+#Customer-id {
   text-align: center;
-   margin-top: 50px;
-   margin-bottom: 30px;
-   margin-left:650px ;
+  margin-top: 50px;
+  margin-bottom: 30px;
+  margin-left: 650px;
 }
 .User-table {
   margin-top: 50px;
@@ -128,4 +128,25 @@
 
 .ReportItem-table {
   margin-left: 20%;
+}
+
+.Profile-Order {
+  margin-left: 35%;
+}
+
+.Profile-OrderContainer {
+  border-radius: 13px;
+  width: 60%;
+  margin-left: 17%;
+  padding-top: 3%;
+  padding-bottom: 3%;
+  margin-top: 5%;
+  border-radius: 13px;
+  -webkit-box-shadow: 2px 29px 210px 66px rgba(212, 177, 74, 1);
+  -moz-box-shadow: 2px 29px 210px 66px rgba(212, 177, 74, 1);
+  box-shadow: 2px 2px 20px 6px rgba(3, 3, 3, 0.671);
+}
+
+.Profile-OrderCost {
+  margin-left: 40%;
 }

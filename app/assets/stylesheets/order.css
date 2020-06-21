@@ -45,17 +45,18 @@
 .Order-contentList {
   display: flex;
   list-style-type: none;
-  margin-left: 25%;
+  margin-left: 15%;
 }
 
 .Order-contentList li {
   margin: 0px 2.5px;
-  width: 240px;
   font-size: 20px;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
 .Order-contentId {
-  width: 140px;
+  width: 120px;
   font-size: 20px;
 }
 
@@ -80,6 +81,7 @@
   padding: 5px;
   border-radius: 13px;
   font-size: 20px;
+  margin-top: -10px;
 }
 
 .Cancel_button {
@@ -89,7 +91,7 @@
   border-radius: 13px;
   font-size: 20px;
   margin-left: -5%;
-  margin-top: -5%;
+  margin-top: -10%;
 }
 
 .Orderid-wrapper {

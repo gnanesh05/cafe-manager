@@ -40,7 +40,7 @@ class MenuItemsController < ApplicationController
       redirect_to menu_items_path
     else
       flash[:error] = new_item.errors.full_messages.join(", ")
-      redirect_to menu_items_path
+      redirect_to menus_items_path
     end
   end
 
