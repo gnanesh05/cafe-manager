@@ -1,5 +1,28 @@
 
+ <h1 class="SectionHeading" >Menu</h1>
 
+
+<%if @current_user.role =="owner"%>
+
+  <div class="MenuItem-conatiner">
+    <%=form_with url:menu_items_path(menu_id:@menu.id) ,method: :post do |form|%>
+
+      <span class="item-label">Item Name: </span>
+      <%= form.text_field :item ,class:"item-input" %>
+      <span class="item-label">Item Rate: </span>
+      <%= form.text_field :rate, class:"item-input"%>
+      <span class="item-label">description : </span>
+      <%= form.select'description', raw("<option selected disabled>select</option><option>South Indian</option><option>North Indian</option><option>Starters</option><option>Rice And Noodles</option><option>Briyani</option><option>Italian</option>
+      <option>Tandoori</option><option>Milk Shakes</option>"), class:"item-input"%>
+      <span class="item-label">Item Image: </span>
+      <%= form.text_field 'image' ,class:"item-input"%>
+      <span class="item-label">Category of: </span>
+      <%= form.select 'category', raw("<option selected disabled>select</option><option>Breakfast</option><option>lunch</option><option>Dinner</option><option>Cold Drinks</option>"), class:"item-input"%>
+      <%=form.submit "add", class:"item-submit" %>
+
+     <%end%>
+  </div>
+<%end%>
 
 <main class='menu-body'>
   <div class="below1">
@@ -23,30 +46,7 @@
       <%end%>
     </div>
   </div>
-<%if @current_user.role =="owner"%>
 
-  <div class="MenuItem-conatiner">
-    <%=form_with url:menu_items_path(menu_id:@menu.id) ,method: :post do |form|%>
-
-      <span class="item-label">Item Name: </span>
-      <%= form.text_field :item ,class:"item-input" %>
-      <span class="item-label">Item Rate: </span>
-      <%= form.text_field :rate, class:"item-input"%>
-      <span class="item-label">description : </span>
-      <%= form.select'description', raw("<option selected disabled>select</option><option>South Indian</option><option>North Indian</option><option>Starters</option><option>Rice And Noodles</option><option>Briyani</option><option>Italian</option>
-      <option>Tandoori</option><option>Milk Shakes</option>"), class:"item-input"%>
-      <span class="item-label">Item Image: </span>
-      <%= form.text_field 'image' ,class:"item-input"%>
-      <span class="item-label">Category of: </span>
-      <%= form.select 'category', raw("<option selected disabled>select</option><option>Breakfast</option><option>lunch</option><option>Dinner</option><option>Cold Drinks</option>"), class:"item-input"%>
-      <%=form.submit "add", class:"item-submit" %>
-
-     <%end%>
-  </div>
-<%end%>
-
-
-  <h1 class="SectionHeading" >Menu</h1>
 <div class= <%=(@current_user.role != "owmner" ) ? "cart-container":"cartContainer" %> >
   <div class="display-element">
     <h3 class="Menu-Head"><em>Displaying<%= @menu.name%></em></h3>
