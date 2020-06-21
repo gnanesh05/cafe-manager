@@ -10,12 +10,18 @@ class UsersController < ApplicationController
                         email: params[:email],
                         password: params[:password],
                         address: params[:address])
-    if new_user.save!
-      flash[:notice] = " successfully registered"
-      session[:current_user_id] = new_user.id
-      redirect_to menu_items_path
+    name = params[:name]
+    if name != "Walk-in customer"
+      if new_user.save
+        flash[:notice] = " successfully registered"
+        session[:current_user_id] = new_user.id
+        redirect_to menu_items_path
+      else
+        flash[:error] = new_user.errors.full_messages.join(", ")
+        redirect_to users_path
+      end
     else
-      flash[:error] = new_user.errors.full_messages.join(", ")
+      flash[:error] = "Invalid Name"
       redirect_to users_path
     end
   end
@@ -25,7 +31,7 @@ class UsersController < ApplicationController
     user = User.find(id)
     user.role = "clerk"
 
-    if user.save!
+    if user.save
       flash[:notice] = " successfully updated #{user.name} to clerk"
       redirect_to customers_path
     else
@@ -39,7 +45,7 @@ class UsersController < ApplicationController
     user = User.find(id)
     user.role = "user"
 
-    if user.save!
+    if user.save
       flash[:notice] = " successfully updated #{user.name} to user"
       redirect_to customers_path
     else

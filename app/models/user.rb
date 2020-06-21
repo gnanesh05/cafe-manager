@@ -1,8 +1,11 @@
 class User < ApplicationRecord
   validates :name, presence: true
   validates :email, presence: true
+  validates_uniqueness_of :email
   validates :address, presence: true
   has_secure_password
+  validates :password, length: { minimum: 5, maximum: 10 }
+
   has_many :orders
 
   def self.customers

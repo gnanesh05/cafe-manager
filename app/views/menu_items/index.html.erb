@@ -93,25 +93,31 @@
     } %>
   </div>
 
-  <div class="cart-detail">
-      <%if @current_user.role!="owner"%>
+  
+     <%if @current_user.role!="owner"%>
+       <div class="cart-detail">
+        
         <div class="box">
-            <a class="button" href="/order_items">view cart
-            <%if @order_items %>
-            (<%=@order_items.length%>)
-            <% sum = 0%>
-            <% @order_items.each do |item|%>
-              <% sum = sum + (item.menu_item_price * item.quantity) %>
-            <%end%>
-            <%="Cost: Rs." + String(sum) %>
-            <%end%>
-            </a>
-      <%end%>
+         <%if @order_items %>
+             <%@order_items.each do |item|%>
+              <p class="OrderItem-element">name: <%= item.menu_item_name %>  </p>
+              <p class="OrderItem-element">quantity: <%= item.quantity%>   </p>
+             <%end%>
+             <a class="button" href="/order_items">view cart
+            
+              (<%=@order_items.length%>)
+              <% sum = 0%>
+              <% @order_items.each do |item|%>
+                <% sum = sum + (item.menu_item_price * item.quantity) %>
+              <%end%>
+              <%="Cost: Rs." + String(sum) %>
+             </a>
+          <%end%>
+         </div>
        </div>
-    </div>
-</div>
-
-    
-
+     <%end%>
+       
+   
+   </div>
  </main>
 </body>

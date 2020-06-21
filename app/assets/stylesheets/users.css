@@ -34,7 +34,7 @@
   text-align: center;
 }
 .User-title {
-  padding-left: 840px;
+  padding-left: 790px;
   margin-top: 0px;
   padding-top: 50px;
   font-size: 1.5em;
@@ -48,6 +48,11 @@
   font-size: large;
   border-radius: 10px;
   color: white;
+}
+
+#address{
+  width: 382px;
+  height: 81px;
 }
 
 .Form-Label {
