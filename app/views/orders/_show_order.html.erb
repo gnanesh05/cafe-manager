@@ -30,10 +30,15 @@
 
     <%if user_role == "user"%>
           <% order2 = Order.current_order(@current_user)%>
+          <%if order2 == nil%>
+           <%order2= Order.check_order(@current_user)%>
+          <%end%>
               
     <%elsif user_role == "clerk"%>
           <% order2 = Order.current_order(@customer)%>
-              
+          <%if order2 == nil%>
+           <%order2= Order.check_order(@customer)%>
+          <%end%>    
     <% end %>
 
       <% if user_role != "owner"%>

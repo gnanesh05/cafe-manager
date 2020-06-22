@@ -1,8 +1,6 @@
 .heading {
   border: 1px solid #dddddd;
   text-align: center;
-}
-.heading {
   padding-left: 0%;
 }
 .cart-container {
@@ -10,23 +8,27 @@
 }
 
 .MenuList {
-  width: 60%;
+  width: 100%;
   margin-left: 5%;
   position: relative;
   height: 40%;
   align-items: center;
   justify-content: center;
-  margin-top: 40 px;
+  margin-top: 40px;
 }
 
 .MenuList-box {
-  width: 80%;
+  width: 100%;
   margin-left: 8%;
   position: relative;
   height: 40%;
   align-items: center;
   justify-content: center;
-  margin-top: 40 px;
+  margin-top: 40px;
+}
+
+.Display-Element{
+  margin-bottom: 40px;
 }
 
 h1 {
@@ -34,7 +36,7 @@ h1 {
   top: 50%;
   margin-right: 0px;
   width: inherit;
-  margin-top: 200 px;
+  margin-top: 200px;
   margin-bottom: 0;
 }
 body {
@@ -91,7 +93,7 @@ body {
   left: 0;
   right: 0;
   background: rgba(0, 0, 0, 0.7);
-  transition: opacity 500ms;
+  transition: 500ms;
   visibility: hidden;
   opacity: 0;
 }

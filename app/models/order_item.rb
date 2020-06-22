@@ -37,6 +37,6 @@ class OrderItem < ApplicationRecord
   end
 
   def self.get_items(order, menu_item)
-    where("order_id = ? and menu_item_id =?", order.id, menu_item.id)
+    all.where("order_id = ? AND menu_item_id =?", order.id, menu_item.id).first
   end
 end

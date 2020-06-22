@@ -13,15 +13,15 @@
                   <%if user_role == "user"%>
                       <% order = Order.current_order(@current_user)%>
                       <%if order == nil%>
-                       <%order= Order.check_order(order,@current_user)%>
+                       <%order= Order.check_order(@current_user)%>
                       <%end%>
                   <%elsif user_role == "clerk"%>
                      <% order = Order.current_order(@customer)%>
                      <%if order==nil%>
-                     <%order= Order.check_order(order,@customer)%>
+                     <%order= Order.check_order(@customer)%>
                      <%end%>
                   <% end %>
-                     <% orderitem = OrderItem.find_by(order_id: order.id, menu_item_id: item.id) if order%>
+                     <% orderitem = OrderItem.get_items( order, item) if order%>
                      <%if orderitem%>
                         <p> quantity :
                            <span class="quantity-box">

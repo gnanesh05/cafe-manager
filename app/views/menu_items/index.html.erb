@@ -49,7 +49,7 @@
 <%end%>
 
 <div class= <%=(@current_user.role != "owmner" ) ? "cart-container": "cartContainer" %> >
-  <div class="display-element">
+  <div class="Display-Element">
     <h3 class="Menu-Head"><em>Displaying<%= @menu.name%></em></h3>
     <%= render partial: "menus", locals:{
     menus:MenuItem.description("South Indian",@menu),

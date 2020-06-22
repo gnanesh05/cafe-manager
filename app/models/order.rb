@@ -49,7 +49,7 @@ class Order < ApplicationRecord
     all.where("id =?", order.id)
   end
 
-  def self.check_order(order, user)
+  def self.check_order(user)
     order = Order.create!(user_id: user.id,
                           date: Date.today,
                           status: "not placed")

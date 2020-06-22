@@ -1,7 +1,7 @@
 
 <section style="margin-bottom: 50px;">
 <div class="cart-wrapper">
-   <%if order_items.first!=nil%>
+   <%if order_items!=nil%>
      <table class="Order-table">
       <tr class="OrderItem-container">
           <th class="OrderItem-element">Item:   </th>
@@ -13,13 +13,13 @@
     <%order_items.each do |item|%>
       <tr class="OrderItem-container">
         <td class="OrderItem-element"> <%= item.menu_item_name %>  </th>
-        <td class="OrderItem-element"><%= item.menu_item_price%>   </th>
+        <td class="OrderItem-element">Rs. <%= item.menu_item_price%>   </th>
         <td class="OrderItem-element">
           <%= link_to "−", remove_path(id:item.id), method: "post", class: "minus" %>
                         <%= item.quantity %>
           <%= link_to "＋", add_path(id:item.id), method: "post", class: "plus"  %>
         </td>
-        <td class="OrderItem-element">  <%= (item.menu_item_price * item.quantity) %> </th>
+        <td class="OrderItem-element">Rs.  <%= (item.menu_item_price * item.quantity) %> </th>
         <td class="OrderItem-element">
         <%= form_with(url: order_item_path(item.id), method: :delete) do %>
             <%= button_tag 'remove',type:'submit',class: "OrderItem-remove"%>
@@ -34,7 +34,7 @@
          <% sum = sum + (item.menu_item_price * item.quantity) %>
       <%end%>
       <%if sum!=0%>
-       Order Total =<%= sum %>
+       Order Total = Rs. <%= sum %>
       <%end%>
      </p>
 
