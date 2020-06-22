@@ -9,6 +9,8 @@
           <li> Ordered-on: <%=order.date%> </li>
            <li>Order cost: Rs.<%= sum=OrderItem.current_order_items_cost(order) %>
           <li>Order-status: <span class=<%= order.status=="received" ? "OrderStatus-received" : "OrderStatus-delivered" %> > <%=order.status%> </span></li>
+          <li> Estimated-Delivery: <%time =Time.new%>
+          <%=time.strftime("%I:%M %p")%> </li>
           <% if user_role == "user"%>
            <%= form_with(url: order_path(id:order.id), method: :delete) do %>
                 <li> <%= button_tag 'Cancel',type:'submit',class: 'Cancel_button'%></li>
