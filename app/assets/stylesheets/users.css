@@ -12,10 +12,8 @@
 
 .user-body {
   background: url(https://images.pexels.com/photos/995743/pexels-photo-995743.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);
-
   height: 100vh;
   margin: 0px;
-
   background-size: cover;
 }
 .User-Section {
@@ -139,7 +137,7 @@ input:focus {
   margin-left: 43%;
   margin-top: 5%;
 }
- #address{
-   width: 382px;
-   height:90px;
- }
+#address {
+  width: 382px;
+  height: 90px;
+}

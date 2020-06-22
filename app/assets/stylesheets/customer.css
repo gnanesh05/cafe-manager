@@ -80,7 +80,7 @@
 
 .Order-wiseReport {
   margin-top: 2%;
-  margin-left: 15%;
+  margin-left: %;
   margin-bottom: 3%;
   width: 65%;
   padding: 10px 10px 20px 70px;
@@ -88,6 +88,11 @@
   -webkit-box-shadow: 2px 29px 210px 66px rgba(212, 177, 74, 1);
   -moz-box-shadow: 2px 29px 210px 66px rgba(212, 177, 74, 1);
   box-shadow: 2px 2px 20px 6px rgba(3, 3, 3, 0.671);
+}
+
+.Order-wiseReport p {
+  margin-left: 40%;
+  font-weight: bold;
 }
 
 .Order-reportList {
