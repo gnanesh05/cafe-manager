@@ -8,7 +8,7 @@ class OrderItemsController < ApplicationController
       if order != nil
         @order_items = OrderItem.where("order_id = ?", order.id)
       end
-
+      @user = @current_user
       render "index"
     end
     if @current_user.role == "clerk"
@@ -18,6 +18,7 @@ class OrderItemsController < ApplicationController
       if order != nil
         @order_items = OrderItem.where("order_id = ?", order.id)
       end
+
       render "index"
     end
     if @current_user == nil

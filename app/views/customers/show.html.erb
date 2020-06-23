@@ -1,5 +1,6 @@
-<h1 class="Profile-Order">Order Details Of <%=@user.name%> </h1>
+<h1 class="Profile-Order">Delivered Order Details Of <%=@user.name%> </h1>
 <div class="Profile-OrderContainer">
+
  <%if @orders.first%>
      <%total=0%>
       <% @orders.each do |order|%>

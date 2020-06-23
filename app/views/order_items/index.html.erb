@@ -3,5 +3,42 @@
 
 <%= render partial: "order_cart",locals:{
     order_items: @order_items,
-    order: @order
+    order: @order,
+    user: @user
 }%>
+
+<style>
+ul li {
+  border: 1px solid #ddd;
+  margin-top: -1px; /* Prevent double borders */
+  background-color: #f6f6f6;
+  padding: 12px;
+  text-decoration: none;
+  font-size: 18px;
+  color: black;
+  display: block;
+  position: relative;
+}
+</style>
+<ul>
+  <li>Adele</li>
+  <li>Agnes<span class="close">&times;</span></li>
+
+  <li>Billy<span class="close">&times;</span></li>
+  <li>Bob<span class="close">&times;</span></li>
+
+  <li>Calvin<span class="close">&times;</span></li>
+  <li>Christina<span class="close">&times;</span></li>
+  <li>Cindy</li>
+</ul>
+
+<script>
+var closebtns = document.getElementsByClassName("close");
+var i;
+
+for (i = 0; i < closebtns.length; i++) {
+  closebtns[i].addEventListener("click", function() {
+    this.parentElement.style.display = 'none';
+  });
+}
+</script>

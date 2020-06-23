@@ -74,13 +74,16 @@
   margin-left: 5%;
 }
 
-.report-remark {
+.Report-remark {
   margin-left: 14%;
+  margin-bottom: 50px;
+  font-style: italic;
+ 
 }
 
 .Order-wiseReport {
   margin-top: 2%;
-  margin-left: 200px;
+  margin-left: 250px;
   margin-bottom: 3%;
   width: 65%;
   padding: 10px 10px 20px 70px;

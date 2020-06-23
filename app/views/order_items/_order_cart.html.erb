@@ -1,7 +1,7 @@
 
 <section style="margin-bottom: 50px;">
 <div class="cart-wrapper">
-   <%if order_items!=nil%>
+   <%if order_items && order_items.first%>
      <table class="Order-table">
       <tr class="OrderItem-container">
           <th class="OrderItem-element">Item:   </th>
@@ -9,8 +9,9 @@
           <th class="OrderItem-element"> Qty : </th>
           <th class="OrderItem-element"> sum :  </th>
       </tr>
-
+    <%d=0%>
     <%order_items.each do |item|%>
+      <%d = Time.parse(String(item.created_at))%> 
       <tr class="OrderItem-container">
         <td class="OrderItem-element"> <%= item.menu_item_name %>  </th>
         <td class="OrderItem-element">Rs. <%= item.menu_item_price%>   </th>
@@ -28,15 +29,28 @@
       </tr>
     <%end%>
         </table>
-    <p class= "OrderItem-cost" >
+    <div class= "OrderItem-cost" >
       <% sum = 0%>
       <% order_items.each do |item|%>
          <% sum = sum + (item.menu_item_price * item.quantity) %>
       <%end%>
       <%if sum!=0%>
-       Order Total = Rs. <%= sum %>
+       <p>Item Cost = Rs. <%=sum%> </p>
+       <p> Delivery Cost = Rs. 10  </p>
+       <p> Taxes         = Rs. 0.9
+       <p> Order Total = Rs. <%= sum + 10.9 %> </p>
       <%end%>
-     </p>
+     </div>
+    
+    <div class="Order-Address">
+     <%if user%>
+      <p>Delivering To:</p>
+      <p> <%=user.address%> </p>
+      <p> Arriving In: </p>
+      <p> 22 mins</p>
+     <%end%>
+    </div>
+
 
     <div class="Order-finalize">
       <% if sum !=0%>

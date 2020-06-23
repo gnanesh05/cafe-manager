@@ -99,26 +99,23 @@
        <div class="cart-detail">
 
         <div class="box">
-         <%if @order_items %>
             <table class="Cart-DislpayTable">
-              <tr>
-                <th class="OrderItem-element">Name</th>
-                <th class="OrderItem-element">Qty</th>
-             <%@order_items.each do |item|%>
-             <tr class="cart-Display">
-              <td class="OrderItem-element"><%= item.menu_item_name %>  </td>
-              <td class="OrderItem-element"> <%= item.quantity%>   </td>
-            </tr>
-             <%end%>
-            </table>
-             <a class="button" href="/order_items">view cart
-
-              (<%=@order_items.length%>)
+               <tr>
+                 <th class="OrderItem-element">Name</th>
+                 <th class="OrderItem-element">Qty</th>
+          <%if @order_items %>
               <% sum = 0%>
-              <% @order_items.each do |item|%>
-                <% sum = sum + (item.menu_item_price * item.quantity) %>
+              <%@order_items.each do |item|%>
+               <tr class="cart-Display">
+                <td class="OrderItem-element"><%= item.menu_item_name %>  </td>
+                <td class="OrderItem-element"> <%= item.quantity%>   </td>
+                 <% sum = sum + (item.menu_item_price * item.quantity) %>
+               </tr>
               <%end%>
-              <%="Cost: Rs." + String(sum) %>
+               <%="Cost: Rs." + String(sum) %>
+            </table>
+             <a class="button" href="/order_items">Proceed to Checkout
+             
              </a>
           <%end%>
          </div>

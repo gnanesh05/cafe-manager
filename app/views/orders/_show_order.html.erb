@@ -1,5 +1,6 @@
 
 <div class="Orderid-wrapper">
+
 <table class="Order-table">
     <tr class="OrderItem-container">
         <th class="OrderItem-element">Item:   </th>
@@ -26,7 +27,7 @@
 
     </p>
   <div class="Repeat-Order">
-    <%= link_to "Back To All Orders" ,orders_path, class: 'OrderItem-extra' %>
+    <%= link_to "Back To All Orders" , url_for(:back), class: 'OrderItem-extra' %>
 
     <%if user_role == "user"%>
           <% order2 = Order.current_order(@current_user)%>
