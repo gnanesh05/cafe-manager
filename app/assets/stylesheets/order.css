@@ -45,7 +45,7 @@
 .Order-contentList {
   display: flex;
   list-style-type: none;
-  margin-left: 190px;
+  margin-left: 10%;
 }
 
 .Order-contentList li {
