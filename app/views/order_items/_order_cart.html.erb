@@ -11,7 +11,7 @@
       </tr>
     <%d=0%>
     <%order_items.each do |item|%>
-      <%d = Time.parse(String(item.created_at))%> 
+      <%d = Time.parse(String(item.created_at))%>
       <tr class="OrderItem-container">
         <td class="OrderItem-element"> <%= item.menu_item_name %>  </th>
         <td class="OrderItem-element">Rs. <%= item.menu_item_price%>   </th>
@@ -38,16 +38,15 @@
        <p>Item Cost = Rs. <%=sum%> </p>
        <p> Delivery Cost = Rs. 10  </p>
        <p> Taxes         = Rs. 0.9
+             <hr style="width: 60%;margin-left: -5%">
        <p> Order Total = Rs. <%= sum + 10.9 %> </p>
       <%end%>
      </div>
-    
+
     <div class="Order-Address">
      <%if user%>
-      <p>Delivering To:</p>
-      <p> <%=user.address%> </p>
-      <p> Arriving In: </p>
-      <p> 22 mins</p>
+      <h3>Delivering To:  <%=user.address%> </h3>
+      <h3> Arriving In: 22 mins</h3>
      <%end%>
     </div>
 
@@ -63,7 +62,7 @@
       <%end%>
     </div>
   <%else%>
-  
+
         <h3 class="Order-empty"> Why don't you try out something from our menu ? </h3>
         <img src="https://cdn.dribbble.com/users/204955/screenshots/4930541/emptycart.png" class="EmptyCart">
 

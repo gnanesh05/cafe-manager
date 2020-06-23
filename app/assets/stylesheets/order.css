@@ -45,7 +45,7 @@
 .Order-contentList {
   display: flex;
   list-style-type: none;
-  margin-left: 190px;
+  margin-left: 10%;
 }
 
 .Order-contentList li {
@@ -53,6 +53,7 @@
   font-size: 20px;
   margin-left: 10px;
   margin-right: 10px;
+  width: max-content;
 }
 
 .Order-contentId {
@@ -69,9 +70,9 @@
 }
 
 .EmptyOrder {
-  margin-left: 520px;
+  margin-left: 35%;
   width: 700px;
-  margin-top: 20px;
+  margin-top: -1%;
   margin-bottom: 50px;
   border-radius: 15px;
 }

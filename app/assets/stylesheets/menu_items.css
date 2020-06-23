@@ -8,7 +8,7 @@
 }
 
 .MenuList {
-  width: 100%;
+  width: 85%;
   margin-left: 5%;
   position: relative;
   height: 40%;
@@ -27,7 +27,7 @@
   margin-top: 40px;
 }
 
-.Display-Element{
+.Display-Element {
   margin-bottom: 40px;
 }
 
@@ -36,7 +36,7 @@ h1 {
   top: 50%;
   margin-right: 0px;
   width: inherit;
-  margin-top: 200px;
+  margin-top: 10%;
   margin-bottom: 0;
 }
 body {
@@ -69,6 +69,9 @@ body {
   background-clip: padding-box;
   text-align: center;
   background-color: rgba(2, 2, 2, 0.363);
+  -webkit-box-shadow: 2px 29px 210px 66px rgba(212, 177, 74, 1);
+  -moz-box-shadow: 2px 29px 210px 66px rgba(212, 177, 74, 1);
+  box-shadow: 2px 2px 20px 6px rgba(3, 3, 3, 0.671);
 }
 
 .button {
@@ -144,7 +147,7 @@ body {
 .blogcontent {
   position: absolute;
   left: 0;
-  bottom: -49px;
+  bottom: -47px;
   width: 100%;
   color: #fff;
   padding: 10px 5px;
