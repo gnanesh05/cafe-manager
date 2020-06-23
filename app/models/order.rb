@@ -22,8 +22,8 @@ class Order < ApplicationRecord
     all.where("delivered_at >= ? AND delivered_at <= ? ", date1, date2)
   end
 
-  def self.getorders_user(date1, date2)
-    all.where("delivered_at >= ? AND delivered_at <= ?", date1, date2)
+  def self.getorders_user(date1, date2, id)
+    all.where("delivered_at >= ? AND delivered_at <= ? AND user_id = ?", date1, date2, id)
   end
 
   def self.received_orders()

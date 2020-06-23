@@ -5,39 +5,59 @@
     <h2 class="Order-title">Pending orders </h3>
     <%if cart.first%>
       <% cart.each do |order|%>
+        <%d = Time.parse((order.created_at).to_s)%>
         <ul class="Order-contentList">
           <span class="Order-contentId">Order_id :<%= link_to order.id , order_path(id: order.id) %> </span>
           <li> Ordered-on: <%=order.date%> </li>
            <li>Order cost: Rs.<%= sum=OrderItem.current_order_items_cost(order) %>
           <li>Order-status: <span class=<%= order.status=="received" ? "OrderStatus-received" : "OrderStatus-delivered" %> > <%=order.status%> </span></li>
           <li> Estimated-Delivery: <%time =Time.new%>
-          <%=time.strftime("%I:%M %p")%> </li>
+           <%if d.min+20 >60%>
+              <%=d.min+20-60%>
+           <%else%>
+             <%=d.min+15%>
+           <%end%>
+             mins </li>
+
           <% if user_role == "user"%>
+
            <%= form_with(url: order_path(id:order.id), method: :delete) do %>
                 <li> <%= button_tag 'Cancel',type:'submit',class: 'Cancel_button'%></li>
            <% end %>
+
           <%end%>
+
           <% if user_role == "clerk"%>
             <% user_id = order.user_id %>
               <%user=User.find(user_id) %>
               <li>Ordered by: <%=user.name%>  </li>
-              <%= form_with(url: order_path(id:order.id), method: :delete) do %>
-                <li> <%= button_tag 'Cancel',type:'submit',class: 'Cancel_button'%></li>
-              <% end %>
+              <% if user.name=="Walk-in customer"%>
+
+               <%= form_with(url: order_path(id:order.id), method: :delete) do %>
+                 <li> <%= button_tag 'Cancel',type:'submit',class: 'Cancel_button'%></li>
+               <% end %>
+              
+              <%end%>
+
               <%= form_with(url: deliver_order_path(id:order.id), method: :post) do %>
                 <li><%= button_tag 'Deliver',type:'submit',class: 'Delivery_button'%></li>
               <% end %>
+
           <%end%>
 
         </ul>
       <%end%>
+
     <%else%>
     <h3 class="Order-title" style="color:green">No pending orders </h4>
     <%end%>
 
     <%if user_role == "clerk" || user_role =="owner" %>
+
       <%if delivered.first%>
+
         <h2 class="Order-title">Delivered orders </h3>
+
         <% delivered.each do |order|%>
           <ul class="Order-contentList">
           <span class="Order-contentId">Order id : <%= link_to  order.id , order_path(id: order.id) %></span>
@@ -49,13 +69,19 @@
             <% user = User.find_by(id:user_id)%>
           <li>Ordered by: <%=user.name%>  </li>
           </ul>
+
         <%end%>
+
       <%end%>
+
     <%end%>
 
     <%if user_role == "user" %>
+
       <h2 class="Order-title"> Delivered orders </h3>
+
        <%if user_delivered.first %>
+
          <% user_delivered.each do |order|%>
           <ul class="Order-contentList">
            <span class="Order-contentId">order id : <%= link_to  order.id , order_path(id: order.id) %>  </span>
@@ -65,14 +91,17 @@
            <li>Order status: <span class=<%= order.status=="received" ? "OrderStatus-received" : "OrderStatus-delivered" %> > <%=order.status%> </span> </li>
           </ul>
          <%end%>
+
        <%else%>
          <h3 class="Order-empty">Hold on, we usually take only a few minutes to deliver your order</h3>
          <img src="https://t4.ftcdn.net/jpg/01/93/79/17/240_F_193791715_MVfwSXIrACJp7t5UkQI24ClizBfmMZAZ.jpg" class="EmptyOrder">
         <%end%>
+
     <%end%>
 
 
   <%else%>
+
     <h3 class="Order-empty">No Orders yet ?! </h3>
     <h2 style="text-align: center"> Place an order with just few clicks !! </h2>
             <img src="https://img.freepik.com/vetores-gratis/entregador-montando-a-ilustracao-de-scooter-vermelho_9845-14.jpg?size=338&ext=jpg" class="EmptyOrder">

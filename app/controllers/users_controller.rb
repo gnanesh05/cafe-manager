@@ -68,7 +68,7 @@ class UsersController < ApplicationController
     user.address = params[:address]
     user.save!
     flash[:notice] = "updated account details"
-    redirect_to "/"
+    redirect_to user_path(id: user.id)
   end
 
   def destroy

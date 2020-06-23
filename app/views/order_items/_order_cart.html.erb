@@ -11,7 +11,7 @@
       </tr>
     <%d=0%>
     <%order_items.each do |item|%>
-      <%d = Time.parse(String(item.created_at))%>
+      <%d = Time.parse((item.created_at).to_s)%>
       <tr class="OrderItem-container">
         <td class="OrderItem-element"> <%= item.menu_item_name %>  </th>
         <td class="OrderItem-element">Rs. <%= item.menu_item_price%>   </th>
@@ -46,7 +46,13 @@
     <div class="Order-Address">
      <%if user%>
       <h3>Delivering To:  <%=user.address%> </h3>
-      <h3> Arriving In: 22 mins</h3>
+      <h3> <%if d.min+20 >60%>
+              <%=d.min+20-60%>
+           <%else%>
+             <%=d.min+15%>
+           <%end%>
+             mins
+      </h3>
      <%end%>
     </div>
 

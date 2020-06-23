@@ -2,7 +2,7 @@
 <div class="Profile-wrapper">
 
           <h3 class="Profile-element">
-          <%= form_with(url:  change_identity_path(id: @user.id), method: :post) do %>
+        <%= form_with(url:  change_identity_path(id: @user.id), method: :post) do %>
             Name:<%=text_field_tag( name='name',value = @user.name, class: 'Profile-name')%>
           </h3>
           <h3 class="Profile-element">
@@ -16,8 +16,8 @@
           <h3 class="Profile-element">
           Joined on: <p class = "Profile-date"> <%=@user.created_at%> </p>
           </h3>
-          <h3 class="MenuEdit-Listupdate">
+          
             <%=button_tag( value="edit", class: "Profile-update") %>
-          <%end%>
-          </h3>
+        <%end%>
+        
 </div>
