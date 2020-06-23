@@ -8,16 +8,21 @@ class CustomersController < ApplicationController
   end
 
   def report
-    from_date = params[:from_date].presence || Date.today - 10
+    from_date = params[:from_date].presence || Date.today - 5
     to_date = params[:to_date].presence || Date.today
     if from_date.to_date > to_date.to_date
-      from_date = to_date.to_date - 10
+      from_date = to_date.to_date - 5
     end
     render :show_report, locals: { from_date: from_date,
                                    to_date: to_date }
   end
 
   def show
+    from_date = params[:from_date].presence || Date.today - 2
+    to_date = params[:to_date].presence || Date.today
+    if from_date.to_date > to_date.to_date
+      from_date = to_date.to_date - 5
+    end
     id = params[:id]
     @user = User.find(id)
     if @user.role == "user"
@@ -26,6 +31,7 @@ class CustomersController < ApplicationController
       @walk_in_customer = walk_in_customer
       @orders = Order.user_delivered(@walk_in_customer)
     end
-    render "show"
+    render :show, locals: { from_date: from_date,
+                            to_date: to_date }
   end
 end

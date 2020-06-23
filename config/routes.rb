@@ -21,6 +21,5 @@ Rails.application.routes.draw do
   delete "/signout" => "sessions#destroy", as: :destroy_session
   delete "/remove" => "order_items#delete", as: :delete
   get "/report" => "customers#report"
-  post "/show_report" => "customers#show_report"
   get "/about" => "about#index"
 end

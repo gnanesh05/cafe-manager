@@ -18,7 +18,7 @@
 }
 .User-Section {
   margin-top: 50px;
-  margin-left: 500px;
+  margin-left: 28%;
   padding-top: 30px;
   padding-left: 100px;
   border: 5px solid black;
@@ -33,7 +33,7 @@
   text-align: center;
 }
 .User-title {
-  padding-left: 790px;
+  margin-left: 45%;
   margin-top: 0px;
   padding-top: 50px;
   font-size: 1.5em;
@@ -99,6 +99,10 @@ input:focus {
   border-radius: 15px;
   background-color: rgb(165, 160, 160);
   margin-left: 8%;
+  width: 50%;
+  height: 30px;
+  font-size: large;
+  font-weight: bold;
 }
 
 .Profile-address {
@@ -108,6 +112,8 @@ input:focus {
   border-radius: 15px;
   background-color: rgb(165, 160, 160);
   margin-left: 5%;
+  font-size: larger;
+  text-align: center;
 }
 
 .Profile-element {
