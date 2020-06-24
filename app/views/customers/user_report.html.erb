@@ -37,9 +37,6 @@
           <li>Ordered on: <%=order.date%></li>
           <li>Delivered at: <%= order.delivered_at%></li>
           <li>Order status: <span class= "OrderStatus-delivered"> <%=order.status%> </span> </li>
-            <%user_id = order.user_id %>
-            <% user = User.find_by(id:user_id)%>
-          <li>Ordered by: <%=user.name%>  </li>
           <li>Order cost: Rs.<%= sum=OrderItem.current_order_items_cost(order) %>
            <%total = total+sum%>
           </li>

@@ -1,8 +1,6 @@
 class CustomersController < ApplicationController
   before_action :ensure_owner_logged_in
 
-  @user = 0
-
   def index
     @customers = User.customers
     @clerk = User.clerk
