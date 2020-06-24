@@ -3,39 +3,49 @@
   <% if menus.first %>
     <h4 class="MenuEdit-ListHeading"><%=section_title%></h4>
     <table class=MenuEdit-ListTitle>
-    <tr>
-      <th class="MenuEdit-ListElement">Item-Name</li>
-      <th class="MenuEdit-ListElement">price</li>
-      <th class="MenuEdit-ListElement">Image</li>
-     </tr>
+     <tr>
+       <th class="MenuEdit-ListElement">Item-Name</li>
+       <th class="MenuEdit-ListElement">price</li>
+       <th class="MenuEdit-ListElement">Image</li>
+      </tr>
   <%end%>
 
-  <%menus.each do |item| %>
+     <%menus.each do |item| %>
 
-   <section>
-      <tr>
-        <td class="MenuEdit-ListElement">
-         <%= form_with(url: menu_item_path(item.id), method: :put) do %>
-           <%=text_field_tag( name='name',value = item.name, class: 'MenuEdit-element')%>
-        </td>
-        <td class="MenuEdit-ListElement" >
-           <%=text_field_tag( name='price',value = item.price, class: 'MenuEdit-element') %>
-        </td>
-         <td class="MenuEdit-ListElement" >
-           <%=text_field_tag( name='image',value = item.image, class: 'MenuEdit-element') %>
-        </td>
-        <td class="MenuEdit-Listupdate">
-          <%=button_tag( value="edit", class: "Menuedit-update") %>
-         <%end%>
-        </td>
-        <td class="MenuEdit-Listupdate">
+     <section>
+       <tr>
+          <td class="MenuEdit-ListElement">
+           <%= form_with(url: menu_item_path(item.id), method: :put) do %>
+
+            <%=text_field_tag( name='name',value = item.name, class: 'MenuEdit-element')%>
+          </td>
+          <td class="MenuEdit-ListElement" >
+            <%=text_field_tag( name='price',value = item.price, class: 'MenuEdit-element') %>
+          </td>
+          <td class="MenuEdit-ListElement" >
+            <%=text_field_tag( name='image',value = item.image, class: 'MenuEdit-element') %>
+          </td>
+          <td class="MenuEdit-Listupdate">
+            <%=button_tag( value="edit", class: "Menuedit-update") %>
+
+           <%end%>
+
+          </td>
+
+         <td class="MenuEdit-Listupdate">
+
           <%= form_with(url: menu_item_path(item.id), method: :delete) do %>
             <%= image_submit_tag("interface.png", data: { confirm: "Are you sure?" }, class: 'Menuedit-delete') %>
           <%end%>
-        </td>
-      </tr>
-    </section>
-  <%end%>
-      </table>
+
+         </td>
+
+        </tr>
+
+      </section>
+
+    <%end%>
+
+   </table>
 
 </div>

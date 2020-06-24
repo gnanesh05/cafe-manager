@@ -1,28 +1,49 @@
 
 <main id="table-body">
+
    <div class= <%=(@current_user.role != "owner") ? "MenuList":"MenuList-box" %> >
+
       <h4><%=section_title%></h4>
 
       <section class="menu-card">
+
          <% menus.each do |item| %>
+
             <div class="card">
+
                <img src="<%=item.image%>"  alt="roasted meat">
+
                <div class="blogcontent">
+
                   <h3> <%= item.name%><span style="margin: 10px 0px; color:white;" >Rs.<%=item.price %></span></h3>
                   <span><%=item.description%></span>
+
                   <%if user_role == "user"%>
-                      <% order = Order.current_order(@current_user)%>
+
+                       <%order = Order.current_order(@current_user)%>
+
                       <%if order == nil%>
+
                        <%order= Order.check_order(@current_user)%>
+
                       <%end%>
+
                   <%elsif user_role == "clerk"%>
+
                      <% order = Order.current_order(@customer)%>
+
                      <%if order==nil%>
-                     <%order= Order.check_order(@customer)%>
+
+                      <%order= Order.check_order(@customer)%>
+
                      <%end%>
-                  <% end %>
+
+                  <%end%>
+
                      <% orderitem = OrderItem.get_items( order, item) if order%>
+
                      <%if orderitem%>
+
                         <p> quantity :
                            <span class="quantity-box">
                            <%= link_to "−", remove_path(id:orderitem.id), method: "post", class: "minus" %>
@@ -30,21 +51,33 @@
                            <%= link_to "＋", add_path(id:orderitem.id), method: "post", class: "plus"  %>
                            </span>
                         </p>
+
                      <%else%>
+
                         <% if user_role == "user"%>
+
                            <%= form_with(url: create_order_item_path(id:item.id), method: :post) do %>
                               <%= button_tag 'Add',type:'submit', class:"cart-add"%>
                            <% end %>
+
                         <%elsif user_role == "clerk"%>
+
                            <%= form_with(url: offline_customer_path(id: item.id), method: :post) do %>
                               <%= button_tag 'Add',type:'submit', class:"cart-add"%>
                            <% end %>
+
                        <%end%>
+
                     <%end%>
+
                </div>
+
             </div>
 
          <% end %>
+
    </section>
+
   </div>
+  
 </main>

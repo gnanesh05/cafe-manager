@@ -1,21 +1,29 @@
 <div class="Form-container">
+
   <header class="login-title">
     <h2 class="title-role"> Sign In</h2>
   </header>
 
   <section class="login-Section">
+
     <%=form_with url:sessions_path do |form|%>
+
       <div class="Form-Section">
-      <p class="Form-Label">Email : </p>
-      <%= form.email_field :email, class:"Form-Input"%>
+        <p class="Form-Label">Email : </p>
+        <%= form.email_field :email, class:"Form-Input"%>
       </div>
+
       <div class="Form-Section">
-      <p class="Form-Label">Password : </p>
-      <%= form.password_field :password, class:"Form-Input"%>
+        <p class="Form-Label">Password : </p>
+        <%= form.password_field :password, class:"Form-Input"%>
       </div>
+
       <div class="Form-Section" >
         <%= form.submit "Sign-In", class:"Form-submit" %>
       </div>
+
     <%end%>
+
   </section>
+  
 <div>

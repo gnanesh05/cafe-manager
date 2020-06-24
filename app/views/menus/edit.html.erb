@@ -4,10 +4,12 @@
 <main>
 
   <div class="Menu-Titlename">
+
     <strong>
        <%=@edit_menu.name%>
     </strong>
-</div>
+    
+  </div>
 
   <%= render partial: "edit_menu", locals:{
   menus:MenuItem.description("South Indian",@menu),
@@ -46,16 +48,20 @@
   menus:MenuItem.description("Milk Shakes",@menu),
   section_title: "Milk Shakes"
   } %>
+
 </main>
 
 
 <div class="MenuDelete-container">
+
   <h2 class="MenuDelete-title">Delete menu ?</h2>
 
     <div class="Menu-deletename">
-    <%= form_with(url: menu_path(@edit_menu.id), method: :delete) do %>
-      <%= button_tag("Delete", data: { confirm: "Are you sure?" }, class: 'Menu-delete') %>
-    <%end%>
+
+      <%= form_with(url: menu_path(@edit_menu.id), method: :delete) do %>
+        <%= button_tag("Delete", data: { confirm: "Are you sure?" }, class: 'Menu-delete') %>
+      <%end%>
+
     </div>
 
 </div>

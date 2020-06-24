@@ -6,17 +6,13 @@ class OrdersController < ApplicationController
       @orders = Order.of_user(current_user)
       @user_delivered = Order.user_delivered(current_user)
       @all_orders = Order.all_user(current_user).all_orders()
-      render "index"
-    end
-    if @current_user.role == "clerk" || @current_user.role == "owner"
+    elsif @current_user.role == "clerk" || @current_user.role == "owner"
       @orders = Order.received_orders
       @delivered = Order.delivered_orders
       @all_orders = Order.all_orders()
-      render "index"
     end
-    if @current_user == nil
-      redirect_to users_path
-    end
+
+    render "index"
   end
 
   def create
@@ -50,7 +46,10 @@ class OrdersController < ApplicationController
     @order = Order.find(id)
     @order_items = OrderItem.current_order_items(@order)
     @customer = walk_in_customer
-    render "show"
+    render :show, locals: { order: @order,
+                            order_items: @order_items,
+                            customer: @customer,
+                            user_role: @current_user.role }
   end
 
   def repeat_order

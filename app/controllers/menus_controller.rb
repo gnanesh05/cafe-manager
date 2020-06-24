@@ -4,7 +4,7 @@ class MenusController < ApplicationController
 
   def index
     @menu = Menu.all
-    render "index"
+    render :index, locals: { menu: @menu }
   end
 
   def create

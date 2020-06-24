@@ -1,50 +1,71 @@
 
-
 <div class="user-wrapper">
+
   <%if users.first%>
+
     <h4 class="User-role"><%= section_title%> </h4>
+
     <table class="User-table">
         <tr>
           <th> </th>
           <th class="User-tableElement"><strong> Name</strong></th>
           <th class="User-tableElement"><strong> Email</strong></th>
           <th class="User-tableElement"><strong> Joined on</strong></th>
+
           <%if section_title =="Customers"%>
           <th class="User-tableElement"><strong>Update </strong></th>
           <%end%>
+
            <%if section_title =="Billing clerk"%>
           <th><strong>Change/Remove </strong></th>
           <%end%>
+
         </tr>
 
         <% users.each do |user|%>
+
           <tr>
             <td>  <%=image_tag("user1.png")%></td>
             <td class="User-tableElement"><%= link_to user.name , customer_path(id: user.id) %></td>
             <td class="User-tableElement"><%= user.email%></td>
             <td class="User-tableElement"><%=user.created_at.to_s(:short)%></td>
+
             <%if section_title =="Customers"%>
-              <td>
-                <%= form_with(url: user_path(user.id), method: :put) do %>
-                  <%=submit_tag("Update", data: { confirm: "Are you sure?" }, class: "update-user") %>
-                <%end%>
-              </td>
+            <td>
+
+              <%= form_with(url: user_path(user.id), method: :put) do %>
+                <%=submit_tag("Update", data: { confirm: "Are you sure?" }, class: "update-user") %>
+              <%end%>
+            </td>
+
             <%end%>
+
             <%if section_title =="Billing clerk"%>
+
               <td class="User-tableElement-update">
+
                 <%= form_with(url: change_role_path(id:user.id), method: :post) do %>
                   <%=submit_tag("Change", data: { confirm: "Are you sure?" }, class: "update-user" ) %>
                 <%end%>
+
                 <%= form_with(url: user_path(user.id), method: :delete) do %>
                   <%=submit_tag("X", data: { confirm: "Are you sure?" }, class: "remove-user") %>
                 <%end%>
+
               </td>
+
             <%end%>
+            
           </tr>
+
         <%end%>
+
       </table>
+
   <%else%>
-<h2 style="text-align: center;color: red">No Active:<%=section_title %></p>
+
+    <h2 style="text-align: center;color: red">No Active:<%=section_title %></p>
   <%end%>
+
 </div>
 

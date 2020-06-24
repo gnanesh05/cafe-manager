@@ -1,41 +1,58 @@
-  <h1 class="report-title"> Enter the delievery dates </h1>
+<h1 class="report-title"> Enter the delievery dates </h1>
+
 <div class="report-container">
+
   <form action="/report/" method= "GET">
+
     <span class="report-date">
       <label >From date:</label>
       <input type="date" name="from_date" required>
     </span>
+
     <span class="report-date">
       <label>To date:</label>
       <input type="date" name="to_date"required>
     </span>
+
     <button type="submit" class="reportDate-button">get</button>
+
   </form>
+
   <h4 class="report-remark">(*Initial Dispaly - Report of last 5 days) </h4>
 </div>
+
 <h1 class="report-Ordertitle"> Order Wise Report </h1>
+
 <div class="Order-wiseReport">
 
  <%report = Order.getorders(from_date,to_date)%>
+
  <%if report.first%>
+
     <%total=0%>
     <%report.each do |order|%>
+
       <ul class="Order-reportList">
+
           <li>Ordered on: <%=order.date%></li>
           <li>Delivered at: <%= order.delivered_at%></li>
           <li>Order status: <span class= "OrderStatus-delivered"> <%=order.status%> </span> </li>
             <%user_id = order.user_id %>
-            <% user = User.find_by(id:user_id)%>
+            <% user = User.find(user_id)%>
           <li>Ordered by: <%=user.name%>  </li>
           <li>Order cost: Rs.<%= sum=OrderItem.current_order_items_cost(order) %>
            <%total = total+sum%>
           </li>
-          </ul>
-        <%end%>
+      </ul>
+
+    <%end%>
+
       <h3 class="report-OrderCost">Total cost: <%=total%>  <h3>
+
 </div>
 
-     <h1 class="report-Ordertitle">  Order Item wise report </h1>
+<h1 class="report-Ordertitle">  Order Item wise report </h1>
+
 <div class="OrderItem-wiseReport">
         <table class="ReportItem-table">
           <tr>
@@ -43,16 +60,20 @@
             <th class="Orderitem-reportlist"> Total orders: </th>
             <th class="Orderitem-reportlist"> Cost: </th>
           </tr>
-  <% reports=OrderItem.reports(from_date,to_date) %>
-      <% reports.each_key do |item_name|%>
-        <tr>
-         <td class="Orderitem-reportlist"><%= item_name %></td>
-         <td class="Orderitem-reportlist"><%= reports[item_name][:quantity] %> </td>
-         <td class="Orderitem-reportlist">  Rs.<%= reports[item_name][:sum]%> </td>
-        </tr>
-     <%end%>
+            <% reports=OrderItem.reports(from_date,to_date) %>
+            <% reports.each_key do |item_name|%>
+              <tr>
+               <td class="Orderitem-reportlist"><%= item_name %></td>
+               <td class="Orderitem-reportlist"><%= reports[item_name][:quantity] %> </td>
+               <td class="Orderitem-reportlist">  Rs.<%= reports[item_name][:sum]%> </td>
+              </tr>
+
+            <%end%>
+
 <%else%>
+
 <p>No order exits </p>
+
 <%end%>
 
 </div>

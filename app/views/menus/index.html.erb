@@ -1,25 +1,26 @@
 <div class="Menuadder-wrapper">
-<h3 class="Menu-heading">
-     Make a new menu or a edit a  menu
-</h3>
+  <h3 class="Menu-heading"> Make a new menu or a edit a  menu</h3>
 
 
 
-<div class="AddMenu-container">
+  <div class="AddMenu-container">
     <h4 class="add-MenuItemHeader">Add Menu</h4>
     <%=form_with url:menus_path ,method: :post do |form|%>
+
       <div class="add-item">
         <p class="item-label">Menu Name: </p>
         <%= form.text_field :menu ,class:"MenuCreate-input"%>
         <%=form.submit "add", class:"MenuCreate-submit" %>
       </div>
+
     <%end%>
   </div>
 
   <div class="Menu-container">
     <h4 class="add-MenuItemHeader">Available Menus</h4>
-    <em class="CurrentMenu">Currently displaying-<%=@menu.name%> </em>
-      <%@menu.each do |m|%>
+    <em class="CurrentMenu">Currently displaying-<%=menu.name%> </em>
+
+      <%menu.each do |m|%>
         <ul class="Menu-list">
           <li class="MenuList-item">
             <%= m.name %>
@@ -28,9 +29,12 @@
             <%= form_with(url: edit_menu_path(m.id), method: :get, local: true) do %>
               <%submit_tag("edit" , class: "form-submit")%>
             <%end%>
+
           </li>
         </ul>
+
       <% end %>
+
   </div>
 
 </div>

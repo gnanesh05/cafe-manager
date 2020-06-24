@@ -5,22 +5,30 @@
 
 
 <div class="Profile-OrderContainer">
+
   <%if @orders.first%>
+  
      <%total=0%>
       <% @orders.each do |order|%>
+
         <ul class="Order-contentList">
-        <span class="Order-contentId">Order_id :<%= link_to order.id , order_path(id: order.id) %> </span>
-          <li> Ordered-on: <%=order.date%> </li>
+           <span class="Order-contentId">Order_id :<%= link_to order.id , order_path(id: order.id) %> </span>
+           <li> Ordered-on: <%=order.date%> </li>
            <li>Order cost: Rs.<%= sum=OrderItem.current_order_items_cost(order) %> </li>
            <% total = total + sum%>
-          <li>Order-status: <span class="OrderStatus-delivered" > <%=order.status%> </span></li>
+           <li>Order-status: <span class="OrderStatus-delivered" > <%=order.status%> </span></li>
         </ul>
+
       <%end%>
-            <h3 class="Profile-OrderCost"> Total Order Cost: Rs. <%=total%> </h3>
+
+           <h3 class="Profile-OrderCost"> Total Order Cost: Rs. <%=total%> </h3>
 
   <%else%>
+
     <h3 class="Order-contentList">No Delivered Orders </h3>
+
   <%end%>
+  
 </div>
 
 

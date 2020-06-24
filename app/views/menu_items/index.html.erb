@@ -1,34 +1,44 @@
 
- <h1 class="SectionHeading" >Menu</h1>
+<h1 class="SectionHeading" >Menu</h1>
 
 
 <%if @current_user.role =="owner"%>
+
   <h2 class="AddMenu-Subtitle"> Add a Menu </h2>
+
   <div class="MenuItem-conatiner">
     <%=form_with url:menu_items_path(menu_id:@menu.id) ,method: :post do |form|%>
 
       <span class="item-label">Item Name: </span>
       <%= form.text_field :item ,class:"item-input" %>
+
       <span class="item-label">Item Rate: </span>
       <%= form.text_field :rate, class:"item-input"%>
+
       <span class="item-label">Description : </span>
       <%= form.select'description', raw("<option selected disabled>select</option><option>South Indian</option><option>North Indian</option><option>Starters</option><option>Rice And Noodles</option><option>Briyani</option><option>Italian</option>
       <option>Tandoori</option><option>Milk Shakes</option>"), class:"item-input"%>
+
       <span class="item-label">Item Image: </span>
       <%= form.text_field 'image' ,class:"item-input"%>
+
       <span class="item-label">Category of: </span>
       <%= form.select 'category', raw("<option selected disabled>select</option><option>Breakfast</option><option>lunch</option><option>Dinner</option><option>Cold Drinks</option>"), class:"item-input"%>
       <%=form.submit "add", class:"item-submit" %>
 
-     <%end%>
+    <%end%>
+
   </div>
 
 
  <main class='menu-body'>
+
   <div class="below1">
+
     <div class="below1-right">
     
         <h3>choose a menu to display</h3>
+
         <%= form_with(url:  setmenu_path, method: :post, class: "Add-menu") do %>
           <select name="menu_id"
             class="Menu-select"
@@ -36,16 +46,21 @@
             autofocus>
 
             <option selected disabled>Choose a  menu</option>
+
             <%Menu.all.each do |menu|%>
               <option value=<%= menu.id %>, class="Menuselect-option">
                 <%= menu.name %>
               </option>
             <% end %>
+
           </select>
+
         <% end %>
     
     </div>
+
   </div>
+
 <%end%>
 
 <div class= <%=(@current_user.role != "owmner" ) ? "cart-container": "cartContainer" %> >
@@ -96,33 +111,43 @@
 
 
      <%if @current_user.role!="owner"%>
+
        <div class="cart-detail">
 
         <div class="box">
+
          <h2>Cart</h2>
             <table class="Cart-DislpayTable">
                <tr>
                  <th class="OrderItem-element">Name</th>
                  <th class="OrderItem-element">Qty</th>
-          <%if @order_items %>
-              <% sum = 0%>
-              <%@order_items.each do |item|%>
-               <tr class="cart-Display">
-                <td class="OrderItem-element"><%= item.menu_item_name %>  </td>
-                <td class="OrderItem-element"> <%= item.quantity%>   </td>
-                 <% sum = sum + (item.menu_item_price * item.quantity) %>
-               </tr>
-              <%end%>
-               <%="Cost: Rs." + String(sum) %>
+
+              <%if @order_items %>
+
+                <% sum = 0%>
+                <%@order_items.each do |item|%>
+
+                 <tr class="cart-Display">
+                  <td class="OrderItem-element"><%= item.menu_item_name %>  </td>
+                  <td class="OrderItem-element"> <%= item.quantity%>   </td>
+                  <% sum = sum + (item.menu_item_price * item.quantity) %>
+                 </tr>
+               
+                <%end%>
+
+                <%="Cost: Rs." + String(sum) %>
             </table>
-             <a class="button" href="/order_items">Proceed to Checkout
-             
-             </a>
-          <%end%>
+
+                <a class="button" href="/order_items">Proceed to Checkout</a>
+
+             <%end%>
+
          </div>
+
        </div>
+
      <%end%>
 
-
    </div>
+
  </main>
