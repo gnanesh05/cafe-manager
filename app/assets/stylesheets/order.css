@@ -45,7 +45,7 @@
 .Order-contentList {
   display: flex;
   list-style-type: none;
-  margin-left: 10%;
+  margin-left: 13%;
 }
 
 .Order-contentList li {
@@ -128,4 +128,8 @@
 
 .remark {
   margin-left: 30%;
+}
+
+.SectionHeading{
+  margin-left: 45%;
 }

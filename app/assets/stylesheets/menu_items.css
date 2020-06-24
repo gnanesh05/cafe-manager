@@ -62,8 +62,9 @@ body {
   float: right;
   align-items: center;
   position: absolute;
-  top: 53%;
+  top: 57%;
   left: 80%;
+  font-size: large;
 }
 
 .box {

@@ -12,7 +12,11 @@ class OrdersController < ApplicationController
       @all_orders = Order.all_orders()
     end
 
-    render "index"
+    render :index, locals: { cart: @orders,
+                            user_role: @current_user.role,
+                            delivered: @delivered,
+                            user_delivered: @user_delivered,
+                            all_orders: @all_orders }
   end
 
   def create

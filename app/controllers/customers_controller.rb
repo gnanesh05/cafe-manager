@@ -41,6 +41,9 @@ class CustomersController < ApplicationController
   def user_report
     id = params[:id]
     @user = User.find(id)
+    if @user.role == "clerk"
+      @user = walk_in_customer
+    end
     from_date = params[:from_date].presence || Date.today - 5
     to_date = params[:to_date].presence || Date.today
     if from_date.to_date > to_date.to_date
@@ -48,6 +51,7 @@ class CustomersController < ApplicationController
     end
     render :user_report, locals: { from_date: from_date,
                                    to_date: to_date,
-                                   user: @user }
+                                   user: @user,
+                                   locals: true }
   end
 end

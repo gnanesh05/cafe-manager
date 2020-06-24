@@ -18,11 +18,11 @@
       <div class="nav-main">
         <%if @current_user %>
           <%if @current_user.role == "user"%>
-            <a href="#" class="insta-icon"></a>
-            <a href="#" class="fb-icon"></a>
+            <a href="https://www.instagram.com/" class="insta-icon"></a>
+            <a href="https://www.facebook.com/" class="fb-icon"></a>
             <%= link_to "About Us","/about"%>
             <%= link_to "Sign-Out" ,destroy_session_path, method:"delete"%>
-            <%= link_to  @current_user.name, user_path(id:@current_user.id)%>
+            <%= link_to  @current_user.name, user_path(id:@current_user.id),class:"user-icon"%>
             <%= link_to "My Orders", orders_path %>
             <%= link_to "My Cart", order_items_path %>
             <%= link_to "Menus", menu_items_path %>
