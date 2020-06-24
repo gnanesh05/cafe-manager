@@ -1,7 +1,6 @@
 class ApplicationController < ActionController::Base
   before_action :ensure_user_logged_in
   before_action :current_menu
-  helper_method :repeat_order_item
 
   def ensure_user_logged_in
     unless current_user
@@ -44,19 +43,5 @@ class ApplicationController < ActionController::Base
       @current_menu_id = Rails.cache.read("current_menu_id")
       return @menu = Menu.find(@current_menu_id)
     end
-  end
-
-  def repeat_order_item(id1, id2)
-    order_item = OrderItem.find(id1)
-    order = Order.find(id2)
-    menu_item_id = order_item.menu_item_id
-    menu_item = MenuItem.find(menu_item_id)
-    repeat_item = OrderItem.create!(
-      menu_item_id: menu_item.id,
-      menu_item_name: menu_item.name,
-      menu_item_price: order_item.menu_item_price,
-      quantity: order_item.quantity,
-      order_id: order.id,
-    )
   end
 end

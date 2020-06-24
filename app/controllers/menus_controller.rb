@@ -1,5 +1,5 @@
 class MenusController < ApplicationController
-  before_action :ensure_owner_logged_in
+  skip_before_action :ensure_owner_logged_in
   before_action :current_menu
 
   def index
