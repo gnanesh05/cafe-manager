@@ -1,7 +1,7 @@
 
 <main id="table-body">
    <div class= <%=(@current_user.role != "owner") ? "MenuList":"MenuList-box" %> >
-      <p><%=section_title%></p>
+      <h4><%=section_title%></h4>
 
       <section class="menu-card">
          <% menus.each do |item| %>
