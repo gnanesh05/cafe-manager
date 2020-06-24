@@ -33,9 +33,8 @@
 
 .remove-user {
   margin-left: 5px;
-  margin-top: 2px;
-  padding: 4px 9px;
-  border-radius: 100px;
+  border-radius: 10px;
+  padding: 5px 10px;
   background-color: red;
 }
 
@@ -159,4 +158,30 @@
 
 .Profile-OrderCost {
   margin-left: 40%;
+}
+
+.Customized-report {
+  background-color: rgb(67, 228, 67);
+  text-decoration: none;
+  position: absolute;
+  top: 24%;
+  left: 65%;
+  width: 200px;
+  height: 20px;
+  padding: 10px 15px;
+  border-radius: 15px;
+  font-size: large;
+}
+
+.customized-link {
+  text-decoration: none;
+}
+
+.Customized-report:hover {
+  background-color: rgb(47, 165, 47);
+  color: white;
+}
+
+.user-wrapper{
+  font-size: 19px;
 }

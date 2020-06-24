@@ -35,7 +35,7 @@
 
 .add-item {
   display: flex;
-  margin-left: 20%;
+  margin-left: 10%;
   align-items: center;
 }
 
@@ -47,7 +47,7 @@
 .MenuCreate-submit {
   width: 100px;
   height: 35px;
-  margin-left: -35%;
+  margin-left: 1%;
   color: aquamarine;
   background-color: blueviolet;
   border-radius: 10px;
@@ -57,6 +57,7 @@
 .CurrentMenu {
   color: rgb(118, 74, 241);
   margin-top: 5%;
+  margin-left: 25%;
   margin-bottom: 5%;
 }
 .item-submit {

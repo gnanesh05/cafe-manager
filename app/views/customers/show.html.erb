@@ -1,13 +1,13 @@
 <h1 class="Profile-Order">Delivered Order Details Of <%=@user.name%> </h1>
 
 
- <%=link_to "get customized report",user_report_path(id: @user.id) %>
+ <div class="Customized-report"><%=link_to "get customized report",user_report_path(id: @user.id), class: "customized-link" %></div>
 
 
 <div class="Profile-OrderContainer">
 
   <%if @orders.first%>
-  
+
      <%total=0%>
       <% @orders.each do |order|%>
 
@@ -28,7 +28,5 @@
     <h3 class="Order-contentList">No Delivered Orders </h3>
 
   <%end%>
-  
+
 </div>
-
-

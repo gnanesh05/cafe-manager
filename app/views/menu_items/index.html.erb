@@ -36,7 +36,7 @@
   <div class="below1">
 
     <div class="below1-right">
-    
+
         <h3>Choose A Menu To Display</h3>
 
         <%= form_with(url:  setmenu_path, method: :post, class: "Add-menu") do %>
@@ -56,7 +56,7 @@
           </select>
 
         <% end %>
-    
+
     </div>
 
   </div>
@@ -132,12 +132,11 @@
                   <td class="OrderItem-element"> <%= item.quantity%>   </td>
                   <% sum = sum + (item.menu_item_price * item.quantity) %>
                  </tr>
-               
+
                 <%end%>
-
-                <%="Cost: Rs." + String(sum) %>
             </table>
-
+            <hr>
+                <h3 class="final-cost"><%="Cost: Rs." + String(sum) %><h3>
                 <a class="button" href="/order_items">Proceed to Checkout</a>
 
              <%end%>

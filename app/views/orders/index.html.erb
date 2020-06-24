@@ -33,6 +33,12 @@
 
           <%end%>
 
+           <% if user_role == "owner"%>
+  
+              <li>Ordered by: <%=user.name%>  </li>
+
+           <%end%>
+
           <% if user_role == "clerk"%>
   
               <li>Ordered by: <%=user.name%>  </li>
