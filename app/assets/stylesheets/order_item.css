@@ -62,10 +62,12 @@ body {
   margin-left: 345%;
   font-weight: initial;
   font-size: large;
+  cursor: pointer;
 }
 
 .OrderItem-submit:hover {
   background-color: rgb(6, 255, 6);
+  color: white;
 }
 
 .OrderItem-extra {
@@ -75,6 +77,7 @@ body {
   margin-left: 5%;
   font-weight: bold;
   padding: 10px 5px;
+  text-decoration: none;
 }
 
 .OrderItem-extra a {
@@ -128,5 +131,5 @@ body {
 }
 
 .Order-Address {
-  text-align: center;
+  text-align: left;
 }

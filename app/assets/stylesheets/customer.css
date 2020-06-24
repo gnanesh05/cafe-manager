@@ -160,3 +160,25 @@
 .Profile-OrderCost {
   margin-left: 40%;
 }
+
+.Customized-report {
+  background-color: rgb(67, 228, 67);
+  text-decoration: none;
+  position: absolute;
+  top: 30%;
+  left: 65%;
+  width: 200px;
+  height: 20px;
+  padding: 10px 15px;
+  border-radius: 15px;
+  font-size: large;
+}
+
+.customized-link {
+  text-decoration: none;
+}
+
+.Customized-report:hover {
+  background-color: rgb(47, 165, 47);
+  color: white;
+}

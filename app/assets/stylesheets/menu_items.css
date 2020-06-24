@@ -8,7 +8,7 @@
   margin-bottom: 6%;
 }
 
-.SectionHeading{
+.SectionHeading {
   margin-bottom: 5%;
   font-size: 300%;
 }
@@ -23,8 +23,6 @@
   margin-top: 40px;
 }
 
-
-
 .MenuList-box {
   width: 100%;
   margin-left: 8%;
@@ -34,7 +32,6 @@
   justify-content: center;
   margin-top: 40px;
 }
-
 
 .Display-Element {
   margin-bottom: -30px;
@@ -75,7 +72,7 @@ body {
   margin-top: 100px;
   margin-left: -90px;
   margin-right: 20px;
-  right:-4px;
+  right: -4px;
   background: rgba(255, 255, 255, 0.2);
   padding: 35px;
   border: 2px solid #fff;
@@ -327,6 +324,11 @@ body {
   font-size: 120%;
 }
 
+.MenuList-box h4 {
+  margin-left: 46%;
+  font-size: 120%;
+}
+
 .MenuEdit-List {
   list-style: none;
 }
@@ -339,7 +341,7 @@ body {
 }
 
 .Cart-DislpayTable {
-  margin-bottom: 40px;
+  margin-bottom: 5px;
   margin-left: 20%;
 }
 
@@ -351,6 +353,10 @@ body {
 .Cart-DislpayTable tr th {
   font-size: larger;
   padding-left: 40px;
+}
+
+.final-cost {
+  text-align: center;
 }
 
 .AddMenu-Subtitle {
