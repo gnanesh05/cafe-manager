@@ -8,7 +8,7 @@ body {
   margin-bottom: 10%;
   padding: 10px 10px 20px 20px;
   width: 35%;
-  font-size: x-large;
+  font-size: 150%;
   border-radius: 13px;
   -webkit-box-shadow: 2px 29px 210px 66px rgba(212, 177, 74, 1);
   -moz-box-shadow: 2px 29px 210px 66px rgba(212, 177, 74, 1);
@@ -27,19 +27,24 @@ body {
 .OrderItem-heading {
   margin-left: 40%;
   margin-top: 100px;
-  font-size: 400%;
+  font-size: 300%;
 }
 
 .OrderItem-remove {
-  background-color: rgba(255, 47, 47, 0.808);
-  width: 80px;
-  height: 30px;
+  background-color: red;
+  margin-top: -4px;
+  width: 100px;
+  height: 36px;
+  font-size: smaller;
   border-radius: 10px;
-  color: black;
+  color: #0000008f;
+  border: 0px;
+  cursor: pointer;
 }
 
 .OrderItem-remove:hover {
   background-color: rgb(255, 0, 0);
+  color: white;
 }
 
 .OrderItem-cost {

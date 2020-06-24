@@ -3,6 +3,7 @@
   margin-left: 30%;
   width: 40%;
   padding: 10px 10px 20px 70px;
+  font-size: 26px;
   border-radius: 13px;
   -webkit-box-shadow: 2px 29px 210px 66px rgba(212, 177, 74, 1);
   -moz-box-shadow: 2px 29px 210px 66px rgba(212, 177, 74, 1);
@@ -27,14 +28,14 @@
 
 .item-label {
   color: rgba(0, 0, 0, 0.904);
-  margin-left: 5px;
+  margin-left: 10px;
   margin-right: 5px;
   font-weight: bold;
 }
 
 .add-item {
   display: flex;
-  margin-left: 10%;
+  margin-left: 20%;
   align-items: center;
 }
 
@@ -45,11 +46,12 @@
 
 .MenuCreate-submit {
   width: 100px;
-  height: 30px;
-  margin-left: 5px;
+  height: 35px;
+  margin-left: -35%;
   color: aquamarine;
   background-color: blueviolet;
   border-radius: 10px;
+  font-size: 20px;
 }
 
 .CurrentMenu {
@@ -66,10 +68,15 @@
   border-radius: 10px;
 }
 
+.item-submit:hover {
+  color: white;
+  background-color: green;
+}
+
 .add-MenuItemHeader {
-  margin-top: 30px;
+  margin-top: -10;
   padding-top: 2%;
-  margin-left: 36%;
+  margin-left: 30%;
 }
 
 .Menu-container {
@@ -91,19 +98,20 @@
   list-style: none;
   display: flex;
   align-items: center;
-  margin-top: 10px;
+  margin-top: 20px;
   margin-left: 20%;
 }
 
 .MenuList-item {
-  width: 150px;
+  width: 200px;
 }
 
 .form-submit {
   background-color: lightgreen;
   width: 80px;
-  height: 25px;
+  height: 35px;
   border-radius: 10px;
+  font-size: smaller;
 }
 
 .MenuEdit-title {
@@ -141,4 +149,10 @@
 
 .heading-menu {
   margin-left: 40%;
+}
+
+.add-menu {
+  position: absolute;
+  top: 50%;
+  font-size: xx-large;
 }

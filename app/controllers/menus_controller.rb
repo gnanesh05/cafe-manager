@@ -1,8 +1,9 @@
 class MenusController < ApplicationController
-  skip_before_action :ensure_owner_logged_in
+  before_action :ensure_owner_logged_in
   before_action :current_menu
 
   def index
+    @menu = Menu.all
     render "index"
   end
 

@@ -1,6 +1,8 @@
 class CustomersController < ApplicationController
   before_action :ensure_owner_logged_in
 
+  @user = 0
+
   def index
     @customers = User.customers
     @clerk = User.clerk
@@ -20,6 +22,7 @@ class CustomersController < ApplicationController
   def show
     id = params[:id]
     @user = User.find(id)
+
     if @user.role == "user"
       @orders = Order.user_delivered(@user)
     else
@@ -37,9 +40,7 @@ class CustomersController < ApplicationController
 
   def user_report
     id = params[:id]
-    if id != nil
-      @user = User.find(id)
-    end
+    @user = User.find(id)
     from_date = params[:from_date].presence || Date.today - 5
     to_date = params[:to_date].presence || Date.today
     if from_date.to_date > to_date.to_date

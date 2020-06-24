@@ -1,6 +1,6 @@
   <h1 class="report-title"> Enter the delievery dates </h1>
 <div class="report-container">
-  <%=form_with(url: user_report_path(id: params[:id]) ,method: :get)do%>
+  <%=form_with(url: user_report_path(id:user.id) ,method: :get)do%>
     <span class="report-date">
       <label >From date:</label>
       <input type="date" name="from_date" required>

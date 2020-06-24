@@ -5,6 +5,12 @@
 }
 .cart-container {
   display: flex;
+  margin-bottom: 6%;
+}
+
+.SectionHeading{
+  margin-bottom: 5%;
+  font-size: 300%;
 }
 
 .MenuList {
@@ -17,6 +23,8 @@
   margin-top: 40px;
 }
 
+
+
 .MenuList-box {
   width: 100%;
   margin-left: 8%;
@@ -27,8 +35,9 @@
   margin-top: 40px;
 }
 
+
 .Display-Element {
-  margin-bottom: 40px;
+  margin-bottom: -30px;
 }
 
 h1 {
@@ -36,7 +45,7 @@ h1 {
   top: 50%;
   margin-right: 0px;
   width: inherit;
-  margin-top: 10%;
+  margin-top: 100px;
   margin-bottom: 0;
 }
 body {
@@ -52,16 +61,20 @@ body {
 .below1-right {
   float: right;
   align-items: center;
-  margin-top: 40px;
-  margin: 12px 15px;
+  position: absolute;
+  top: 53%;
+  left: 80%;
 }
 
 .box {
   position: fixed;
-  width: 400px;
+  width: 500px;
   height: fit-content;
+  font-size: large;
   margin-top: 100px;
-  margin-left: -30px;
+  margin-left: -90px;
+  margin-right: 20px;
+  right:-4px;
   background: rgba(255, 255, 255, 0.2);
   padding: 35px;
   border: 2px solid #fff;
@@ -110,9 +123,6 @@ body {
   left: 73%;
 }
 
-.Menu-Head {
-  margin-left: 20%;
-}
 .menu-card {
   display: flex;
 }
@@ -194,7 +204,16 @@ body {
   padding: 3px 15px;
   margin-top: 10px;
   border: 0px;
+  padding: 8px 20px;
+  color: white;
+  cursor: pointer;
 }
+
+.cart-add:hover {
+  color: black;
+  background-color: #67ec13;
+}
+
 .blogcontent a {
   font-size: 16px;
   font-weight: 500;
@@ -302,6 +321,11 @@ body {
   width: 200px;
 }
 
+.MenuList h4 {
+  margin-left: 46%;
+  font-size: 120%;
+}
+
 .MenuEdit-List {
   list-style: none;
 }
@@ -320,15 +344,26 @@ body {
 
 .Cart-DislpayTable tr td {
   font-size: larger;
+  padding-left: 40px;
 }
 
 .Cart-DislpayTable tr th {
   font-size: larger;
+  padding-left: 40px;
 }
 
 .AddMenu-Subtitle {
   margin-left: 46%;
   margin-top: 3%;
+}
+
+.Menu-Head {
+  margin-left: 10%;
+  margin-top: -10px;
+}
+
+.Menu-Head em {
+  font-size: x-large;
 }
 
 @media screen and (max-width: 700px) {
