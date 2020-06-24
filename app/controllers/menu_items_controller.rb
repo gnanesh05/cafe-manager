@@ -6,7 +6,6 @@ class MenuItemsController < ApplicationController
       if order
         @order_items = OrderItem.where("order_id = ?", order.id)
       end
-      render "index"
     end
     if @current_user.role == "clerk"
       @customer = walk_in_customer
@@ -15,9 +14,8 @@ class MenuItemsController < ApplicationController
       if order
         @order_items = OrderItem.where("order_id = ?", order.id)
       end
-      render "index"
     end
-
+    render "index"
     menu = Menu.all
   end
 
