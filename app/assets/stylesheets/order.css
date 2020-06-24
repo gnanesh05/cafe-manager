@@ -88,11 +88,14 @@
 .Cancel_button {
   background-color: red;
   color: white;
+  width: 98px;
+  height: 40px;
   padding: 5px;
   border-radius: 13px;
   font-size: 20px;
   margin-left: -5%;
   margin-top: -10%;
+  border: 0px;
   cursor: pointer;
 }
 
