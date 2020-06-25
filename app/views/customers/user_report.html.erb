@@ -23,33 +23,31 @@
 
 </div>
 
-  <h1 class="report-Ordertitle"> Order Wise Report </h1>
+<h1 class="report-Ordertitle"> Order Wise Report </h1>
+
   <div class="Order-wiseReport">
 
    <%report = Order.getorders_user(from_date,to_date,user.id)%>
 
-   <%if report.first%>
-    <%total=0%>
-    <%report.each do |order|%>
+    <% if report.first %>
+      <% total=0 %>
+      <% report.each do |order| %>
+        <ul class="Order-reportList">
+            <li>Ordered on: <%=order.date%></li>
+            <li>Delivered at: <%= order.delivered_at%></li>
+            <li>Order status: <span class= "OrderStatus-delivered"> <%=order.status%> </span> </li>
+            <li>Order cost: Rs.<%= sum=OrderItem.current_order_items_cost(order) %>
+            <% total = total+sum %>
+            </li>
+        </ul>
+      <%end%>
 
-      <ul class="Order-reportList">
+    <h3 class="report-OrderCost">Total cost: Rs. <%= total %>  <h3>
 
-          <li>Ordered on: <%=order.date%></li>
-          <li>Delivered at: <%= order.delivered_at%></li>
-          <li>Order status: <span class= "OrderStatus-delivered"> <%=order.status%> </span> </li>
-          <li>Order cost: Rs.<%= sum=OrderItem.current_order_items_cost(order) %>
-           <%total = total+sum%>
-          </li>
-
-      </ul>
-    <%end%>
-    <h3 class="report-OrderCost">Total cost: Rs. <%=total%>  <h3>
   </div>
 
- <%else%>
-
-<p>No order exits </p>
-
-<%end%>
+    <% else %>
+      <p>No order exits </p>
+    <% end %>
 
 </div>

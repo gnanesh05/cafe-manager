@@ -1,9 +1,9 @@
 
 <main id="table-body">
 
-   <div class= <%=(@current_user.role != "owner") ? "MenuList":"MenuList-box" %> >
+   <div class= <%= (@current_user.role != "owner") ? "MenuList":"MenuList-box" %> >
 
-      <h4><%=section_title%></h4>
+      <h4><%= section_title %></h4>
 
       <section class="menu-card">
 
@@ -15,60 +15,46 @@
 
                <div class="blogcontent">
 
-                  <h3> <%= item.name%><span style="margin: 10px 0px; color:white;" >Rs.<%=item.price %></span></h3>
-                  <span><%=item.description%></span>
+                  <h3> <%= item.name %><span style="margin: 10px 0px; color:white;" >Rs.<%= item.price %></span></h3>
+                  <span><%= item.description %></span>
 
-                  <%if user_role == "user"%>
-
-                       <%order = Order.current_order(@current_user)%>
-
+                  <% if user_role == "user" %>
+                       <% order = Order.current_order(@current_user) %>
                       <%if order == nil%>
+                       <% order= Order.check_order(@current_user) %>
+                      <% end %>
 
-                       <%order= Order.check_order(@current_user)%>
-
-                      <%end%>
-
-                  <%elsif user_role == "clerk"%>
-
+                  <% elsif user_role == "clerk" %>
                      <% order = Order.current_order(@customer)%>
+                     <% if order==nil %>
+                      <% order= Order.check_order(@customer) %>
+                     <% end %>
+                  <% end %>
 
-                     <%if order==nil%>
+                  <% orderitem = OrderItem.get_items( order, item) if order%>
 
-                      <%order= Order.check_order(@customer)%>
+                  <% if orderitem %>
 
-                     <%end%>
+                     <p> quantity :
+                        <span class="quantity-box">
+                        <%= link_to "−", remove_path(id:orderitem.id), method: "post", class: "minus" %>
+                        <%= orderitem.quantity %>
+                        <%= link_to "＋", add_path(id:orderitem.id), method: "post", class: "plus"  %>
+                        </span>
+                     </p>
 
-                  <%end%>
+                  <% else %>
 
-                     <% orderitem = OrderItem.get_items( order, item) if order%>
-
-                     <%if orderitem%>
-
-                        <p> quantity :
-                           <span class="quantity-box">
-                           <%= link_to "−", remove_path(id:orderitem.id), method: "post", class: "minus" %>
-                           <%= orderitem.quantity %>
-                           <%= link_to "＋", add_path(id:orderitem.id), method: "post", class: "plus"  %>
-                           </span>
-                        </p>
-
-                     <%else%>
-
-                        <% if user_role == "user"%>
-
-                           <%= form_with(url: create_order_item_path(id:item.id), method: :post) do %>
-                              <%= button_tag 'Add',type:'submit', class:"cart-add"%>
-                           <% end %>
-
-                        <%elsif user_role == "clerk"%>
-
-                           <%= form_with(url: offline_customer_path(id: item.id), method: :post) do %>
-                              <%= button_tag 'Add',type:'submit', class:"cart-add"%>
-                           <% end %>
-
-                       <%end%>
-
-                    <%end%>
+                     <% if user_role == "user"%>
+                        <%= form_with(url: create_order_item_path(id:item.id), method: :post) do %>
+                           <%= button_tag 'Add',type:'submit', class:"cart-add"%>
+                        <% end %>
+                     <% elsif user_role == "clerk" %>
+                        <%= form_with(url: offline_customer_path(id: item.id), method: :post) do %>
+                           <%= button_tag 'Add',type:'submit', class:"cart-add"%>
+                        <% end %>
+                     <% end %>
+                   <% end %>
 
                </div>
 
@@ -79,5 +65,5 @@
    </section>
 
   </div>
-  
+
 </main>

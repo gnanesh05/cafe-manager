@@ -6,9 +6,9 @@
   <div class="Menu-Titlename">
 
     <strong>
-       <%=@edit_menu.name%>
+       <%= @edit_menu.name %>
     </strong>
-    
+
   </div>
 
   <%= render partial: "edit_menu", locals:{
@@ -60,7 +60,7 @@
 
       <%= form_with(url: menu_path(@edit_menu.id), method: :delete) do %>
         <%= button_tag("Delete", data: { confirm: "Are you sure?" }, class: 'Menu-delete') %>
-      <%end%>
+      <% end %>
 
     </div>
 

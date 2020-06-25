@@ -5,7 +5,7 @@
 <section style="margin-bottom: 50px;">
   <div class="cart-wrapper">
 
-   <%if @order_items && @order_items.first%>
+   <% if @order_items && @order_items.first %>
 
     <table class="Order-table">
       <tr class="OrderItem-container">
@@ -15,8 +15,8 @@
           <th class="OrderItem-element"> sum :  </th>
       </tr>
 
-      <%d=0%>
-      <%@order_items.each do |item|%>
+      <% d=0 %>
+      <% @order_items.each do |item| %>
 
         <%d = Time.parse((item.created_at).to_s)%>
         <tr class="OrderItem-container">
@@ -31,25 +31,25 @@
          <td class="OrderItem-element">
 
          <%= form_with(url: order_item_path(item.id), method: :delete) do %>
-            <%= button_tag 'remove',type:'submit',class: "OrderItem-remove"%>
-         <%end%>
+            <%= button_tag 'remove',type:'submit',class: "OrderItem-remove" %>
+         <% end %>
 
          </td>
         </tr>
-      <%end%>
+      <% end %>
 
     </table>
 
     <div class= "OrderItem-cost" >
-      <% sum = 0%>
+      <% sum = 0 %>
 
-      <% @order_items.each do |item|%>
+      <% @order_items.each do |item| %>
 
          <% sum = sum + (item.menu_item_price * item.quantity) %>
 
-      <%end%>
+      <% end %>
 
-      <%if sum!=0%>
+      <% if sum!=0 %>
 
        <p>Item Cost = Rs. <%=sum%> </p>
        <p> Delivery Cost = Rs. 10  </p>
@@ -57,24 +57,24 @@
              <hr style="width: 60%;margin-left: -5%">
        <p> Order Total = Rs. <%= sum + 10.9 %> </p>
 
-      <%end%>
+      <% end %>
 
     </div>
 
     <div class="Order-Address">
-     <%if @user%>
+     <% if @user %>
 
       <p>Delivering To:  <%=@user.address%> </p>
-      <h4> Arraiving at:
-        <%if d.min+20 >60%>
-            <%=d.min+20-60%>
-        <%else%>
-            <%=d.min+15%>
-        <%end%>
+      <h4> Arriving at:
+        <% if d.min+20 >60 %>
+            <%= d.min+20-60 %>
+        <% else %>
+            <%= d.min+15 %>
+        <% end %>
              mins
       </h4>
 
-     <%end%>
+     <% end %>
 
     </div>
 
@@ -92,14 +92,14 @@
 
        <% end %>
 
-      <%end%>
+      <% end %>
     </div>
-  <%else%>
+  <% else %>
 
         <h3 class="Order-empty"> Why don't you try out something from our menu ? </h3>
         <img src="https://cdn.dribbble.com/users/204955/screenshots/4930541/emptycart.png" class="EmptyCart">
 
-  <%end%>
+  <% end %>
 
  </div>
 
