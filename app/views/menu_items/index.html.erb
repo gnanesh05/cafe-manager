@@ -2,12 +2,12 @@
 <h1 class="SectionHeading" >Menu</h1>
 
 
-<%if @current_user.role =="owner"%>
+<% if @current_user.role =="owner" %>
 
-  <h2 class="AddMenu-Subtitle"> Add a Menu </h2>
+  <h2 class="AddMenu-Subtitle"> Add a Item </h2>
 
   <div class="MenuItem-conatiner">
-    <%=form_with url:menu_items_path(menu_id:@menu.id) ,method: :post do |form|%>
+    <%= form_with url:menu_items_path(menu_id:@menu.id) ,method: :post do |form| %>
 
       <span class="item-label">Item Name: </span>
       <%= form.text_field :item ,class:"item-input" %>
@@ -17,16 +17,16 @@
 
       <span class="item-label">Description : </span>
       <%= form.select'description', raw("<option selected disabled>select</option><option>South Indian</option><option>North Indian</option><option>Starters</option><option>Rice And Noodles</option><option>Briyani</option><option>Italian</option>
-      <option>Tandoori</option><option>Milk Shakes</option>"), class:"item-input"%>
+      <option>Tandoori</option><option>Milk Shakes</option>"), class:"item-input" %>
 
       <span class="item-label">Item Image: </span>
-      <%= form.text_field 'image' ,class:"item-input"%>
+      <%= form.text_field 'image' ,class:"item-input" %>
 
       <span class="item-label">Category of: </span>
       <%= form.select 'category', raw("<option selected disabled>select</option><option>Breakfast</option><option>lunch</option><option>Dinner</option><option>Cold Drinks</option>"), class:"item-input"%>
       <%=form.submit "add", class:"item-submit" %>
 
-    <%end%>
+    <% end %>
 
   </div>
 
@@ -61,7 +61,7 @@
 
   </div>
 
-<%end%>
+<% end %>
 
 <div class= <%=(@current_user.role != "owner" ) ? "cart-container": "cartContainer" %> >
   <div class="Display-Element">
@@ -122,7 +122,7 @@
                  <th class="OrderItem-element">Name</th>
                  <th class="OrderItem-element">Qty</th>
 
-              <%if @order_items %>
+              <% if @order_items %>
 
                 <% sum = 0%>
                 <%@order_items.each do |item|%>
@@ -133,19 +133,19 @@
                   <% sum = sum + (item.menu_item_price * item.quantity) %>
                  </tr>
 
-                <%end%>
+                <% end %>
             </table>
             <hr>
                 <h3 class="final-cost"><%="Cost: Rs." + String(sum) %><h3>
                 <a class="button" href="/order_items">Proceed to Checkout</a>
 
-             <%end%>
+             <% end %>
 
          </div>
 
        </div>
 
-     <%end%>
+     <% end %>
 
    </div>
 

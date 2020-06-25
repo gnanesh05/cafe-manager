@@ -8,27 +8,27 @@
        <th class="MenuEdit-ListElement">price</li>
        <th class="MenuEdit-ListElement">Image</li>
       </tr>
-  <%end%>
+  <% end %>
 
-     <%menus.each do |item| %>
+     <% menus.each do |item| %>
 
      <section>
        <tr>
           <td class="MenuEdit-ListElement">
            <%= form_with(url: menu_item_path(item.id), method: :put) do %>
 
-            <%=text_field_tag( name='name',value = item.name, class: 'MenuEdit-element')%>
+            <%= text_field_tag( name='name',value = item.name, class: 'MenuEdit-element') %>
           </td>
           <td class="MenuEdit-ListElement" >
-            <%=text_field_tag( name='price',value = item.price, class: 'MenuEdit-element') %>
+            <%= text_field_tag( name='price',value = item.price, class: 'MenuEdit-element') %>
           </td>
           <td class="MenuEdit-ListElement" >
-            <%=text_field_tag( name='image',value = item.image, class: 'MenuEdit-element') %>
+            <%= text_field_tag( name='image',value = item.image, class: 'MenuEdit-element') %>
           </td>
           <td class="MenuEdit-Listupdate">
-            <%=button_tag( value="edit", class: "Menuedit-update") %>
+            <%= button_tag( value="edit", class: "Menuedit-update") %>
 
-           <%end%>
+           <% end %>
 
           </td>
 
@@ -36,7 +36,7 @@
 
           <%= form_with(url: menu_item_path(item.id), method: :delete) do %>
             <%= image_submit_tag("icons8-delete-bin-48.png", data: { confirm: "Are you sure?" }, class: 'Menuedit-delete') %>
-          <%end%>
+          <% end %>
 
          </td>
 
@@ -44,7 +44,7 @@
 
       </section>
 
-    <%end%>
+    <% end %>
 
    </table>
 

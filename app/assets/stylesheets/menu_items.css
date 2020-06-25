@@ -79,7 +79,7 @@ body {
   border-radius: 20px/50px;
   background-clip: padding-box;
   text-align: center;
-  background-color: #C6CDD3;
+  background-color: #c6cdd3;
   -webkit-box-shadow: 2px 29px 210px 66px rgba(212, 177, 74, 1);
   -moz-box-shadow: 2px 29px 210px 66px rgba(212, 177, 74, 1);
   box-shadow: 2px 2px 20px 6px rgba(3, 3, 3, 0.671);
@@ -124,6 +124,7 @@ body {
 .menu-card {
   display: flex;
 }
+
 .card {
   margin: 20px;
   position: relative;
@@ -276,30 +277,23 @@ body {
 
 .Menu-deletename {
   height: 40px;
-  font-size: large;
-  color: #0a06d8;
-  margin-left: 3%;
-  margin-top: 10px;
-  background-color: red;
-  display: flex;
-  align-items: center;
-  padding: 0px 10px;
-  border-radius: 10px;
+  background-color: white;
 }
 
 .Menu-delete {
   margin-left: 10px;
-  margin-top: 2px;
-  border-bottom-style: hidden;
-  opacity: 0;
+  margin-top: 13px;
+  background-color: red;
+  padding: 6px 15px;
+  border: 0px;
+  border-radius: 14px;
+  font-size: large;
+  cursor: pointer;
 }
 
-.Menu-deletename:hover {
-  background-color: green;
-}
-
-.Menu-deletename:hover .Menu-delete {
-  opacity: 1;
+.Menu-delete:hover {
+  background-color: rgba(223, 27, 27, 0.815);
+  color: #ccc;
 }
 
 .Menuedit-delete {

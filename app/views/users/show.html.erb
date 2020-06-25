@@ -4,8 +4,13 @@
 
           <h3 class="Profile-element">
 
+<<<<<<< HEAD
             <%= form_with(url:  change_identity_path(id: @user.id), method: :post ) do %>
                Name:<%=text_field_tag( name='name',value = @user.name, class: 'Profile-name')%>
+=======
+            <%= form_with(url:  change_identity_path(id: @user.id), method: :post) do %>
+               Name:<%= text_field_tag( name='name',value = @user.name, class: 'Profile-name') %>
+>>>>>>> 82d47b232507eff935a242475b2ffcd30e430e6e
           </h3>
 
           <h3 class="Profile-element">
@@ -13,15 +18,15 @@
           </h3>
 
           <h3 class="Profile-element" >
-               Address:<%=text_field_tag( name='address',value = @user.address, class: 'Profile-address') %>
+               Address:<%= text_field_tag( name='address',value = @user.address, class: 'Profile-address') %>
           </h3>
 
           <h3 class="Profile-element">
-               Joined on: <p class = "Profile-date"> <%=@user.created_at%> </p>
+               Joined on: <p class = "Profile-date"> <%= @user.created_at %> </p>
           </h3>
-          
-              <%=button_tag( value="edit", class: "Profile-update") %>
 
-            <%end%>
-        
+              <%= button_tag( value="edit", class: "Profile-update") %>
+
+            <% end %>
+
 </div>

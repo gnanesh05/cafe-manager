@@ -4,7 +4,7 @@
     <title>BeachView</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-     
+
     <link href="https://fonts.googleapis.com/css2?family=Abel&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital@1&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Raleway:ital@1&display=swap" rel="stylesheet">
@@ -16,69 +16,73 @@
 
     <div class="container-top">
       <div class="nav-main">
-        <%if @current_user %>
-          <%if @current_user.role == "user"%>
+        <% if @current_user %>
+          <% if @current_user.role == "user" %>
             <a href="https://www.instagram.com/" class="insta-icon"></a>
             <a href="https://www.facebook.com/" class="fb-icon"></a>
-            <%= link_to "About Us","/about"%>
+            <%= link_to "About Us","/about" %>
             <%= link_to "Sign-Out" ,destroy_session_path, method:"delete" %>
+<<<<<<< HEAD
             <%= link_to  @current_user.name, user_path(id: @current_user.id)%>
+=======
+            <%= link_to  @current_user.name, user_path(id:@current_user.id) %>
+>>>>>>> 82d47b232507eff935a242475b2ffcd30e430e6e
             <%= link_to "My Orders", orders_path %>
-            <%= link_to "My Cart", order_items_path%>
-            <%= link_to "Menus", menu_items_path %>
-
-          <%end%>
-          <%if @current_user.role == "clerk"%>
-            <a href="#" class="insta-icon"></a>
-            <a href="#" class="fb-icon"></a>
-            <%= link_to "About Us","/about"%>
-            <%= link_to "Sign-Out" ,destroy_session_path, method:"delete"%>
-            <%= link_to "All Orders" ,orders_path%>
             <%= link_to "My Cart", order_items_path %>
             <%= link_to "Menus", menu_items_path %>
-
-          <%end%>
-          <%if @current_user.role == "owner"%>
+          <% end %>
+          <% if @current_user.role == "clerk" %>
             <a href="#" class="insta-icon"></a>
             <a href="#" class="fb-icon"></a>
-            <%= link_to "About Us","/about"%>
+            <%= link_to "About Us","/about" %>
+            <%= link_to "Sign-Out" ,destroy_session_path, method:"delete" %>
+            <%= link_to "All Orders" ,orders_path %>
+            <%= link_to "My Cart", order_items_path %>
+            <%= link_to "Menus", menu_items_path %>
+          <% end %>
+          <% if @current_user.role == "owner" %>
+            <a href="#" class="insta-icon"></a>
+            <a href="#" class="fb-icon"></a>
+            <%= link_to "About Us","/about" %>
             <%= link_to "Sign-Out" ,destroy_session_path, method:"delete"%>
-            <%= link_to "Report", "/report"%>
-            <%= link_to "All Orders" ,orders_path%>
+            <%= link_to "Report", "/report" %>
+            <%= link_to "All Orders" ,orders_path %>
             <%= link_to "Edit Menu", menus_path %>
             <%= link_to "Users", customers_path %>
              <%= link_to "Menus", menu_items_path %>
-          <%end%>
-        <%else%>
-        <a href="#" class="insta-icon"></a>
-        <a href="#" class="fb-icon"></a>
-        <%= link_to "About Us","/about"%>
-        <%= link_to "Create Account" ,users_path%>
-        <%= link_to "Login" ,sessions_path%>
-        <%= link_to "Menus", menu_items_path %>
-        <%end%>
+          <% end %>
+        <% else %>
+          <a href="#" class="insta-icon"></a>
+          <a href="#" class="fb-icon"></a>
+          <%= link_to "About Us","/about" %>
+          <%= link_to "Create Account" ,users_path %>
+          <%= link_to "Login" ,sessions_path %>
+          <%= link_to "Menus", menu_items_path %>
+        <% end %>
         <p class="nav-head"><%=link_to "Beach view Restaurant","/"%> </p>
       </div>
 
-      <%if flash[:error] %>
-      <p class="error" >
-      <%= flash[:error] %>
-      </p>
-      <%end%>
-      <%if flash[:notice] %>
-      <p class ="notice">
-      <%= flash[:notice] %>
-      </p>
-      <%end%>
+      <% if flash[:error] %>
+        <p class="error" >
+          <%= flash[:error] %>
+        </p>
+      <% end %>
+      <% if flash[:notice] %>
+        <p class ="notice">
+          <%= flash[:notice] %>
+        </p>
+      <% end %>
     </div>
 
     <%= yield %>
-<div class="footer">
-  <p>© 2020 BeachView.  All Rights Reserved</p>
-  <div style="display:flex">
-   <a href="#" class="insta-icon"></a>
-   <a href="#" class="fb-icon"></a>
-  </div>
-</div>
+
+    <div class="footer">
+      <p>© 2020 BeachView.  All Rights Reserved</p>
+      <div style="display:flex">
+        <a href="#" class="insta-icon"></a>
+        <a href="#" class="fb-icon"></a>
+      </div>
+    </div>
+
   </body>
 </html>

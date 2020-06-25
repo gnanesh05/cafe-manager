@@ -38,7 +38,6 @@ input[name="r"] {
   width: 500%;
   height: 100%;
   display: flex;
-
 }
 
 .slide {
@@ -82,16 +81,6 @@ input[name="r"] {
   padding: 10px 25px;
   margin-left: 10px;
   transition: 0.6s;
-
-  /*top:100px;
-  height: 200px;
-  width: 500px;
-  bottom: 20px;
-  right: 20px;
-  background-color: black;
-  color: white;
-  padding-left: 20px;
-  padding-right: 20px;*/
 }
 
 .text-block h5 {
@@ -110,15 +99,6 @@ input[name="r"] {
   opacity: 1;
   left: 0;
 }
-
-/*@keyframes slideshow{
-  25%{
-     opacity: 1;
-   }
-   40%{
-      opacity: 0;
-    }
-}*/
 
 .slide:before {
   content: "?";
@@ -139,8 +119,6 @@ input[name="r"] {
   -webkit-transition: all 0.6s ease;
   -moz-transition: all 0.6s ease;
   -o-transition: all 0.6s ease;
-  /* Only Fx 4 supporting transitions on psuedo elements so far... */
-
   opacity: 0.75;
 }
 .slide:hover:before {
