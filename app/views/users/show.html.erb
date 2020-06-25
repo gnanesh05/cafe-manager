@@ -4,13 +4,8 @@
 
           <h3 class="Profile-element">
 
-<<<<<<< HEAD
-            <%= form_with(url:  change_identity_path(id: @user.id), method: :post ) do %>
+            <%= form_with(url:  change_identity_path(id: @user.id), method: :post , local:true) do %>
                Name:<%=text_field_tag( name='name',value = @user.name, class: 'Profile-name')%>
-=======
-            <%= form_with(url:  change_identity_path(id: @user.id), method: :post) do %>
-               Name:<%= text_field_tag( name='name',value = @user.name, class: 'Profile-name') %>
->>>>>>> 82d47b232507eff935a242475b2ffcd30e430e6e
           </h3>
 
           <h3 class="Profile-element">

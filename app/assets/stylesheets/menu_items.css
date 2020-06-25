@@ -8,6 +8,11 @@
   margin-bottom: 6%;
 }
 
+.cartContainer{
+  display: flex;
+  margin-bottom: 6%;
+}
+
 .SectionHeading {
   margin-bottom: 5%;
   font-size: 300%;
@@ -59,7 +64,7 @@ body {
   float: right;
   align-items: center;
   position: absolute;
-  top: 57%;
+  top: 65%;
   left: 80%;
   font-size: large;
 }
