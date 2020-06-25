@@ -52,4 +52,14 @@ class CustomersController < ApplicationController
                                    user: @user,
                                    locals: true }
   end
+
+  def edit
+    id = params[:id]
+    user = User.find(id)
+    user.name = params[:name]
+    user.address = params[:address]
+    user.save!
+    flash[:notice] = "updated account details"
+    redirect_to "/"
+  end
 end
